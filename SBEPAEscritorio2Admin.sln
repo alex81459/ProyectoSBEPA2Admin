@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBEPAEscritorio2Admin", "SBEPAEscritorio\SBEPAEscritorio2Admin.csproj", "{FD844831-5B0C-4D69-AB72-878ADB58261E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBEPARestauracionEmergencia", "SBEPARestauracionEmergencia\SBEPARestauracionEmergencia.csproj", "{639C2949-C58A-4EAB-9170-9CD62D79D85B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD844831-5B0C-4D69-AB72-878ADB58261E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD844831-5B0C-4D69-AB72-878ADB58261E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD844831-5B0C-4D69-AB72-878ADB58261E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD844831-5B0C-4D69-AB72-878ADB58261E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{639C2949-C58A-4EAB-9170-9CD62D79D85B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{639C2949-C58A-4EAB-9170-9CD62D79D85B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{639C2949-C58A-4EAB-9170-9CD62D79D85B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{639C2949-C58A-4EAB-9170-9CD62D79D85B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23C2C804-9F68-43B3-AEEA-F8E9273D9F6E}
+	EndGlobalSection
+EndGlobal

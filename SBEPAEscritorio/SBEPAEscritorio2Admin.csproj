@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD844831-5B0C-4D69-AB72-878ADB58261E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SBEPAEscritorio</RootNamespace>
+    <AssemblyName>SBEPAEscritorio2Admin</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.5\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.1, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.1\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.19.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.19\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySqlBackup, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySqlBackup.NET.2.3.1\lib\net452\MySqlBackup.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.19\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AcercaDe.Designer.cs">
+      <DependentUpon>AcercaDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarPrecioProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualizarPrecioProducto.Designer.cs">
+      <DependentUpon>ActualizarPrecioProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActualizarPrecioProductoBuscarTienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualizarPrecioProductoBuscarTienda.Designer.cs">
+      <DependentUpon>ActualizarPrecioProductoBuscarTienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administradores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administradores.Designer.cs">
+      <DependentUpon>Administradores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AjustesConexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjustesConexion.Designer.cs">
+      <DependentUpon>AjustesConexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaneoUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaneoUsuarios.Designer.cs">
+      <DependentUpon>BaneoUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaneoUsuariosBuscarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaneoUsuariosBuscarUsuario.Designer.cs">
+      <DependentUpon>BaneoUsuariosBuscarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CargaSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CargaSistema.Designer.cs">
+      <DependentUpon>CargaSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CategoriasBuscarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoriasBuscarCategoria.Designer.cs">
+      <DependentUpon>CategoriasBuscarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Categorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categorias.Designer.cs">
+      <DependentUpon>Categorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClaveMaestra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClaveMaestra.Designer.cs">
+      <DependentUpon>ClaveMaestra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComandosBDMySQL.cs" />
+    <Compile Include="ComentariosSucursales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComentariosSucursales.Designer.cs">
+      <DependentUpon>ComentariosSucursales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CopiaSeguridad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CopiaSeguridad.Designer.cs">
+      <DependentUpon>CopiaSeguridad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DirectorioArchivos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DirectorioArchivos.Designer.cs">
+      <DependentUpon>DirectorioArchivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditorImagen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditorImagen.Designer.cs">
+      <DependentUpon>EditorImagen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditorImagenClase.cs" />
+    <Compile Include="FuncionesAplicacion.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Productos.Designer.cs">
+      <DependentUpon>Productos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductosBuscarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductosBuscarCategoria.Designer.cs">
+      <DependentUpon>ProductosBuscarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductosFavoritos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductosFavoritos.Designer.cs">
+      <DependentUpon>ProductosFavoritos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductosTienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductosTienda.Designer.cs">
+      <DependentUpon>ProductosTienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrosAccesos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrosAccesos.Designer.cs">
+      <DependentUpon>RegistrosAccesos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrosCambiosAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrosCambiosAdmin.Designer.cs">
+      <DependentUpon>RegistrosCambiosAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrosCambiosUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrosCambiosUsuario.Designer.cs">
+      <DependentUpon>RegistrosCambiosUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrosLoginAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrosLoginAdmin.Designer.cs">
+      <DependentUpon>RegistrosLoginAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrosLoginUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistrosLoginUsuarios.Designer.cs">
+      <DependentUpon>RegistrosLoginUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sucursales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sucursales.Designer.cs">
+      <DependentUpon>Sucursales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SucursalesBuscarComuna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SucursalesBuscarComuna.Designer.cs">
+      <DependentUpon>SucursalesBuscarComuna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SucursalesBuscarTienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SucursalesBuscarTienda.Designer.cs">
+      <DependentUpon>SucursalesBuscarTienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SucursalesSubirImagenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SucursalesSubirImagenes.Designer.cs">
+      <DependentUpon>SucursalesSubirImagenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tienda.Designer.cs">
+      <DependentUpon>Tienda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TiendaBuscarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TiendaBuscarUsuario.Designer.cs">
+      <DependentUpon>TiendaBuscarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AcercaDe.resx">
+      <DependentUpon>AcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActualizarPrecioProducto.resx">
+      <DependentUpon>ActualizarPrecioProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActualizarPrecioProductoBuscarTienda.resx">
+      <DependentUpon>ActualizarPrecioProductoBuscarTienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administradores.resx">
+      <DependentUpon>Administradores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AjustesConexion.resx">
+      <DependentUpon>AjustesConexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaneoUsuarios.resx">
+      <DependentUpon>BaneoUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaneoUsuariosBuscarUsuario.resx">
+      <DependentUpon>BaneoUsuariosBuscarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CargaSistema.resx">
+      <DependentUpon>CargaSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoriasBuscarCategoria.resx">
+      <DependentUpon>CategoriasBuscarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Categorias.resx">
+      <DependentUpon>Categorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClaveMaestra.resx">
+      <DependentUpon>ClaveMaestra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComentariosSucursales.resx">
+      <DependentUpon>ComentariosSucursales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CopiaSeguridad.resx">
+      <DependentUpon>CopiaSeguridad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DirectorioArchivos.resx">
+      <DependentUpon>DirectorioArchivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditorImagen.resx">
+      <DependentUpon>EditorImagen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Productos.resx">
+      <DependentUpon>Productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductosBuscarCategoria.resx">
+      <DependentUpon>ProductosBuscarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductosFavoritos.resx">
+      <DependentUpon>ProductosFavoritos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductosTienda.resx">
+      <DependentUpon>ProductosTienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RegistrosAccesos.resx">
+      <DependentUpon>RegistrosAccesos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrosCambiosAdmin.resx">
+      <DependentUpon>RegistrosCambiosAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrosCambiosUsuario.resx">
+      <DependentUpon>RegistrosCambiosUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrosLoginAdmin.resx">
+      <DependentUpon>RegistrosLoginAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistrosLoginUsuarios.resx">
+      <DependentUpon>RegistrosLoginUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sucursales.resx">
+      <DependentUpon>Sucursales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SucursalesBuscarComuna.resx">
+      <DependentUpon>SucursalesBuscarComuna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SucursalesBuscarTienda.resx">
+      <DependentUpon>SucursalesBuscarTienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SucursalesSubirImagenes.resx">
+      <DependentUpon>SucursalesSubirImagenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tienda.resx">
+      <DependentUpon>Tienda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TiendaBuscarUsuario.resx">
+      <DependentUpon>TiendaBuscarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkCirculo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UsuarioCandado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Llave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ajuste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de pantalla %282%29 sin fondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de pantalla %282%29 sin fondo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ajuste1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Captura de pantalla %282%29 sin fondo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logo.ico" />
+    <Content Include="Logo.png" />
+    <Content Include="LogoPequeño.ico" />
+    <None Include="Resources\imagen2.png" />
+    <None Include="Resources\estadistica.png" />
+    <None Include="Resources\mapa1.png" />
+    <None Include="Resources\pdf.png" />
+    <None Include="Resources\limpiar1.png" />
+    <None Include="Resources\limpiar.png" />
+    <None Include="Resources\ssl1.png" />
+    <None Include="Resources\ssl.png" />
+    <None Include="Resources\LogoPequeño.png" />
+    <None Include="Resources\icons8-minimizar-la-ventana-48.png" />
+    <None Include="Resources\icons8-cerrar-ventana-48.png" />
+    <None Include="Resources\carga.gif" />
+    <None Include="Resources\base-de-datos.png" />
+    <None Include="Resources\base-de-datos%281%29.png" />
+    <None Include="Resources\backup.png" />
+    <None Include="Resources\ImagenProducto.png" />
+    <None Include="Resources\ImagenPrueba.png" />
+    <None Include="Resources\informacion.png" />
+    <None Include="Resources\precioactualizar.png" />
+    <None Include="Resources\Ubicacion.png" />
+    <None Include="Resources\pregunta.png" />
+    <None Include="Resources\eliminar.png" />
+    <None Include="Resources\imagen.png" />
+    <None Include="Resources\derecha.png" />
+    <None Include="Resources\abajo.png" />
+    <None Include="Resources\izquieda.png" />
+    <None Include="Resources\arriba.png" />
+    <None Include="Resources\menos.png" />
+    <None Include="Resources\mas.png" />
+    <None Include="Resources\voltear.png" />
+    <None Include="Resources\girarderecha.png" />
+    <None Include="Resources\girarizquierda.png" />
+    <None Include="Resources\archivo.png" />
+    <None Include="Resources\Candado.png" />
+    <None Include="Resources\nuevo.png" />
+    <None Include="Resources\editar.png" />
+    <None Include="Resources\guardar.png" />
+    <None Include="Resources\ajustes.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\programador.png" />
+    <None Include="Resources\actualizar.png" />
+    <None Include="Resources\Buscar1.png" />
+    <None Include="Resources\Buscar.png" />
+    <None Include="Resources\reporte comentario sucursal.png" />
+    <None Include="Resources\reporte comentario producto.png" />
+    <None Include="Resources\comentario producto.png" />
+    <None Include="Resources\comentario sucursal.png" />
+    <None Include="Resources\tienda-online.png" />
+    <None Include="Resources\caja.png" />
+    <None Include="Resources\favorito.png" />
+    <None Include="Resources\precio.png" />
+    <None Include="Resources\ban.png" />
+    <None Include="Resources\administrador.png" />
+    <None Include="Resources\lista.png" />
+    <None Include="Resources\almacenamiento.png" />
+    <None Include="Resources\etiqueta1.png" />
+    <None Include="Resources\tienda2.png" />
+    <None Include="Resources\Comentario.png" />
+    <None Include="Resources\Tienda.png" />
+    <None Include="Resources\Producto.png" />
+    <None Include="Resources\Cajas.png" />
+    <None Include="Resources\Clientes.png" />
+    <None Include="Resources\Home.png" />
+    <None Include="Resources\BaseDatosAjustes.png" />
+    <None Include="Resources\Restaura2r.png" />
+    <None Include="Resources\Restaurar.jpg" />
+    <None Include="Resources\baseDeDatosCheckGuardar.png" />
+    <None Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
