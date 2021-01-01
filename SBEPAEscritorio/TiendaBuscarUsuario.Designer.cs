@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TiendaBuscarUsuario));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -41,11 +41,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.pbBuscarTienda = new System.Windows.Forms.PictureBox();
             this.dgbTiendas = new System.Windows.Forms.DataGridView();
-            this.Barra = new System.Windows.Forms.Panel();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.Id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RutUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +49,12 @@
             this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Barra = new System.Windows.Forms.Panel();
+            this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -63,11 +64,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox11);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.pbBuscarTienda);
@@ -89,7 +92,7 @@
             this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Location = new System.Drawing.Point(7, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(548, 53);
+            this.panel4.Size = new System.Drawing.Size(496, 53);
             this.panel4.TabIndex = 71;
             // 
             // label8
@@ -105,6 +108,7 @@
             // txtBuscarEn
             // 
             this.txtBuscarEn.Location = new System.Drawing.Point(292, 23);
+            this.txtBuscarEn.MaxLength = 40;
             this.txtBuscarEn.Name = "txtBuscarEn";
             this.txtBuscarEn.Size = new System.Drawing.Size(157, 20);
             this.txtBuscarEn.TabIndex = 63;
@@ -178,14 +182,14 @@
             this.dgbTiendas.AllowUserToResizeRows = false;
             this.dgbTiendas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dgbTiendas.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgbTiendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbTiendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgbTiendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgbTiendas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id_usuario,
@@ -201,14 +205,75 @@
             this.dgbTiendas.Name = "dgbTiendas";
             this.dgbTiendas.ReadOnly = true;
             this.dgbTiendas.RowHeadersVisible = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Cyan;
-            this.dgbTiendas.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Cyan;
+            this.dgbTiendas.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgbTiendas.Size = new System.Drawing.Size(547, 309);
             this.dgbTiendas.TabIndex = 70;
             this.dgbTiendas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbTiendas_CellDoubleClick);
+            // 
+            // Id_usuario
+            // 
+            this.Id_usuario.DataPropertyName = "Id_usuario";
+            this.Id_usuario.HeaderText = "Id_usuario";
+            this.Id_usuario.Name = "Id_usuario";
+            this.Id_usuario.ReadOnly = true;
+            this.Id_usuario.Width = 80;
+            // 
+            // RutUsuario
+            // 
+            this.RutUsuario.DataPropertyName = "RutUsuario";
+            this.RutUsuario.HeaderText = "RutUsuario";
+            this.RutUsuario.Name = "RutUsuario";
+            this.RutUsuario.ReadOnly = true;
+            // 
+            // Nombres
+            // 
+            this.Nombres.DataPropertyName = "Nombres";
+            this.Nombres.HeaderText = "Nombres";
+            this.Nombres.Name = "Nombres";
+            this.Nombres.ReadOnly = true;
+            this.Nombres.Width = 200;
+            // 
+            // Apellidos
+            // 
+            this.Apellidos.DataPropertyName = "Apellidos";
+            this.Apellidos.HeaderText = "Apellidos";
+            this.Apellidos.Name = "Apellidos";
+            this.Apellidos.ReadOnly = true;
+            this.Apellidos.Width = 200;
+            // 
+            // Correo
+            // 
+            this.Correo.DataPropertyName = "Correo";
+            this.Correo.HeaderText = "Correo";
+            this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
+            this.Correo.Width = 200;
+            // 
+            // Direccion
+            // 
+            this.Direccion.DataPropertyName = "Direccion";
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            this.Direccion.Width = 200;
+            // 
+            // Telefono
+            // 
+            this.Telefono.DataPropertyName = "Telefono";
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.DataPropertyName = "Estado";
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
             // 
             // Barra
             // 
@@ -275,66 +340,15 @@
             this.label7.TabIndex = 22;
             this.label7.Text = "Tienda Buscar Usuario";
             // 
-            // Id_usuario
+            // pictureBox11
             // 
-            this.Id_usuario.DataPropertyName = "Id_usuario";
-            this.Id_usuario.HeaderText = "Id_usuario";
-            this.Id_usuario.Name = "Id_usuario";
-            this.Id_usuario.ReadOnly = true;
-            this.Id_usuario.Width = 80;
-            // 
-            // RutUsuario
-            // 
-            this.RutUsuario.DataPropertyName = "RutUsuario";
-            this.RutUsuario.HeaderText = "RutUsuario";
-            this.RutUsuario.Name = "RutUsuario";
-            this.RutUsuario.ReadOnly = true;
-            // 
-            // Nombres
-            // 
-            this.Nombres.DataPropertyName = "Nombres";
-            this.Nombres.HeaderText = "Nombres";
-            this.Nombres.Name = "Nombres";
-            this.Nombres.ReadOnly = true;
-            this.Nombres.Width = 200;
-            // 
-            // Apellidos
-            // 
-            this.Apellidos.DataPropertyName = "Apellidos";
-            this.Apellidos.HeaderText = "Apellidos";
-            this.Apellidos.Name = "Apellidos";
-            this.Apellidos.ReadOnly = true;
-            this.Apellidos.Width = 200;
-            // 
-            // Correo
-            // 
-            this.Correo.DataPropertyName = "Correo";
-            this.Correo.HeaderText = "Correo";
-            this.Correo.Name = "Correo";
-            this.Correo.ReadOnly = true;
-            this.Correo.Width = 200;
-            // 
-            // Direccion
-            // 
-            this.Direccion.DataPropertyName = "Direccion";
-            this.Direccion.HeaderText = "Direccion";
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            this.Direccion.Width = 200;
-            // 
-            // Telefono
-            // 
-            this.Telefono.DataPropertyName = "Telefono";
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            // 
-            // Estado
-            // 
-            this.Estado.DataPropertyName = "Estado";
-            this.Estado.HeaderText = "Estado";
-            this.Estado.Name = "Estado";
-            this.Estado.ReadOnly = true;
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(514, 8);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
             // 
             // TiendaBuscarUsuario
             // 
@@ -361,6 +375,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -390,5 +405,6 @@
         private System.Windows.Forms.PictureBox pictureBox20;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

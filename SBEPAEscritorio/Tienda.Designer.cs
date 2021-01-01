@@ -99,6 +99,7 @@
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgbTiendas)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBorrar)).BeginInit();
@@ -123,6 +124,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // dgbTiendas
@@ -366,6 +368,7 @@
             // txtBuscarEn
             // 
             this.txtBuscarEn.Location = new System.Drawing.Point(112, 29);
+            this.txtBuscarEn.MaxLength = 40;
             this.txtBuscarEn.Name = "txtBuscarEn";
             this.txtBuscarEn.Size = new System.Drawing.Size(152, 20);
             this.txtBuscarEn.TabIndex = 59;
@@ -729,6 +732,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.pictureBox11);
             this.panel3.Controls.Add(this.btnActualizar);
             this.panel3.Controls.Add(this.btnCambiarPagina);
             this.panel3.Controls.Add(this.label12);
@@ -904,6 +908,16 @@
             this.label7.TabIndex = 22;
             this.label7.Text = "Gestion de Tiendas";
             // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(534, 9);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
+            // 
             // Tienda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -947,6 +961,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1020,5 +1035,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CantidadVisita;
         private System.Windows.Forms.DataGridViewTextBoxColumn Archivo_logo;
         public System.Windows.Forms.TextBox txtIDUsuario;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

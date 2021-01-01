@@ -46,21 +46,23 @@
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pbActualizar = new System.Windows.Forms.PictureBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscarEn = new System.Windows.Forms.TextBox();
             this.picLupa = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbBuscarEn = new System.Windows.Forms.ComboBox();
-            this.pbActualizar = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgbUsuarios)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLupa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActualizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLupa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // Barra
@@ -242,12 +244,23 @@
             this.panel2.Controls.Add(this.cmbBuscarEn);
             this.panel2.Location = new System.Drawing.Point(45, 28);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(712, 60);
+            this.panel2.Size = new System.Drawing.Size(668, 60);
             this.panel2.TabIndex = 92;
+            // 
+            // pbActualizar
+            // 
+            this.pbActualizar.Image = global::SBEPAEscritorio.Properties.Resources.actualizar;
+            this.pbActualizar.Location = new System.Drawing.Point(503, 6);
+            this.pbActualizar.Name = "pbActualizar";
+            this.pbActualizar.Size = new System.Drawing.Size(50, 48);
+            this.pbActualizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbActualizar.TabIndex = 86;
+            this.pbActualizar.TabStop = false;
+            this.pbActualizar.Click += new System.EventHandler(this.pbActualizar_Click);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(458, 35);
+            this.btnBuscar.Location = new System.Drawing.Point(404, 34);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(83, 20);
             this.btnBuscar.TabIndex = 85;
@@ -257,7 +270,7 @@
             // 
             // txtBuscarEn
             // 
-            this.txtBuscarEn.Location = new System.Drawing.Point(283, 30);
+            this.txtBuscarEn.Location = new System.Drawing.Point(229, 29);
             this.txtBuscarEn.MaxLength = 50;
             this.txtBuscarEn.Name = "txtBuscarEn";
             this.txtBuscarEn.Size = new System.Drawing.Size(156, 20);
@@ -266,7 +279,7 @@
             // picLupa
             // 
             this.picLupa.Image = ((System.Drawing.Image)(resources.GetObject("picLupa.Image")));
-            this.picLupa.Location = new System.Drawing.Point(474, 2);
+            this.picLupa.Location = new System.Drawing.Point(420, 1);
             this.picLupa.Name = "picLupa";
             this.picLupa.Size = new System.Drawing.Size(50, 32);
             this.picLupa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -277,7 +290,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(182, 14);
+            this.label2.Location = new System.Drawing.Point(128, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 7;
@@ -287,7 +300,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(300, 14);
+            this.label1.Location = new System.Drawing.Point(246, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 13);
             this.label1.TabIndex = 11;
@@ -309,22 +322,21 @@
             "Nombre",
             "Apellido",
             "ID"});
-            this.cmbBuscarEn.Location = new System.Drawing.Point(156, 29);
+            this.cmbBuscarEn.Location = new System.Drawing.Point(102, 28);
             this.cmbBuscarEn.Name = "cmbBuscarEn";
             this.cmbBuscarEn.Size = new System.Drawing.Size(121, 21);
             this.cmbBuscarEn.TabIndex = 8;
             this.cmbBuscarEn.SelectedValueChanged += new System.EventHandler(this.cmbBuscarEn_SelectedValueChanged);
             // 
-            // pbActualizar
+            // pictureBox11
             // 
-            this.pbActualizar.Image = global::SBEPAEscritorio.Properties.Resources.actualizar;
-            this.pbActualizar.Location = new System.Drawing.Point(557, 7);
-            this.pbActualizar.Name = "pbActualizar";
-            this.pbActualizar.Size = new System.Drawing.Size(50, 48);
-            this.pbActualizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbActualizar.TabIndex = 86;
-            this.pbActualizar.TabStop = false;
-            this.pbActualizar.Click += new System.EventHandler(this.pbActualizar_Click);
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(748, 31);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
             // 
             // BaneoUsuariosBuscarUsuario
             // 
@@ -332,6 +344,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox11);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dgbUsuarios);
             this.Controls.Add(this.Barra);
@@ -349,9 +362,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgbUsuarios)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLupa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbActualizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLupa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -379,5 +394,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbBuscarEn;
         private System.Windows.Forms.PictureBox pbActualizar;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

@@ -83,6 +83,7 @@
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
@@ -109,6 +110,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -161,7 +163,6 @@
             // btnProductos
             // 
             this.btnProductos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProductos.Enabled = false;
             this.btnProductos.ForeColor = System.Drawing.Color.Black;
             this.btnProductos.Location = new System.Drawing.Point(250, 111);
             this.btnProductos.Name = "btnProductos";
@@ -637,7 +638,7 @@
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(280, 3);
+            this.groupBox2.Location = new System.Drawing.Point(233, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(423, 53);
             this.groupBox2.TabIndex = 24;
@@ -679,6 +680,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.pictureBox17);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Controls.Add(this.groupBox5);
@@ -765,6 +767,16 @@
             this.label7.TabIndex = 22;
             this.label7.Text = "Menu Principal";
             // 
+            // pictureBox17
+            // 
+            this.pictureBox17.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox17.Location = new System.Drawing.Point(662, 8);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox17.TabIndex = 166;
+            this.pictureBox17.TabStop = false;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -813,6 +825,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -872,5 +885,6 @@
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox17;
     }
 }

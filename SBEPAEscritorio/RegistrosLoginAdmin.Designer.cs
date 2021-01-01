@@ -32,10 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrosLoginAdmin));
             this.Barra = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.idCredencialAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,6 +88,7 @@
             this.btnActualizar = new System.Windows.Forms.PictureBox();
             this.lblRecargar = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
@@ -106,6 +107,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // Barra
@@ -125,18 +127,6 @@
             this.Barra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Barra_MouseDown);
             this.Barra.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Barra_MouseMove);
             this.Barra.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Barra_MouseUp);
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.ForeColor = System.Drawing.Color.White;
-            this.lblTitulo.Location = new System.Drawing.Point(228, 1);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(300, 18);
-            this.lblTitulo.TabIndex = 22;
-            this.lblTitulo.Text = "Registros de Login de Administradores";
             // 
             // btnMinimizar
             // 
@@ -172,6 +162,18 @@
             this.btnCerrar.TabIndex = 23;
             this.btnCerrar.TabStop = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.White;
+            this.lblTitulo.Location = new System.Drawing.Point(228, 1);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(300, 18);
+            this.lblTitulo.TabIndex = 22;
+            this.lblTitulo.Text = "Registros de Login de Administradores";
             // 
             // idCredencialAdmin
             // 
@@ -360,6 +362,7 @@
             // txtBuscarEn
             // 
             this.txtBuscarEn.Location = new System.Drawing.Point(230, 23);
+            this.txtBuscarEn.MaxLength = 40;
             this.txtBuscarEn.Name = "txtBuscarEn";
             this.txtBuscarEn.Size = new System.Drawing.Size(157, 20);
             this.txtBuscarEn.TabIndex = 63;
@@ -740,6 +743,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.pictureBox11);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.lblRecargar);
             this.panel2.Controls.Add(this.dgbCambiosAdmins);
@@ -759,6 +763,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(790, 480);
             this.panel2.TabIndex = 158;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(746, 5);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
             // 
             // RegistrosLoginAdmin
             // 
@@ -795,6 +809,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -858,5 +873,6 @@
         private System.Windows.Forms.PictureBox btnActualizar;
         private System.Windows.Forms.Label lblRecargar;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

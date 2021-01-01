@@ -42,6 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pbIDTienda = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
@@ -49,6 +50,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgbTienda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbIDTienda)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // Barra
@@ -136,7 +138,7 @@
             this.IDTienda,
             this.NombreTienda});
             this.dgbTienda.EnableHeadersVisualStyles = false;
-            this.dgbTienda.Location = new System.Drawing.Point(9, 32);
+            this.dgbTienda.Location = new System.Drawing.Point(9, 62);
             this.dgbTienda.Name = "dgbTienda";
             this.dgbTienda.ReadOnly = true;
             this.dgbTienda.RowHeadersVisible = false;
@@ -145,7 +147,7 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Cyan;
             this.dgbTienda.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgbTienda.Size = new System.Drawing.Size(505, 255);
+            this.dgbTienda.Size = new System.Drawing.Size(505, 225);
             this.dgbTienda.TabIndex = 73;
             this.dgbTienda.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbTienda_CellContentDoubleClick);
             // 
@@ -170,7 +172,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(35, 13);
+            this.label1.Location = new System.Drawing.Point(37, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(364, 13);
             this.label1.TabIndex = 74;
@@ -180,7 +182,7 @@
             // 
             this.pbIDTienda.Cursor = System.Windows.Forms.Cursors.Help;
             this.pbIDTienda.Image = global::SBEPAEscritorio.Properties.Resources.info;
-            this.pbIDTienda.Location = new System.Drawing.Point(9, 9);
+            this.pbIDTienda.Location = new System.Drawing.Point(11, 21);
             this.pbIDTienda.Name = "pbIDTienda";
             this.pbIDTienda.Size = new System.Drawing.Size(20, 20);
             this.pbIDTienda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -191,6 +193,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox11);
             this.panel1.Controls.Add(this.pbIDTienda);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.dgbTienda);
@@ -199,6 +202,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(526, 299);
             this.panel1.TabIndex = 124;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(476, 9);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
             // 
             // ActualizarPrecioProductoBuscarTienda
             // 
@@ -223,6 +236,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbIDTienda)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -240,5 +254,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbIDTienda;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

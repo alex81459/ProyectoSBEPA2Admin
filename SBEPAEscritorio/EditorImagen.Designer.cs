@@ -60,6 +60,7 @@
             this.txtLargo = new System.Windows.Forms.TextBox();
             this.pbImagenOriginal = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gbImagenRecortada = new System.Windows.Forms.GroupBox();
@@ -73,7 +74,7 @@
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.gbEdicion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMoverRecorte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picVoltearImagen)).BeginInit();
@@ -90,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenOriginal)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.gbImagenRecortada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRecortarYusar)).BeginInit();
@@ -99,7 +101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSeleccionarImagen
@@ -445,6 +447,15 @@
             this.panel2.Size = new System.Drawing.Size(990, 482);
             this.panel2.TabIndex = 20;
             // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.pbImagenOriginal);
+            this.panel1.Location = new System.Drawing.Point(4, 26);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(830, 447);
+            this.panel1.TabIndex = 28;
+            // 
             // pictureBox4
             // 
             this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -469,6 +480,7 @@
             // 
             // gbImagenRecortada
             // 
+            this.gbImagenRecortada.Controls.Add(this.pictureBox11);
             this.gbImagenRecortada.Controls.Add(this.pbRecortarYusar);
             this.gbImagenRecortada.Controls.Add(this.pbGuardarImagen);
             this.gbImagenRecortada.Controls.Add(this.pictureBox2);
@@ -608,14 +620,15 @@
             this.label4.TabIndex = 22;
             this.label4.Text = "Editor de Imagen";
             // 
-            // panel1
+            // pictureBox11
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.pbImagenOriginal);
-            this.panel1.Location = new System.Drawing.Point(4, 26);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(830, 447);
-            this.panel1.TabIndex = 28;
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(914, 16);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
             // 
             // EditorImagen
             // 
@@ -650,6 +663,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenOriginal)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.gbImagenRecortada.ResumeLayout(false);
             this.gbImagenRecortada.PerformLayout();
@@ -661,8 +676,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -712,5 +726,6 @@
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

@@ -56,6 +56,7 @@
             this.pbPuertoServidor = new System.Windows.Forms.PictureBox();
             this.pbServidorIP = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
@@ -69,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPuertoServidor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbServidorIP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // btnVerificarConexion
@@ -243,6 +245,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox11);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.txtDireccionServer);
@@ -363,6 +366,16 @@
             this.pictureBox3.TabIndex = 44;
             this.pictureBox3.TabStop = false;
             // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(325, 332);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
+            // 
             // AjustesConexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,6 +407,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbPuertoServidor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbServidorIP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -426,5 +440,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

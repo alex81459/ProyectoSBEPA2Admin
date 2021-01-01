@@ -208,6 +208,9 @@
   <data name="check" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Productos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Productos1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -222,6 +225,9 @@
   </data>
   <data name="tienda2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tienda2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dinero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dinero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LogoPequeño" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LogoPequeño.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -264,9 +270,6 @@
   </data>
   <data name="arriba" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arriba.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Cajas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cajas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="checkCirculo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checkCirculo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -325,8 +328,8 @@
   <data name="Tienda" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Tienda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ImagenPrueba" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ImagenPrueba.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Cajas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cajas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="imagen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imagen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -334,7 +337,13 @@
   <data name="Ubicacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ubicacion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ImagenPrueba" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImagenPrueba.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="imagen2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imagen2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MiniLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MiniLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActualizarPrecioProducto));
             this.Barra = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
@@ -94,6 +94,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.cmbBuscarEn = new System.Windows.Forms.ComboBox();
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
@@ -113,6 +114,7 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // Barra
@@ -183,6 +185,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.PanelNuevoPrecio);
             this.panel1.Controls.Add(this.dgbPrecios);
             this.panel1.Controls.Add(this.label1);
@@ -520,14 +523,14 @@
             this.dgbPrecios.AllowUserToResizeRows = false;
             this.dgbPrecios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dgbPrecios.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgbPrecios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbPrecios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgbPrecios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgbPrecios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombreTienda,
@@ -540,11 +543,11 @@
             this.dgbPrecios.Name = "dgbPrecios";
             this.dgbPrecios.ReadOnly = true;
             this.dgbPrecios.RowHeadersVisible = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Cyan;
-            this.dgbPrecios.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Cyan;
+            this.dgbPrecios.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgbPrecios.Size = new System.Drawing.Size(643, 189);
             this.dgbPrecios.TabIndex = 81;
             // 
@@ -605,14 +608,14 @@
             this.dgbProductos.AllowUserToResizeRows = false;
             this.dgbProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dgbProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgbProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgbProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgbProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDProducto,
@@ -631,11 +634,11 @@
             this.dgbProductos.Name = "dgbProductos";
             this.dgbProductos.ReadOnly = true;
             this.dgbProductos.RowHeadersVisible = false;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Cyan;
-            this.dgbProductos.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Cyan;
+            this.dgbProductos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgbProductos.Size = new System.Drawing.Size(643, 241);
             this.dgbProductos.TabIndex = 78;
             this.dgbProductos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbProductos_CellContentDoubleClick);
@@ -738,13 +741,13 @@
             this.panel4.Controls.Add(this.cmbBuscarEn);
             this.panel4.Location = new System.Drawing.Point(3, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(643, 53);
+            this.panel4.Size = new System.Drawing.Size(600, 53);
             this.panel4.TabIndex = 77;
             // 
             // btnActualizar
             // 
             this.btnActualizar.Image = global::SBEPAEscritorio.Properties.Resources.actualizar;
-            this.btnActualizar.Location = new System.Drawing.Point(499, 1);
+            this.btnActualizar.Location = new System.Drawing.Point(470, 2);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(39, 43);
             this.btnActualizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -756,7 +759,7 @@
             // 
             this.lblParametrosBuscar.AutoSize = true;
             this.lblParametrosBuscar.ForeColor = System.Drawing.Color.White;
-            this.lblParametrosBuscar.Location = new System.Drawing.Point(341, 6);
+            this.lblParametrosBuscar.Location = new System.Drawing.Point(312, 7);
             this.lblParametrosBuscar.Name = "lblParametrosBuscar";
             this.lblParametrosBuscar.Size = new System.Drawing.Size(108, 13);
             this.lblParametrosBuscar.TabIndex = 60;
@@ -765,7 +768,7 @@
             // 
             // txtBuscarEn
             // 
-            this.txtBuscarEn.Location = new System.Drawing.Point(317, 22);
+            this.txtBuscarEn.Location = new System.Drawing.Point(288, 23);
             this.txtBuscarEn.Name = "txtBuscarEn";
             this.txtBuscarEn.Size = new System.Drawing.Size(157, 20);
             this.txtBuscarEn.TabIndex = 59;
@@ -776,7 +779,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(126, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(97, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(46, 46);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -787,7 +790,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(208, 6);
+            this.label13.Location = new System.Drawing.Point(179, 7);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(62, 13);
             this.label13.TabIndex = 57;
@@ -810,7 +813,7 @@
             "Cantidad Medida",
             "Descripcion Producto",
             "Codigo Producto"});
-            this.cmbBuscarEn.Location = new System.Drawing.Point(178, 22);
+            this.cmbBuscarEn.Location = new System.Drawing.Point(149, 23);
             this.cmbBuscarEn.Name = "cmbBuscarEn";
             this.cmbBuscarEn.Size = new System.Drawing.Size(134, 21);
             this.cmbBuscarEn.TabIndex = 58;
@@ -821,6 +824,16 @@
             this.ttmensaje.AutoPopDelay = 30000;
             this.ttmensaje.InitialDelay = 1000;
             this.ttmensaje.ReshowDelay = 100;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox3.Location = new System.Drawing.Point(607, 6);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox3.TabIndex = 166;
+            this.pictureBox3.TabStop = false;
             // 
             // ActualizarPrecioProducto
             // 
@@ -859,6 +872,7 @@
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -925,5 +939,6 @@
         private System.Windows.Forms.Panel PanelNuevoPrecio;
         public System.Windows.Forms.TextBox txtListaNombreTienda;
         public System.Windows.Forms.TextBox txtIDTienda;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

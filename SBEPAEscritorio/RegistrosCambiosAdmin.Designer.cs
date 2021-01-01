@@ -38,6 +38,7 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txtCantidadRegistros = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.lblRecargar = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.PictureBox();
             this.btnCambiarPagina = new System.Windows.Forms.Button();
@@ -97,6 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.txtCantidadRegistros.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).BeginInit();
             this.panel1.SuspendLayout();
@@ -189,6 +191,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.pictureBox11);
             this.panel2.Controls.Add(this.lblRecargar);
             this.panel2.Controls.Add(this.btnActualizar);
             this.panel2.Controls.Add(this.btnCambiarPagina);
@@ -208,6 +211,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(798, 493);
             this.panel2.TabIndex = 54;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(745, 10);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
             // 
             // lblRecargar
             // 
@@ -586,6 +599,7 @@
             // txtBuscarEn
             // 
             this.txtBuscarEn.Location = new System.Drawing.Point(230, 23);
+            this.txtBuscarEn.MaxLength = 40;
             this.txtBuscarEn.Name = "txtBuscarEn";
             this.txtBuscarEn.Size = new System.Drawing.Size(157, 20);
             this.txtBuscarEn.TabIndex = 63;
@@ -811,6 +825,7 @@
             this.txtCantidadRegistros.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -892,5 +907,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaCambio;
         private System.Windows.Forms.DataGridViewTextBoxColumn AccionEfectuada;
         private System.Windows.Forms.DataGridViewTextBoxColumn RegistroCambio;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

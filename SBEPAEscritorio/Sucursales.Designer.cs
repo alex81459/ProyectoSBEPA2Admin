@@ -141,6 +141,7 @@
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label22 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).BeginInit();
@@ -174,6 +175,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -181,6 +183,7 @@
             this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.pictureBox11);
             this.panel2.Controls.Add(this.label32);
             this.panel2.Controls.Add(this.btnActualizar);
             this.panel2.Controls.Add(this.btnCambiarPagina);
@@ -310,7 +313,7 @@
             this.panel4.Controls.Add(this.txtBuscarEn);
             this.panel4.Controls.Add(this.label28);
             this.panel4.Controls.Add(this.cmbBuscarEn);
-            this.panel4.Location = new System.Drawing.Point(26, 64);
+            this.panel4.Location = new System.Drawing.Point(19, 64);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(568, 62);
             this.panel4.TabIndex = 107;
@@ -420,6 +423,7 @@
             // txtBuscarEn
             // 
             this.txtBuscarEn.Location = new System.Drawing.Point(112, 29);
+            this.txtBuscarEn.MaxLength = 40;
             this.txtBuscarEn.Name = "txtBuscarEn";
             this.txtBuscarEn.Size = new System.Drawing.Size(152, 20);
             this.txtBuscarEn.TabIndex = 59;
@@ -578,7 +582,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = global::SBEPAEscritorio.Properties.Resources.mapa;
-            this.pictureBox7.Location = new System.Drawing.Point(173, 0);
+            this.pictureBox7.Location = new System.Drawing.Point(18, -1);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(59, 66);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -590,7 +594,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(234, 6);
+            this.label14.Location = new System.Drawing.Point(79, 5);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(214, 42);
             this.label14.TabIndex = 67;
@@ -601,7 +605,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(238, 46);
+            this.label15.Location = new System.Drawing.Point(83, 45);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(223, 12);
             this.label15.TabIndex = 65;
@@ -1438,6 +1442,16 @@
             this.label22.TabIndex = 22;
             this.label22.Text = "Gestion de Sucursales";
             // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(593, 73);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
+            // 
             // Sucursales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1492,6 +1506,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1607,5 +1622,6 @@
         private System.Windows.Forms.Label txtPaginasDisponibles;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

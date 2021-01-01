@@ -90,6 +90,7 @@
             this.FechaCambio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccionEfectuada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegistroCambio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
@@ -108,6 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActualBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscarTienda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgbCambiosUsuarios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // Barra
@@ -178,6 +180,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.pictureBox11);
             this.panel2.Controls.Add(this.lblRecargar);
             this.panel2.Controls.Add(this.btnActualizar);
             this.panel2.Controls.Add(this.btnCambiarPagina);
@@ -575,6 +578,7 @@
             // txtBuscarEn
             // 
             this.txtBuscarEn.Location = new System.Drawing.Point(230, 23);
+            this.txtBuscarEn.MaxLength = 40;
             this.txtBuscarEn.Name = "txtBuscarEn";
             this.txtBuscarEn.Size = new System.Drawing.Size(157, 20);
             this.txtBuscarEn.TabIndex = 63;
@@ -779,6 +783,16 @@
             this.RegistroCambio.ReadOnly = true;
             this.RegistroCambio.Visible = false;
             // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(753, 7);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
+            // 
             // RegistrosCambiosUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -814,6 +828,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActualBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscarTienda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgbCambiosUsuarios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -879,5 +894,6 @@
         private System.Windows.Forms.TextBox txtAccionEfectuada;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

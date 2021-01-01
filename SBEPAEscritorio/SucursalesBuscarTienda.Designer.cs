@@ -28,11 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SucursalesBuscarTienda));
             this.label15 = new System.Windows.Forms.Label();
             this.dgbTiendas = new System.Windows.Forms.DataGridView();
+            this.Idtienda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.informacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Archivo_logo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.txtBuscarEn = new System.Windows.Forms.TextBox();
@@ -46,12 +52,7 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Idtienda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.informacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Archivo_logo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgbTiendas)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // label15
@@ -81,14 +83,14 @@
             this.dgbTiendas.AllowUserToResizeRows = false;
             this.dgbTiendas.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dgbTiendas.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgbTiendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbTiendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgbTiendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgbTiendas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Idtienda,
@@ -102,14 +104,62 @@
             this.dgbTiendas.Name = "dgbTiendas";
             this.dgbTiendas.ReadOnly = true;
             this.dgbTiendas.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Cyan;
-            this.dgbTiendas.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Cyan;
+            this.dgbTiendas.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgbTiendas.Size = new System.Drawing.Size(547, 298);
             this.dgbTiendas.TabIndex = 70;
             this.dgbTiendas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbTiendas_CellDoubleClick);
+            // 
+            // Idtienda
+            // 
+            this.Idtienda.DataPropertyName = "Idtienda";
+            this.Idtienda.HeaderText = "Idtienda";
+            this.Idtienda.Name = "Idtienda";
+            this.Idtienda.ReadOnly = true;
+            this.Idtienda.Width = 80;
+            // 
+            // IdUsuario
+            // 
+            this.IdUsuario.DataPropertyName = "IdUsuario";
+            this.IdUsuario.HeaderText = "IdUsuario";
+            this.IdUsuario.Name = "IdUsuario";
+            this.IdUsuario.ReadOnly = true;
+            this.IdUsuario.Width = 80;
+            // 
+            // nombre
+            // 
+            this.nombre.DataPropertyName = "nombre";
+            this.nombre.HeaderText = "nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 150;
+            // 
+            // informacion
+            // 
+            this.informacion.DataPropertyName = "informacion";
+            this.informacion.HeaderText = "informacion";
+            this.informacion.Name = "informacion";
+            this.informacion.ReadOnly = true;
+            this.informacion.Width = 400;
+            // 
+            // Archivo_logo
+            // 
+            this.Archivo_logo.DataPropertyName = "Archivo_logo";
+            this.Archivo_logo.HeaderText = "Archivo_logo";
+            this.Archivo_logo.Name = "Archivo_logo";
+            this.Archivo_logo.ReadOnly = true;
+            this.Archivo_logo.Visible = false;
+            // 
+            // CantidadVisita
+            // 
+            this.CantidadVisita.DataPropertyName = "CantidadVisita";
+            this.CantidadVisita.HeaderText = "CantidadVisita";
+            this.CantidadVisita.Name = "CantidadVisita";
+            this.CantidadVisita.ReadOnly = true;
+            this.CantidadVisita.Visible = false;
             // 
             // panel4
             // 
@@ -122,7 +172,7 @@
             this.panel4.Controls.Add(this.pictureBox1);
             this.panel4.Location = new System.Drawing.Point(7, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(548, 53);
+            this.panel4.Size = new System.Drawing.Size(501, 53);
             this.panel4.TabIndex = 71;
             // 
             // label8
@@ -138,6 +188,7 @@
             // txtBuscarEn
             // 
             this.txtBuscarEn.Location = new System.Drawing.Point(292, 23);
+            this.txtBuscarEn.MaxLength = 40;
             this.txtBuscarEn.Name = "txtBuscarEn";
             this.txtBuscarEn.Size = new System.Drawing.Size(157, 20);
             this.txtBuscarEn.TabIndex = 63;
@@ -259,6 +310,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox11);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.pbBuscarTienda);
@@ -269,53 +321,15 @@
             this.panel1.Size = new System.Drawing.Size(562, 391);
             this.panel1.TabIndex = 119;
             // 
-            // Idtienda
+            // pictureBox11
             // 
-            this.Idtienda.DataPropertyName = "Idtienda";
-            this.Idtienda.HeaderText = "Idtienda";
-            this.Idtienda.Name = "Idtienda";
-            this.Idtienda.ReadOnly = true;
-            this.Idtienda.Width = 80;
-            // 
-            // IdUsuario
-            // 
-            this.IdUsuario.DataPropertyName = "IdUsuario";
-            this.IdUsuario.HeaderText = "IdUsuario";
-            this.IdUsuario.Name = "IdUsuario";
-            this.IdUsuario.ReadOnly = true;
-            this.IdUsuario.Width = 80;
-            // 
-            // nombre
-            // 
-            this.nombre.DataPropertyName = "nombre";
-            this.nombre.HeaderText = "nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 150;
-            // 
-            // informacion
-            // 
-            this.informacion.DataPropertyName = "informacion";
-            this.informacion.HeaderText = "informacion";
-            this.informacion.Name = "informacion";
-            this.informacion.ReadOnly = true;
-            this.informacion.Width = 400;
-            // 
-            // Archivo_logo
-            // 
-            this.Archivo_logo.DataPropertyName = "Archivo_logo";
-            this.Archivo_logo.HeaderText = "Archivo_logo";
-            this.Archivo_logo.Name = "Archivo_logo";
-            this.Archivo_logo.ReadOnly = true;
-            this.Archivo_logo.Visible = false;
-            // 
-            // CantidadVisita
-            // 
-            this.CantidadVisita.DataPropertyName = "CantidadVisita";
-            this.CantidadVisita.HeaderText = "CantidadVisita";
-            this.CantidadVisita.Name = "CantidadVisita";
-            this.CantidadVisita.ReadOnly = true;
-            this.CantidadVisita.Visible = false;
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(514, 7);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
             // 
             // SucursalesBuscarTienda
             // 
@@ -345,6 +359,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -372,5 +387,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn informacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Archivo_logo;
         private System.Windows.Forms.DataGridViewTextBoxColumn CantidadVisita;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

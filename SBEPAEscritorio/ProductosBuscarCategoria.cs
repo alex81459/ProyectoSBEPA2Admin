@@ -95,9 +95,8 @@ namespace SBEPAEscritorio
 
                 //Se crea una instancia especial para enviar los datos entre los 2 forms 
                 Productos f1 = Application.OpenForms.OfType<Productos>().SingleOrDefault();
-                f1.lblIDCategoriaSeleccionada.Text = IDSubCategoria;
-                f1.lblNombreSubCategoria.Text = NombreSubCategoria;
-                f1.cbCategoriaSeleccionada.Checked = true;
+                f1.txtIDCategoriaSeleccionada.Text = IDSubCategoria;
+                f1.txtNombreSubCategoria.Text = NombreSubCategoria;
 
                 //Se cierra el formulario
                 this.Close();

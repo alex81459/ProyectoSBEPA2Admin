@@ -52,6 +52,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.cmbBuscarEn = new System.Windows.Forms.ComboBox();
             this.gbUsuarioBaneado = new System.Windows.Forms.GroupBox();
+            this.lblIDBaneo = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.pbDias = new System.Windows.Forms.PictureBox();
             this.pbFecha = new System.Windows.Forms.PictureBox();
             this.pbRazonDelBane = new System.Windows.Forms.PictureBox();
@@ -75,8 +77,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.lblIDBaneo = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
@@ -96,6 +97,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // Barra
@@ -249,6 +251,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox11);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.gbUsuarioBaneado);
             this.panel1.Controls.Add(this.label10);
@@ -373,6 +376,28 @@
             this.gbUsuarioBaneado.Size = new System.Drawing.Size(253, 424);
             this.gbUsuarioBaneado.TabIndex = 73;
             this.gbUsuarioBaneado.TabStop = false;
+            // 
+            // lblIDBaneo
+            // 
+            this.lblIDBaneo.AutoSize = true;
+            this.lblIDBaneo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIDBaneo.ForeColor = System.Drawing.Color.White;
+            this.lblIDBaneo.Location = new System.Drawing.Point(129, 20);
+            this.lblIDBaneo.Name = "lblIDBaneo";
+            this.lblIDBaneo.Size = new System.Drawing.Size(19, 13);
+            this.lblIDBaneo.TabIndex = 144;
+            this.lblIDBaneo.Text = "¿?";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(67, 20);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(64, 13);
+            this.label12.TabIndex = 143;
+            this.label12.Text = "ID Baneo:";
             // 
             // pbDias
             // 
@@ -630,27 +655,15 @@
             this.label10.TabIndex = 72;
             this.label10.Text = "*Seleccione un Usario Baneado haciendo doble click sobre sus datos en la Tabla";
             // 
-            // lblIDBaneo
+            // pictureBox11
             // 
-            this.lblIDBaneo.AutoSize = true;
-            this.lblIDBaneo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDBaneo.ForeColor = System.Drawing.Color.White;
-            this.lblIDBaneo.Location = new System.Drawing.Point(129, 20);
-            this.lblIDBaneo.Name = "lblIDBaneo";
-            this.lblIDBaneo.Size = new System.Drawing.Size(19, 13);
-            this.lblIDBaneo.TabIndex = 144;
-            this.lblIDBaneo.Text = "¿?";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(67, 20);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(64, 13);
-            this.label12.TabIndex = 143;
-            this.label12.Text = "ID Baneo:";
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(630, 14);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
             // 
             // BaneoUsuarios
             // 
@@ -688,6 +701,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -740,5 +754,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id_usuario_baneado;
         public System.Windows.Forms.Label lblIDBaneo;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }

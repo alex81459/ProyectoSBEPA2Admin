@@ -65,23 +65,12 @@ namespace SBEPAEscritorio
             abrirCategorias.ShowDialog();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            ComentariosSucursales abrirComentariosSucursales = new ComentariosSucursales();
-            abrirComentariosSucursales.ShowDialog();
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             RegistrosLoginAdmin abrirregistros = new RegistrosLoginAdmin();
             abrirregistros.ShowDialog();
         }
 
-        private void btnDirectorioArchivos_Click(object sender, EventArgs e)
-        {
-            DirectorioArchivos abrirDirectorios = new DirectorioArchivos();
-            abrirDirectorios.ShowDialog();
-        }
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -89,11 +78,6 @@ namespace SBEPAEscritorio
             abrirAdmin.ShowDialog();
         }
 
-        private void button12_Click(object sender, EventArgs e)
-        {
-            DirectorioArchivos abrirDirectorio = new DirectorioArchivos();
-            abrirDirectorio.ShowDialog();
-        }
 
         private void button14_Click(object sender, EventArgs e)
         {
@@ -171,11 +155,6 @@ namespace SBEPAEscritorio
             abrirBaneo.ShowDialog();
         }
 
-        private void button10_Click(object sender, EventArgs e)
-        {
-            ProductosFavoritos abrirProductosFavoritos = new ProductosFavoritos();
-            abrirProductosFavoritos.ShowDialog();
-        }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {

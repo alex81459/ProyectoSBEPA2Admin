@@ -84,6 +84,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -99,6 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox5
@@ -581,7 +583,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(4, 7);
+            this.label14.Location = new System.Drawing.Point(4, 4);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(156, 31);
             this.label14.TabIndex = 68;
@@ -687,6 +689,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pictureBox11);
             this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.label15);
@@ -715,12 +718,22 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::SBEPAEscritorio.Properties.Resources.etiqueta1;
-            this.pictureBox8.Location = new System.Drawing.Point(42, 40);
+            this.pictureBox8.Location = new System.Drawing.Point(58, 40);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(57, 42);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 48;
             this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(8, 35);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
             // 
             // Categorias
             // 
@@ -757,6 +770,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -815,5 +829,6 @@
         public System.Windows.Forms.TextBox txtIDSubCategoria;
         public System.Windows.Forms.TextBox txtNombreCategoriaSimple;
         public System.Windows.Forms.TextBox txtIDCategoriaSimple;
+        private System.Windows.Forms.PictureBox pictureBox11;
     }
 }
