@@ -133,7 +133,7 @@
             this.btngestionarproductosdeusuario.Name = "btngestionarproductosdeusuario";
             this.btngestionarproductosdeusuario.Size = new System.Drawing.Size(129, 27);
             this.btngestionarproductosdeusuario.TabIndex = 31;
-            this.btngestionarproductosdeusuario.Text = "Cambios Info Productos";
+            this.btngestionarproductosdeusuario.Text = "Cambios Info Producto";
             this.btngestionarproductosdeusuario.UseVisualStyleBackColor = true;
             // 
             // btnUsuarios
@@ -770,11 +770,11 @@
             this.label7.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(287, 2);
+            this.label7.Location = new System.Drawing.Point(201, 1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(119, 18);
+            this.label7.Size = new System.Drawing.Size(287, 18);
             this.label7.TabIndex = 22;
-            this.label7.Text = "Menu Principal";
+            this.label7.Text = "Menu Principal SBEPA Administrador";
             // 
             // Menu
             // 

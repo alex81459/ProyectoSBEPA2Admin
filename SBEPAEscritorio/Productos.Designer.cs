@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Productos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Barra = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
@@ -39,6 +39,23 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgbProductos = new System.Windows.Forms.DataGridView();
+            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idSucursalesProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SucursalID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Envase = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnidadMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_subcategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripcionProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ImagenProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UPC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductosID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblCantidadTotalRegistros = new System.Windows.Forms.Label();
             this.nudPaginaActual = new System.Windows.Forms.NumericUpDown();
@@ -73,6 +90,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnEliminarProducto = new System.Windows.Forms.Button();
             this.gbDatosEspecificos = new System.Windows.Forms.GroupBox();
+            this.txtNombreSubCategoria = new System.Windows.Forms.TextBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pbPrecioProducto = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -84,7 +102,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pbDescripcionProducto = new System.Windows.Forms.PictureBox();
-            this.txtNombreSubCategoria = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnBuscarCategoria = new System.Windows.Forms.Button();
             this.txtDescripcionProducto = new System.Windows.Forms.RichTextBox();
@@ -100,7 +117,7 @@
             this.pbEmbase = new System.Windows.Forms.PictureBox();
             this.cmbUnidadMedida = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.cmbEmbase = new System.Windows.Forms.ComboBox();
+            this.cmbEmvase = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pbMarca = new System.Windows.Forms.PictureBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
@@ -111,7 +128,7 @@
             this.gbDatosBase = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCorroborarProducto = new System.Windows.Forms.Button();
             this.pbProductoUnico = new System.Windows.Forms.PictureBox();
             this.cmbProductoUnico = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -138,29 +155,13 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pbImagenProducto = new System.Windows.Forms.PictureBox();
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
-            this.dgbProductos = new System.Windows.Forms.DataGridView();
-            this.idProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idSucursalesProductos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SucursalID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Envase = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnidadMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadMedida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id_subcategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescripcionProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ImagenProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UPC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductosID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).BeginInit();
@@ -200,7 +201,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbImageProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenProducto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgbProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -295,6 +295,171 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(990, 522);
             this.panel2.TabIndex = 22;
+            // 
+            // dgbProductos
+            // 
+            this.dgbProductos.AllowUserToAddRows = false;
+            this.dgbProductos.AllowUserToDeleteRows = false;
+            this.dgbProductos.AllowUserToResizeRows = false;
+            this.dgbProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dgbProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgbProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgbProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idProducto,
+            this.idSucursalesProductos,
+            this.SucursalID,
+            this.Nombre,
+            this.FechaRegistro,
+            this.Marca,
+            this.Envase,
+            this.UnidadMedida,
+            this.CantidadMedida,
+            this.Id_subcategoria,
+            this.DescripcionProducto,
+            this.ImagenProducto,
+            this.Unico,
+            this.UPC,
+            this.ProductosID,
+            this.CantidadVisita});
+            this.dgbProductos.EnableHeadersVisualStyles = false;
+            this.dgbProductos.Location = new System.Drawing.Point(2, 123);
+            this.dgbProductos.Name = "dgbProductos";
+            this.dgbProductos.ReadOnly = true;
+            this.dgbProductos.RowHeadersVisible = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Cyan;
+            this.dgbProductos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgbProductos.Size = new System.Drawing.Size(643, 289);
+            this.dgbProductos.TabIndex = 166;
+            this.dgbProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbProductos_CellContentClick);
+            // 
+            // idProducto
+            // 
+            this.idProducto.DataPropertyName = "idProducto";
+            this.idProducto.HeaderText = "idProducto";
+            this.idProducto.Name = "idProducto";
+            this.idProducto.ReadOnly = true;
+            this.idProducto.Width = 75;
+            // 
+            // idSucursalesProductos
+            // 
+            this.idSucursalesProductos.DataPropertyName = "idSucursalesProductos";
+            this.idSucursalesProductos.HeaderText = "idSucursalesProductos";
+            this.idSucursalesProductos.Name = "idSucursalesProductos";
+            this.idSucursalesProductos.ReadOnly = true;
+            this.idSucursalesProductos.Width = 135;
+            // 
+            // SucursalID
+            // 
+            this.SucursalID.DataPropertyName = "SucursalID";
+            this.SucursalID.HeaderText = "SucursalID";
+            this.SucursalID.Name = "SucursalID";
+            this.SucursalID.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 130;
+            // 
+            // FechaRegistro
+            // 
+            this.FechaRegistro.DataPropertyName = "FechaRegistro";
+            this.FechaRegistro.HeaderText = "FechaRegistro";
+            this.FechaRegistro.Name = "FechaRegistro";
+            this.FechaRegistro.ReadOnly = true;
+            this.FechaRegistro.Width = 120;
+            // 
+            // Marca
+            // 
+            this.Marca.DataPropertyName = "Marca";
+            this.Marca.HeaderText = "Marca";
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            // 
+            // Envase
+            // 
+            this.Envase.DataPropertyName = "Envase";
+            this.Envase.HeaderText = "Envase";
+            this.Envase.Name = "Envase";
+            this.Envase.ReadOnly = true;
+            // 
+            // UnidadMedida
+            // 
+            this.UnidadMedida.DataPropertyName = "UnidadMedida";
+            this.UnidadMedida.HeaderText = "UnidadMedida";
+            this.UnidadMedida.Name = "UnidadMedida";
+            this.UnidadMedida.ReadOnly = true;
+            // 
+            // CantidadMedida
+            // 
+            this.CantidadMedida.DataPropertyName = "CantidadMedida";
+            this.CantidadMedida.HeaderText = "CantidadMedida";
+            this.CantidadMedida.Name = "CantidadMedida";
+            this.CantidadMedida.ReadOnly = true;
+            // 
+            // Id_subcategoria
+            // 
+            this.Id_subcategoria.DataPropertyName = "Id_subcategoria";
+            this.Id_subcategoria.HeaderText = "Id_subcategoria";
+            this.Id_subcategoria.Name = "Id_subcategoria";
+            this.Id_subcategoria.ReadOnly = true;
+            // 
+            // DescripcionProducto
+            // 
+            this.DescripcionProducto.DataPropertyName = "DescripcionProducto";
+            this.DescripcionProducto.HeaderText = "DescripcionProducto";
+            this.DescripcionProducto.Name = "DescripcionProducto";
+            this.DescripcionProducto.ReadOnly = true;
+            // 
+            // ImagenProducto
+            // 
+            this.ImagenProducto.DataPropertyName = "ImagenProducto";
+            this.ImagenProducto.HeaderText = "ImagenProducto";
+            this.ImagenProducto.Name = "ImagenProducto";
+            this.ImagenProducto.ReadOnly = true;
+            this.ImagenProducto.Visible = false;
+            // 
+            // Unico
+            // 
+            this.Unico.DataPropertyName = "Unico";
+            this.Unico.HeaderText = "Unico";
+            this.Unico.Name = "Unico";
+            this.Unico.ReadOnly = true;
+            // 
+            // UPC
+            // 
+            this.UPC.DataPropertyName = "UPC";
+            this.UPC.HeaderText = "UPC";
+            this.UPC.Name = "UPC";
+            this.UPC.ReadOnly = true;
+            // 
+            // ProductosID
+            // 
+            this.ProductosID.DataPropertyName = "ProductosID";
+            this.ProductosID.HeaderText = "ProductosID";
+            this.ProductosID.Name = "ProductosID";
+            this.ProductosID.ReadOnly = true;
+            this.ProductosID.Visible = false;
+            // 
+            // CantidadVisita
+            // 
+            this.CantidadVisita.DataPropertyName = "CantidadVisita";
+            this.CantidadVisita.HeaderText = "CantidadVisita";
+            this.CantidadVisita.Name = "CantidadVisita";
+            this.CantidadVisita.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -663,7 +828,6 @@
             // 
             // txtCantidadVisitasProducto
             // 
-            this.txtCantidadVisitasProducto.Enabled = false;
             this.txtCantidadVisitasProducto.Location = new System.Drawing.Point(199, 38);
             this.txtCantidadVisitasProducto.Name = "txtCantidadVisitasProducto";
             this.txtCantidadVisitasProducto.ReadOnly = true;
@@ -673,7 +837,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::SBEPAEscritorio.Properties.Resources.eliminar;
-            this.pictureBox4.Location = new System.Drawing.Point(232, 673);
+            this.pictureBox4.Location = new System.Drawing.Point(232, 684);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(64, 53);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -683,7 +847,7 @@
             // btnEliminarProducto
             // 
             this.btnEliminarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminarProducto.Location = new System.Drawing.Point(216, 728);
+            this.btnEliminarProducto.Location = new System.Drawing.Point(216, 739);
             this.btnEliminarProducto.Name = "btnEliminarProducto";
             this.btnEliminarProducto.Size = new System.Drawing.Size(100, 23);
             this.btnEliminarProducto.TabIndex = 155;
@@ -692,6 +856,7 @@
             // 
             // gbDatosEspecificos
             // 
+            this.gbDatosEspecificos.Controls.Add(this.txtNombreSubCategoria);
             this.gbDatosEspecificos.Controls.Add(this.pictureBox10);
             this.gbDatosEspecificos.Controls.Add(this.pbPrecioProducto);
             this.gbDatosEspecificos.Controls.Add(this.label6);
@@ -703,7 +868,6 @@
             this.gbDatosEspecificos.Controls.Add(this.label20);
             this.gbDatosEspecificos.Controls.Add(this.pictureBox9);
             this.gbDatosEspecificos.Controls.Add(this.pbDescripcionProducto);
-            this.gbDatosEspecificos.Controls.Add(this.txtNombreSubCategoria);
             this.gbDatosEspecificos.Controls.Add(this.label7);
             this.gbDatosEspecificos.Controls.Add(this.btnBuscarCategoria);
             this.gbDatosEspecificos.Controls.Add(this.txtDescripcionProducto);
@@ -719,7 +883,7 @@
             this.gbDatosEspecificos.Controls.Add(this.pbEmbase);
             this.gbDatosEspecificos.Controls.Add(this.cmbUnidadMedida);
             this.gbDatosEspecificos.Controls.Add(this.label9);
-            this.gbDatosEspecificos.Controls.Add(this.cmbEmbase);
+            this.gbDatosEspecificos.Controls.Add(this.cmbEmvase);
             this.gbDatosEspecificos.Controls.Add(this.label1);
             this.gbDatosEspecificos.Controls.Add(this.pbMarca);
             this.gbDatosEspecificos.Controls.Add(this.txtMarca);
@@ -730,17 +894,26 @@
             this.gbDatosEspecificos.Enabled = false;
             this.gbDatosEspecificos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatosEspecificos.ForeColor = System.Drawing.Color.White;
-            this.gbDatosEspecificos.Location = new System.Drawing.Point(3, 234);
+            this.gbDatosEspecificos.Location = new System.Drawing.Point(2, 234);
             this.gbDatosEspecificos.Name = "gbDatosEspecificos";
-            this.gbDatosEspecificos.Size = new System.Drawing.Size(312, 428);
+            this.gbDatosEspecificos.Size = new System.Drawing.Size(312, 447);
             this.gbDatosEspecificos.TabIndex = 154;
             this.gbDatosEspecificos.TabStop = false;
             this.gbDatosEspecificos.Text = "Datos Especificos Producto";
             // 
+            // txtNombreSubCategoria
+            // 
+            this.txtNombreSubCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreSubCategoria.Location = new System.Drawing.Point(6, 281);
+            this.txtNombreSubCategoria.Name = "txtNombreSubCategoria";
+            this.txtNombreSubCategoria.ReadOnly = true;
+            this.txtNombreSubCategoria.Size = new System.Drawing.Size(301, 20);
+            this.txtNombreSubCategoria.TabIndex = 169;
+            // 
             // pictureBox10
             // 
             this.pictureBox10.Image = global::SBEPAEscritorio.Properties.Resources.dinero;
-            this.pictureBox10.Location = new System.Drawing.Point(24, 394);
+            this.pictureBox10.Location = new System.Drawing.Point(9, 413);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(32, 32);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -751,7 +924,7 @@
             // 
             this.pbPrecioProducto.Cursor = System.Windows.Forms.Cursors.Help;
             this.pbPrecioProducto.Image = global::SBEPAEscritorio.Properties.Resources.info;
-            this.pbPrecioProducto.Location = new System.Drawing.Point(285, 398);
+            this.pbPrecioProducto.Location = new System.Drawing.Point(285, 417);
             this.pbPrecioProducto.Name = "pbPrecioProducto";
             this.pbPrecioProducto.Size = new System.Drawing.Size(20, 20);
             this.pbPrecioProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -763,17 +936,17 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(58, 401);
+            this.label6.Location = new System.Drawing.Point(41, 420);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(98, 13);
+            this.label6.Size = new System.Drawing.Size(125, 13);
             this.label6.TabIndex = 166;
-            this.label6.Text = "Precio Producto";
+            this.label6.Text = "Precio Producto CLP";
             // 
             // NUDPrecioProducto
             // 
             this.NUDPrecioProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NUDPrecioProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NUDPrecioProducto.Location = new System.Drawing.Point(161, 398);
+            this.NUDPrecioProducto.Location = new System.Drawing.Point(172, 417);
             this.NUDPrecioProducto.Maximum = new decimal(new int[] {
             1410065407,
             2,
@@ -785,7 +958,7 @@
             0,
             0});
             this.NUDPrecioProducto.Name = "NUDPrecioProducto";
-            this.NUDPrecioProducto.Size = new System.Drawing.Size(122, 20);
+            this.NUDPrecioProducto.Size = new System.Drawing.Size(111, 20);
             this.NUDPrecioProducto.TabIndex = 165;
             this.NUDPrecioProducto.Value = new decimal(new int[] {
             1,
@@ -811,9 +984,8 @@
             this.txtIDSucursal.ForeColor = System.Drawing.Color.White;
             this.txtIDSucursal.Location = new System.Drawing.Point(152, 88);
             this.txtIDSucursal.Name = "txtIDSucursal";
-            this.txtIDSucursal.Size = new System.Drawing.Size(21, 13);
+            this.txtIDSucursal.Size = new System.Drawing.Size(0, 13);
             this.txtIDSucursal.TabIndex = 162;
-            this.txtIDSucursal.Text = "??";
             // 
             // pbSucursal
             // 
@@ -830,7 +1002,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(11, 88);
+            this.label17.Location = new System.Drawing.Point(9, 88);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(145, 13);
             this.label17.TabIndex = 160;
@@ -841,7 +1013,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(13, 68);
+            this.label20.Location = new System.Drawing.Point(11, 68);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(137, 13);
             this.label20.TabIndex = 161;
@@ -861,29 +1033,19 @@
             // 
             this.pbDescripcionProducto.Cursor = System.Windows.Forms.Cursors.Help;
             this.pbDescripcionProducto.Image = global::SBEPAEscritorio.Properties.Resources.info;
-            this.pbDescripcionProducto.Location = new System.Drawing.Point(286, 290);
+            this.pbDescripcionProducto.Location = new System.Drawing.Point(286, 311);
             this.pbDescripcionProducto.Name = "pbDescripcionProducto";
             this.pbDescripcionProducto.Size = new System.Drawing.Size(20, 20);
             this.pbDescripcionProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbDescripcionProducto.TabIndex = 153;
             this.pbDescripcionProducto.TabStop = false;
             // 
-            // txtNombreSubCategoria
-            // 
-            this.txtNombreSubCategoria.AutoSize = true;
-            this.txtNombreSubCategoria.ForeColor = System.Drawing.Color.White;
-            this.txtNombreSubCategoria.Location = new System.Drawing.Point(136, 272);
-            this.txtNombreSubCategoria.Name = "txtNombreSubCategoria";
-            this.txtNombreSubCategoria.Size = new System.Drawing.Size(21, 13);
-            this.txtNombreSubCategoria.TabIndex = 154;
-            this.txtNombreSubCategoria.Text = "??";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(158, 293);
+            this.label7.Location = new System.Drawing.Point(158, 318);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(129, 13);
             this.label7.TabIndex = 152;
@@ -894,17 +1056,18 @@
             this.btnBuscarCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscarCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarCategoria.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscarCategoria.Location = new System.Drawing.Point(155, 229);
+            this.btnBuscarCategoria.Location = new System.Drawing.Point(154, 229);
             this.btnBuscarCategoria.Name = "btnBuscarCategoria";
             this.btnBuscarCategoria.Size = new System.Drawing.Size(128, 23);
             this.btnBuscarCategoria.TabIndex = 153;
             this.btnBuscarCategoria.Text = "Buscar Categoria...";
             this.btnBuscarCategoria.UseVisualStyleBackColor = true;
+            this.btnBuscarCategoria.Click += new System.EventHandler(this.btnBuscarCategoria_Click);
             // 
             // txtDescripcionProducto
             // 
             this.txtDescripcionProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionProducto.Location = new System.Drawing.Point(6, 311);
+            this.txtDescripcionProducto.Location = new System.Drawing.Point(6, 332);
             this.txtDescripcionProducto.MaxLength = 400;
             this.txtDescripcionProducto.Name = "txtDescripcionProducto";
             this.txtDescripcionProducto.Size = new System.Drawing.Size(300, 77);
@@ -916,7 +1079,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(3, 271);
+            this.label23.Location = new System.Drawing.Point(3, 268);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(138, 13);
             this.label23.TabIndex = 153;
@@ -926,17 +1089,16 @@
             // 
             this.txtIDCategoriaSeleccionada.AutoSize = true;
             this.txtIDCategoriaSeleccionada.ForeColor = System.Drawing.Color.White;
-            this.txtIDCategoriaSeleccionada.Location = new System.Drawing.Point(170, 254);
+            this.txtIDCategoriaSeleccionada.Location = new System.Drawing.Point(170, 253);
             this.txtIDCategoriaSeleccionada.Name = "txtIDCategoriaSeleccionada";
-            this.txtIDCategoriaSeleccionada.Size = new System.Drawing.Size(21, 13);
+            this.txtIDCategoriaSeleccionada.Size = new System.Drawing.Size(0, 13);
             this.txtIDCategoriaSeleccionada.TabIndex = 152;
-            this.txtIDCategoriaSeleccionada.Text = "??";
             // 
             // pbSeleccioneCategoria
             // 
             this.pbSeleccioneCategoria.Cursor = System.Windows.Forms.Cursors.Help;
             this.pbSeleccioneCategoria.Image = global::SBEPAEscritorio.Properties.Resources.info;
-            this.pbSeleccioneCategoria.Location = new System.Drawing.Point(286, 230);
+            this.pbSeleccioneCategoria.Location = new System.Drawing.Point(285, 230);
             this.pbSeleccioneCategoria.Name = "pbSeleccioneCategoria";
             this.pbSeleccioneCategoria.Size = new System.Drawing.Size(20, 20);
             this.pbSeleccioneCategoria.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -947,7 +1109,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(3, 254);
+            this.label22.Location = new System.Drawing.Point(3, 253);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(176, 13);
             this.label22.TabIndex = 151;
@@ -957,7 +1119,7 @@
             // 
             this.pbCantidadMedida.Cursor = System.Windows.Forms.Cursors.Help;
             this.pbCantidadMedida.Image = global::SBEPAEscritorio.Properties.Resources.info;
-            this.pbCantidadMedida.Location = new System.Drawing.Point(287, 197);
+            this.pbCantidadMedida.Location = new System.Drawing.Point(287, 190);
             this.pbCantidadMedida.Name = "pbCantidadMedida";
             this.pbCantidadMedida.Size = new System.Drawing.Size(20, 20);
             this.pbCantidadMedida.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -969,7 +1131,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(4, 234);
+            this.label19.Location = new System.Drawing.Point(3, 234);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(142, 13);
             this.label19.TabIndex = 151;
@@ -979,7 +1141,7 @@
             // 
             this.pbUnidadMedida.Cursor = System.Windows.Forms.Cursors.Help;
             this.pbUnidadMedida.Image = global::SBEPAEscritorio.Properties.Resources.info;
-            this.pbUnidadMedida.Location = new System.Drawing.Point(287, 171);
+            this.pbUnidadMedida.Location = new System.Drawing.Point(287, 166);
             this.pbUnidadMedida.Name = "pbUnidadMedida";
             this.pbUnidadMedida.Size = new System.Drawing.Size(20, 20);
             this.pbUnidadMedida.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -990,7 +1152,7 @@
             // 
             this.NUDCantidadMedida.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NUDCantidadMedida.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NUDCantidadMedida.Location = new System.Drawing.Point(155, 197);
+            this.NUDCantidadMedida.Location = new System.Drawing.Point(155, 190);
             this.NUDCantidadMedida.Maximum = new decimal(new int[] {
             1410065407,
             2,
@@ -1015,7 +1177,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(54, 201);
+            this.label18.Location = new System.Drawing.Point(54, 194);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(102, 13);
             this.label18.TabIndex = 151;
@@ -1025,7 +1187,7 @@
             // 
             this.pbEmbase.Cursor = System.Windows.Forms.Cursors.Help;
             this.pbEmbase.Image = global::SBEPAEscritorio.Properties.Resources.info;
-            this.pbEmbase.Location = new System.Drawing.Point(286, 145);
+            this.pbEmbase.Location = new System.Drawing.Point(286, 142);
             this.pbEmbase.Name = "pbEmbase";
             this.pbEmbase.Size = new System.Drawing.Size(20, 20);
             this.pbEmbase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1042,7 +1204,7 @@
             "Mililitros",
             "Gramos",
             "Centimetros Cubicos"});
-            this.cmbUnidadMedida.Location = new System.Drawing.Point(153, 170);
+            this.cmbUnidadMedida.Location = new System.Drawing.Point(153, 165);
             this.cmbUnidadMedida.Name = "cmbUnidadMedida";
             this.cmbUnidadMedida.Size = new System.Drawing.Size(129, 21);
             this.cmbUnidadMedida.TabIndex = 151;
@@ -1052,19 +1214,19 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(60, 173);
+            this.label9.Location = new System.Drawing.Point(60, 168);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(92, 13);
             this.label9.TabIndex = 152;
             this.label9.Text = "Unidad Medida";
             // 
-            // cmbEmbase
+            // cmbEmvase
             // 
-            this.cmbEmbase.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbEmbase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEmbase.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEmbase.FormattingEnabled = true;
-            this.cmbEmbase.Items.AddRange(new object[] {
+            this.cmbEmvase.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbEmvase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEmvase.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEmvase.FormattingEnabled = true;
+            this.cmbEmvase.Items.AddRange(new object[] {
             "Bolsa Plastica",
             "Lata de Aluminio",
             "Lata de Hojalata",
@@ -1079,17 +1241,17 @@
             "Brick o Tetra Pack",
             "Otros",
             "Ninguno"});
-            this.cmbEmbase.Location = new System.Drawing.Point(110, 143);
-            this.cmbEmbase.Name = "cmbEmbase";
-            this.cmbEmbase.Size = new System.Drawing.Size(174, 21);
-            this.cmbEmbase.TabIndex = 157;
+            this.cmbEmvase.Location = new System.Drawing.Point(110, 140);
+            this.cmbEmvase.Name = "cmbEmvase";
+            this.cmbEmvase.Size = new System.Drawing.Size(174, 21);
+            this.cmbEmvase.TabIndex = 157;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(53, 146);
+            this.label1.Location = new System.Drawing.Point(53, 143);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 156;
@@ -1140,11 +1302,11 @@
             // 
             // txtFechaRegistroProducto
             // 
-            this.txtFechaRegistroProducto.Enabled = false;
             this.txtFechaRegistroProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFechaRegistroProducto.Location = new System.Drawing.Point(151, 39);
             this.txtFechaRegistroProducto.MaxLength = 45;
             this.txtFechaRegistroProducto.Name = "txtFechaRegistroProducto";
+            this.txtFechaRegistroProducto.ReadOnly = true;
             this.txtFechaRegistroProducto.Size = new System.Drawing.Size(130, 20);
             this.txtFechaRegistroProducto.TabIndex = 152;
             // 
@@ -1163,7 +1325,7 @@
             // 
             this.gbDatosBase.Controls.Add(this.pictureBox2);
             this.gbDatosBase.Controls.Add(this.pictureBox1);
-            this.gbDatosBase.Controls.Add(this.button1);
+            this.gbDatosBase.Controls.Add(this.btnCorroborarProducto);
             this.gbDatosBase.Controls.Add(this.pbProductoUnico);
             this.gbDatosBase.Controls.Add(this.cmbProductoUnico);
             this.gbDatosBase.Controls.Add(this.label11);
@@ -1205,16 +1367,17 @@
             this.pictureBox1.TabIndex = 151;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnCorroborarProducto
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(151, 141);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 23);
-            this.button1.TabIndex = 153;
-            this.button1.Text = "Corroborar Producto";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCorroborarProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCorroborarProducto.ForeColor = System.Drawing.Color.Black;
+            this.btnCorroborarProducto.Location = new System.Drawing.Point(151, 141);
+            this.btnCorroborarProducto.Name = "btnCorroborarProducto";
+            this.btnCorroborarProducto.Size = new System.Drawing.Size(135, 23);
+            this.btnCorroborarProducto.TabIndex = 153;
+            this.btnCorroborarProducto.Text = "Corroborar Producto";
+            this.btnCorroborarProducto.UseVisualStyleBackColor = true;
+            this.btnCorroborarProducto.Click += new System.EventHandler(this.btnCorroborarProducto_Click);
             // 
             // pbProductoUnico
             // 
@@ -1242,6 +1405,7 @@
             this.cmbProductoUnico.Name = "cmbProductoUnico";
             this.cmbProductoUnico.Size = new System.Drawing.Size(68, 21);
             this.cmbProductoUnico.TabIndex = 134;
+            this.cmbProductoUnico.SelectedIndexChanged += new System.EventHandler(this.cmbProductoUnico_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -1268,6 +1432,7 @@
             // txtCodigoProducto
             // 
             this.txtCodigoProducto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigoProducto.Enabled = false;
             this.txtCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoProducto.Location = new System.Drawing.Point(178, 113);
             this.txtCodigoProducto.MaxLength = 15;
@@ -1289,7 +1454,6 @@
             // 
             // txtID
             // 
-            this.txtID.Enabled = false;
             this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtID.Location = new System.Drawing.Point(198, 36);
             this.txtID.Name = "txtID";
@@ -1375,7 +1539,7 @@
             // pbNuevoProducto
             // 
             this.pbNuevoProducto.Image = global::SBEPAEscritorio.Properties.Resources.nuevo;
-            this.pbNuevoProducto.Location = new System.Drawing.Point(25, 674);
+            this.pbNuevoProducto.Location = new System.Drawing.Point(25, 685);
             this.pbNuevoProducto.Name = "pbNuevoProducto";
             this.pbNuevoProducto.Size = new System.Drawing.Size(55, 53);
             this.pbNuevoProducto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1385,7 +1549,7 @@
             // btnNuevaProducto
             // 
             this.btnNuevaProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevaProducto.Location = new System.Drawing.Point(2, 728);
+            this.btnNuevaProducto.Location = new System.Drawing.Point(2, 739);
             this.btnNuevaProducto.Name = "btnNuevaProducto";
             this.btnNuevaProducto.Size = new System.Drawing.Size(100, 23);
             this.btnNuevaProducto.TabIndex = 95;
@@ -1396,7 +1560,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::SBEPAEscritorio.Properties.Resources.guardar;
-            this.pictureBox5.Location = new System.Drawing.Point(127, 669);
+            this.pictureBox5.Location = new System.Drawing.Point(127, 680);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(64, 60);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1406,12 +1570,14 @@
             // btnGuardarProducto
             // 
             this.btnGuardarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardarProducto.Location = new System.Drawing.Point(110, 728);
+            this.btnGuardarProducto.Enabled = false;
+            this.btnGuardarProducto.Location = new System.Drawing.Point(110, 739);
             this.btnGuardarProducto.Name = "btnGuardarProducto";
             this.btnGuardarProducto.Size = new System.Drawing.Size(100, 23);
             this.btnGuardarProducto.TabIndex = 94;
             this.btnGuardarProducto.Text = "Guardar Producto";
             this.btnGuardarProducto.UseVisualStyleBackColor = true;
+            this.btnGuardarProducto.Click += new System.EventHandler(this.btnGuardarProducto_Click);
             // 
             // panel5
             // 
@@ -1467,6 +1633,7 @@
             this.btnBuscarImagen.TabIndex = 88;
             this.btnBuscarImagen.Text = "Buscar Imagen...";
             this.btnBuscarImagen.UseVisualStyleBackColor = true;
+            this.btnBuscarImagen.Click += new System.EventHandler(this.btnBuscarImagen_Click);
             // 
             // pictureBox6
             // 
@@ -1495,171 +1662,6 @@
             this.ttmensaje.InitialDelay = 1000;
             this.ttmensaje.ReshowDelay = 100;
             // 
-            // dgbProductos
-            // 
-            this.dgbProductos.AllowUserToAddRows = false;
-            this.dgbProductos.AllowUserToDeleteRows = false;
-            this.dgbProductos.AllowUserToResizeRows = false;
-            this.dgbProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dgbProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgbProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgbProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgbProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idProducto,
-            this.idSucursalesProductos,
-            this.SucursalID,
-            this.Nombre,
-            this.FechaRegistro,
-            this.Marca,
-            this.Envase,
-            this.UnidadMedida,
-            this.CantidadMedida,
-            this.Id_subcategoria,
-            this.DescripcionProducto,
-            this.ImagenProducto,
-            this.Unico,
-            this.UPC,
-            this.ProductosID,
-            this.CantidadVisita});
-            this.dgbProductos.EnableHeadersVisualStyles = false;
-            this.dgbProductos.Location = new System.Drawing.Point(2, 123);
-            this.dgbProductos.Name = "dgbProductos";
-            this.dgbProductos.ReadOnly = true;
-            this.dgbProductos.RowHeadersVisible = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Cyan;
-            this.dgbProductos.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgbProductos.Size = new System.Drawing.Size(643, 289);
-            this.dgbProductos.TabIndex = 166;
-            this.dgbProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbProductos_CellContentClick);
-            // 
-            // idProducto
-            // 
-            this.idProducto.DataPropertyName = "idProducto";
-            this.idProducto.HeaderText = "idProducto";
-            this.idProducto.Name = "idProducto";
-            this.idProducto.ReadOnly = true;
-            this.idProducto.Width = 75;
-            // 
-            // idSucursalesProductos
-            // 
-            this.idSucursalesProductos.DataPropertyName = "idSucursalesProductos";
-            this.idSucursalesProductos.HeaderText = "idSucursalesProductos";
-            this.idSucursalesProductos.Name = "idSucursalesProductos";
-            this.idSucursalesProductos.ReadOnly = true;
-            this.idSucursalesProductos.Width = 135;
-            // 
-            // SucursalID
-            // 
-            this.SucursalID.DataPropertyName = "SucursalID";
-            this.SucursalID.HeaderText = "SucursalID";
-            this.SucursalID.Name = "SucursalID";
-            this.SucursalID.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 130;
-            // 
-            // FechaRegistro
-            // 
-            this.FechaRegistro.DataPropertyName = "FechaRegistro";
-            this.FechaRegistro.HeaderText = "FechaRegistro";
-            this.FechaRegistro.Name = "FechaRegistro";
-            this.FechaRegistro.ReadOnly = true;
-            this.FechaRegistro.Width = 120;
-            // 
-            // Marca
-            // 
-            this.Marca.DataPropertyName = "Marca";
-            this.Marca.HeaderText = "Marca";
-            this.Marca.Name = "Marca";
-            this.Marca.ReadOnly = true;
-            // 
-            // Envase
-            // 
-            this.Envase.DataPropertyName = "Envase";
-            this.Envase.HeaderText = "Envase";
-            this.Envase.Name = "Envase";
-            this.Envase.ReadOnly = true;
-            // 
-            // UnidadMedida
-            // 
-            this.UnidadMedida.DataPropertyName = "UnidadMedida";
-            this.UnidadMedida.HeaderText = "UnidadMedida";
-            this.UnidadMedida.Name = "UnidadMedida";
-            this.UnidadMedida.ReadOnly = true;
-            // 
-            // CantidadMedida
-            // 
-            this.CantidadMedida.DataPropertyName = "CantidadMedida";
-            this.CantidadMedida.HeaderText = "CantidadMedida";
-            this.CantidadMedida.Name = "CantidadMedida";
-            this.CantidadMedida.ReadOnly = true;
-            // 
-            // Id_subcategoria
-            // 
-            this.Id_subcategoria.DataPropertyName = "Id_subcategoria";
-            this.Id_subcategoria.HeaderText = "Id_subcategoria";
-            this.Id_subcategoria.Name = "Id_subcategoria";
-            this.Id_subcategoria.ReadOnly = true;
-            // 
-            // DescripcionProducto
-            // 
-            this.DescripcionProducto.DataPropertyName = "DescripcionProducto";
-            this.DescripcionProducto.HeaderText = "DescripcionProducto";
-            this.DescripcionProducto.Name = "DescripcionProducto";
-            this.DescripcionProducto.ReadOnly = true;
-            // 
-            // ImagenProducto
-            // 
-            this.ImagenProducto.DataPropertyName = "ImagenProducto";
-            this.ImagenProducto.HeaderText = "ImagenProducto";
-            this.ImagenProducto.Name = "ImagenProducto";
-            this.ImagenProducto.ReadOnly = true;
-            this.ImagenProducto.Visible = false;
-            // 
-            // Unico
-            // 
-            this.Unico.DataPropertyName = "Unico";
-            this.Unico.HeaderText = "Unico";
-            this.Unico.Name = "Unico";
-            this.Unico.ReadOnly = true;
-            // 
-            // UPC
-            // 
-            this.UPC.DataPropertyName = "UPC";
-            this.UPC.HeaderText = "UPC";
-            this.UPC.Name = "UPC";
-            this.UPC.ReadOnly = true;
-            // 
-            // ProductosID
-            // 
-            this.ProductosID.DataPropertyName = "ProductosID";
-            this.ProductosID.HeaderText = "ProductosID";
-            this.ProductosID.Name = "ProductosID";
-            this.ProductosID.ReadOnly = true;
-            this.ProductosID.Visible = false;
-            // 
-            // CantidadVisita
-            // 
-            this.CantidadVisita.DataPropertyName = "CantidadVisita";
-            this.CantidadVisita.HeaderText = "CantidadVisita";
-            this.CantidadVisita.Name = "CantidadVisita";
-            this.CantidadVisita.ReadOnly = true;
-            // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1683,6 +1685,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbProductos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).EndInit();
@@ -1728,7 +1731,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbImageProducto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagenProducto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgbProductos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1791,7 +1793,7 @@
         private System.Windows.Forms.PictureBox pbCodigoProducto;
         private System.Windows.Forms.TextBox txtCodigoProducto;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCorroborarProducto;
         private System.Windows.Forms.PictureBox pbProductoUnico;
         private System.Windows.Forms.ComboBox cmbProductoUnico;
         private System.Windows.Forms.Label label11;
@@ -1804,7 +1806,7 @@
         private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pbEmbase;
-        private System.Windows.Forms.ComboBox cmbEmbase;
+        private System.Windows.Forms.ComboBox cmbEmvase;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pbCantidadMedida;
         private System.Windows.Forms.PictureBox pbUnidadMedida;
@@ -1812,7 +1814,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox cmbUnidadMedida;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.Label txtNombreSubCategoria;
         private System.Windows.Forms.Button btnBuscarCategoria;
         private System.Windows.Forms.Label label23;
         public System.Windows.Forms.Label txtIDCategoriaSeleccionada;
@@ -1857,5 +1858,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UPC;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductosID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CantidadVisita;
+        public System.Windows.Forms.TextBox txtNombreSubCategoria;
     }
 }

@@ -33,6 +33,7 @@ namespace SBEPAEscritorio
             ttmensaje.SetToolTip(NUDPrecioProducto, "El precio con el cual se registrara el producto, se registrara cada vez que se cambie");
         }
 
+        Boolean ProductoNoUnicoRegistrado = false;
 
         private void txtBuscarEn_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -233,37 +234,290 @@ namespace SBEPAEscritorio
                 txtFechaRegistroProducto.Text = Convert.ToString(fila.Cells["FechaRegistro"].Value);
                 txtIDSucursal.Text = Convert.ToString(fila.Cells["SucursalID"].Value);
                 txtMarca.Text = Convert.ToString(fila.Cells["Marca"].Value);
-                cmbEmbase.Text = Convert.ToString(fila.Cells["Envase"].Value);
+                cmbEmvase.Text = Convert.ToString(fila.Cells["Envase"].Value);
                 cmbUnidadMedida.Text = Convert.ToString(fila.Cells["UnidadMedida"].Value);
                 NUDCantidadMedida.Text = Convert.ToString(fila.Cells["CantidadMedida"].Value);
                 txtIDCategoriaSeleccionada.Text = Convert.ToString(fila.Cells["Id_subcategoria"].Value);
                 txtDescripcionProducto.Text = Convert.ToString(fila.Cells["DescripcionProducto"].Value);
 
-                /*
-                //Se extrae el rut del usuario
+                btnEliminarProducto.Enabled = true;
+
+                //Se extrae el nombre de la subcategoria
                 ComandosBDMySQL BuscarInfo = new ComandosBDMySQL();
                 try
                 {
                     BuscarInfo.AbrirConexionBD1();
-                    txtRUTAdmin.Text = BuscarInfo.RellenarTabla1("select RutUsuario from usuarios INNER JOIN credencialesusuarios ON usuarios.Id_usuario= credencialesusuarios.idUsuario INNER JOIN registrologinusuarios ON credencialesusuarios.idCredencialesUsuarios = registrologinusuarios.idCredencialUsuario where registrologinusuarios.idRegistroLoginUsuarios = " + txtIDAdmin.Text + ";").Rows[0]["RuUsuario"].ToString();
-                    txtIDAdmin.Text = BuscarInfo.RellenarTabla1("select Id_usuario from usuarios INNER JOIN credencialesusuarios ON usuarios.Id_usuario= credencialesusuarios.idUsuario INNER JOIN registrologinusuarios ON credencialesusuarios.idCredencialesUsuarios = registrologinusuarios.idCredencialUsuario where registrologinusuarios.idRegistroLoginUsuarios = " + txtIDAdmin.Text + ";").Rows[0]["Id_usuario"].ToString();
-                    txtNombreUsuarioCredencial.Text = BuscarInfo.RellenarTabla1("select NombreUsuario from credencialesusuarios INNER JOIN registrologinusuarios ON credencialesusuarios.idCredencialesUsuarios = registrologinusuarios.idCredencialUsuario where registrologinusuarios.idRegistroLoginUsuarios = " + txtIDRegistro.Text + ";").Rows[0]["NombreUsuario"].ToString();
+                    txtNombreSubCategoria.Text = BuscarInfo.RellenarTabla1("SELECT Nombre FROM sbepa2.subcategoria where idSubCategoria = "+ txtIDCategoriaSeleccionada.Text+ ";").Rows[0]["Nombre"].ToString();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al intentar extraer el Rut del Usuario de los registros de cambios ERROR: " + ex.Message + "", "Error extraer RUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al intentar extraer el Nombre de la Categoria asignada a el producto ERROR: " + ex.Message + "", "Error extraer Nombre de la Categoria", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
                     BuscarInfo.CerrarConexionBD1();
                 }
-                */
             }
         }
 
         private void btnNuevaProducto_Click(object sender, EventArgs e)
         {
-            
+            LimpiarCampos();
+        }
+
+        public void LimpiarCampos()
+        {
+            txtCantidadVisitasProducto.Text = "";
+            txtID.Text = "";
+            txtNombre.Text = "";
+            cmbProductoUnico.Text = "";
+            txtCodigoProducto.Text = "";
+            txtCodigoProducto.ReadOnly = false;
+            btnCorroborarProducto.Enabled = true;
+            gbDatosEspecificos.Enabled = false;
+            txtFechaRegistroProducto.Text = "";
+            txtMarca.Text = "";
+            cmbEmvase.Text = "";
+            cmbUnidadMedida.Text = "";
+            NUDCantidadMedida.Value = 1;
+            txtIDCategoriaSeleccionada.Text = "";
+            txtNombreSubCategoria.Text = "";
+            txtDescripcionProducto.Text = "";
+            NUDPrecioProducto.Value = 1;
+            btnEliminarProducto.Enabled = false;
+            ProductoNoUnicoRegistrado = false;
+            gbDatosBase.Enabled = true;
+            cmbProductoUnico.Enabled = true;
+
+        }
+
+        private Boolean VerificarDatosProducto()
+        {
+            //Se verifica que los campos requeridos tengan contenido
+            if (txtNombre.Text != "" && txtIDSucursal.Text != "" && txtMarca.Text != "" && txtIDCategoriaSeleccionada.Text != "" && txtDescripcionProducto.Text !="" && pbImageProducto.Image != null)
+            {
+                if (cmbProductoUnico.Text == "SI")
+                {
+                    //Si el producto es unico
+                    return true;
+                }
+                else
+                {
+                    if (txtCodigoProducto.Text != "")
+                    {
+                        //si no esta el UPC
+                        MessageBox.Show("Debe ingresar el Código Universal de Producto (UPC) si no es un producto unico","Falta ingresar UPC",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        return false;
+                    }
+                    else
+                    {
+                        //si esta el UPC
+                        return true;
+                    }
+                }
+            }
+            else
+            {
+                //Si a uno de los campos le falta contenido se muestra una advertencia
+                MessageBox.Show("Cada Producto a registrar o modificar debe tener un Nombre, una Sucursal Seleccionada, una marca, una Sub Categoria, una Descripcion del mismo producto y una imagen de el, verifique que estos datos estan ingresados", "Error Falta de Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+        }
+
+
+        private void btnGuardarProducto_Click(object sender, EventArgs e)
+        {
+            //Se verifica que esten todos los datos correcto
+            if (VerificarDatosProducto() == true)
+            {
+                if (txtID.Text == "")
+                {
+                    //SI el ID del producto esta vacio se registra
+                    ComandosBDMySQL GuardarProducto = new ComandosBDMySQL();
+                    GuardarProducto.AbrirConexionBD1();
+                    if (cmbProductoUnico.Text == "SI")
+                    {
+                        //Si el producto es Unico
+                        GuardarProducto.IngresarImagen("call sbepa2.InsertarProducto('" + txtNombre.Text + "', '"+txtMarca.Text+"', '"+ cmbEmvase.Text+ "', '"+ cmbUnidadMedida.Text + "', "+ NUDCantidadMedida.Value.ToString()+ ", "+ txtIDCategoriaSeleccionada.Text+ ", '"+ txtDescripcionProducto.Text+ "', @imagen, '"+ cmbProductoUnico.Text+ "', '"+ txtCodigoProducto.Text+ "');", pbImageProducto.Image);
+                        //Se extrae el ID el producto registrado y se registra en la tabla intermedia
+                        String IDProductoRegistrado = GuardarProducto.RellenarTabla1("SELECT idProducto FROM sbepa2.productos where Nombre = '"+txtNombre.Text+"' and Marca = '"+txtMarca+"' and Envase= '"+ cmbEmvase.Text + "' and DescripcionProducto = '"+txtDescripcionProducto.Text+"' order by idProducto desc LIMIT 1;").Rows[0]["idProducto"].ToString();
+                        GuardarProducto.IngresarConsulta1("call sbepa2.InsertarSucursalesProducto("+ txtIDSucursal.Text+ ", "+ IDProductoRegistrado + ");");
+                        //Se extraer el idSucursalProducto para poder registar el precio del producto
+                        String IDSucursalProducto = GuardarProducto.RellenarTabla1("SELECT idSucursalesProductos FROM sbepa2.sucursalesproductos where SucursalID = '"+txtIDSucursal.Text+"' and ProductosID = '"+ IDProductoRegistrado + "' order by idSucursalProducto desc LIMIT 1;").Rows[0]["idSucursalProducto"].ToString();
+                        GuardarProducto.IngresarConsulta1("call sbepa2.InsertarPreciosProductos("+ NUDPrecioProducto.Value.ToString()+ ", "+ IDSucursalProducto + ");");
+                        //Se registra el cambio
+                        GuardarProducto.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Productos', 'Insertar', 'REGISTRO EL PRODUCTO: CON EL NOMBRE" + txtNombre.Text + ", CON LA MARCA: "+txtMarca.Text+", CON EL EMVASE: "+ cmbEmvase.Text + ", CON LA UNIDAD DE MEDIDA: "+ cmbUnidadMedida.Text +", CON LA CANTIDAD DE MEDIDA: "+ NUDCantidadMedida.Value.ToString()+ ", CON EL ID DE SUB CATEGORIA: "+ txtIDCategoriaSeleccionada.Text + ", CON LA DESCRIPCION: "+ txtDescripcionProducto.Text + ", CON EL CODIGO DEL PRODUCTO: "+ txtCodigoProducto.Text+ ", EL CUAL FUE REGISTRADO CON EL ID DE PRODUCTO: "+ IDProductoRegistrado + " CON EL ID DE SUCURSAL-PRODUCTO: "+ IDSucursalProducto + ", CON EL PRECIO DE PRODUCTO: "+ NUDPrecioProducto.Value.ToString() + ");");
+                        GuardarProducto.CerrarConexionBD1();
+                        MessageBox.Show("El producto con nombre: "+ txtNombre.Text+ " y con codigo UPC: "+ txtCodigoProducto.Text+ " a sido correctamente registrado");
+                    }
+                    else
+                    { 
+                    
+                        //Si el producto no es unico y no se encuentra registrado
+
+                        //Si el producto no es unico y se encuentra registrado
+
+                    }
+
+                    
+                }
+                else
+                {
+                    //Si el ID el producto existe se modifica
+                }
+            }
+        }
+
+        private void btnBuscarImagen_Click(object sender, EventArgs e)
+        {
+            //Se crea la instancia y se abre el editor de imagenes
+            EditorImagen abrirEditorImagen = new EditorImagen();
+            if (abrirEditorImagen.ShowDialog() == DialogResult.OK)
+            {
+                //Si al cerrar el Form devuelve ok, se extrae la imagen recortada del Form;
+                pbImageProducto.Image = abrirEditorImagen.ImagenRecortadaAenviar.Image;
+            }
+        }
+
+        private void btnCorroborarProducto_Click(object sender, EventArgs e)
+        {
+            if (cmbProductoUnico.Text !="")
+            {
+                if (cmbProductoUnico.Text == "SI")
+                {
+                    if (txtNombre.Text != "")
+                    {
+                        //se revisa si el nombre del producto unico existe en sistema
+                        ComandosBDMySQL VerificarProducto = new ComandosBDMySQL();
+                        VerificarProducto.AbrirConexionBD1();
+                        Boolean ProductoRegistrado = VerificarProducto.VerificarExistenciaDato1("SELECT Nombre FROM sbepa2.productos where Nombre = '" + txtNombre.Text + "';");
+                        if (ProductoRegistrado == true)
+                        {
+                            MessageBox.Show("Ya existe un producto registrado con este nombre, pero al ser unico lo puede registrar igualmente, SE RECOMIENDA USAR UN NOMBRE MAS AUTENTICO, por ejemplo agregarle el nombre de su tienda al final", "Nombre Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            gbDatosEspecificos.Enabled = true;
+                            gbDatosBase.Enabled = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("NO existe un producto registrado con este nombre, el nombre es autentico", "Nombre Disponible", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            gbDatosEspecificos.Enabled = true;
+                            gbDatosBase.Enabled = false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe INGRESAR EL NOMBRE DEL PRODUCTO unico para ser verificado", "Falta Nombre", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                else if (cmbProductoUnico.Text == "NO")
+                {
+                    if (txtCodigoProducto.Text != "" && txtNombre.Text != "")
+                    {
+                        //se revisa si el nombre del producto NO Unico existe en sistema
+                        ComandosBDMySQL VerificarProducto = new ComandosBDMySQL();
+                        VerificarProducto.AbrirConexionBD1();
+                        Boolean ProductoRegistrado = VerificarProducto.VerificarExistenciaDato1("SELECT idProducto FROM sbepa2.productos where UPC = '" + txtCodigoProducto.Text + "';");
+                        if (ProductoRegistrado == true)
+                        {
+                            MessageBox.Show("Ya existe un producto NO UNICO registrado con este nombre, se cargaran sus datos de forma automática, si considera que falta información del producto debe ser actualizada o modificada, debe dirigirse al menú principal y buscarlo en la sección ‘Cambios Info Producto’ para actualizar su información, la cual podrá ser aprobada por los administradores", "Nombre Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            gbDatosEspecificos.Enabled = true;
+                            ProductoNoUnicoRegistrado = true;
+
+                            //Se cargan los datos registrados del producto
+                            DataTable DatosProductoNoUnico = new DataTable();
+                            DatosProductoNoUnico = VerificarProducto.RellenarTabla1("SELECT * FROM sbepa2.productos where UPC = '" + txtCodigoProducto.Text + "';");
+                            txtID.Text = DatosProductoNoUnico.Rows[0]["idProducto"].ToString();
+                            txtNombre.Text = DatosProductoNoUnico.Rows[0]["Nombre"].ToString();
+                            cmbProductoUnico.Text = "NO";
+                            txtCodigoProducto.Text = DatosProductoNoUnico.Rows[0]["UPC"].ToString();
+                            txtFechaRegistroProducto.Text = DatosProductoNoUnico.Rows[0]["FechaRegistro"].ToString();
+                            txtMarca.Text = DatosProductoNoUnico.Rows[0]["Marca"].ToString();
+                            cmbEmvase.Text = DatosProductoNoUnico.Rows[0]["Envase"].ToString();
+                            cmbUnidadMedida.Text = DatosProductoNoUnico.Rows[0]["UnidadMedida"].ToString();
+                            NUDCantidadMedida.Value = Convert.ToInt32(DatosProductoNoUnico.Rows[0]["CantidadMedida"].ToString());
+                            txtIDCategoriaSeleccionada.Text = DatosProductoNoUnico.Rows[0]["Id_subcategoria"].ToString();
+                            txtDescripcionProducto.Text = DatosProductoNoUnico.Rows[0]["DescripcionProducto"].ToString();
+
+                            //Se extrae el nombre de la categoria
+                            txtNombreSubCategoria.Text = VerificarProducto.RellenarTabla1("SELECT Nombre FROM sbepa2.subcategoria where idSubCategoria = '" + txtIDCategoriaSeleccionada.Text + "';").Rows[0]["Nombre"].ToString();
+
+                            //Se extrae la foto del producto
+                            try
+                            {
+                                VerificarProducto.AbrirConexionBD1();
+                                DataTable VerificarLogo = new DataTable();
+                                VerificarLogo = VerificarProducto.RellenarTabla1("SELECT ImagenProducto FROM sbepa2.productos where idProducto = '" + txtID.Text + "';");
+
+                                if (VerificarLogo.Rows[0][0].ToString() != "")
+                                {
+                                    //Si la imagen del producto esta guardada
+                                    pbImageProducto.Image = VerificarProducto.ExtraerImagen("SELECT ImagenProducto FROM sbepa2.productos where idProducto = '" + txtID.Text + "';");
+                                }
+                                else
+                                {
+                                    //Si la imagen del producto no esta guardado
+                                    MessageBox.Show("El Producto Registrado con el nombre " + txtNombre.Text + " NO TIENE UNA IMAGEN ALMACENADA", "Imagen no encontrada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                VerificarProducto.CerrarConexionBD1();
+
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("No se puedo Extraer la Imagen del Producto ERROR:" + ex.Message, "Error Cargar Imagen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            finally
+                            {
+                                VerificarProducto.CerrarConexionBD1();
+                            }
+                            gbDatosBase.Enabled = false;
+                            btnBuscarSucursal.Enabled = true;
+                            txtMarca.Enabled = false;
+                            cmbEmvase.Enabled = false;
+                            cmbUnidadMedida.Enabled = false;
+                            NUDCantidadMedida.Enabled = false;
+                            btnBuscarCategoria.Enabled = false;
+                            txtNombreSubCategoria.Enabled = false;
+                            txtDescripcionProducto.Enabled = false;
+                            NUDPrecioProducto.Enabled = true;
+                            txtIDSucursal.Text = "";
+                        }
+                        else
+                        {
+                            MessageBox.Show("NO existe un producto registrado con este nombre, el nombre es autentico", "Nombre Disponible", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            gbDatosEspecificos.Enabled = true;
+                            ProductoNoUnicoRegistrado = false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe ingresar el Código Universal de Producto (UPC) y el Nombre del Producto", "Falta UPC", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar si el Producto es Unico o no en el cuadro '¿Producto Unico?'","Falta seleccion",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void cmbProductoUnico_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbProductoUnico.Text == "SI")
+            {
+                txtCodigoProducto.Text = "Es Unico";
+                txtCodigoProducto.Enabled = false;
+            }
+            else
+            {
+                txtCodigoProducto.Enabled = true;
+                txtCodigoProducto.Text = "";
+            }
+        }
+
+        private void btnBuscarCategoria_Click(object sender, EventArgs e)
+        {
+            ProductosBuscarCategoria abrirbuscar = new ProductosBuscarCategoria();
+            abrirbuscar.ShowDialog();
         }
     }
 }

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductosBuscarCategoria));
             this.Barra = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
@@ -37,10 +37,6 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label21 = new System.Windows.Forms.Label();
             this.dgbCategoria = new System.Windows.Forms.DataGridView();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoriaSimple = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDSubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -49,6 +45,12 @@
             this.cmbBuscarEn = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.idSubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreSubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCategoriaSimple = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCategoriaSimple = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCategorias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
@@ -128,64 +130,35 @@
             this.dgbCategoria.AllowUserToResizeRows = false;
             this.dgbCategoria.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dgbCategoria.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgbCategoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbCategoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgbCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgbCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Categoria,
-            this.CategoriaSimple,
-            this.SubCategoria,
-            this.IDSubCategoria});
+            this.idSubCategoria,
+            this.NombreSubCategoria,
+            this.idCategoriaSimple,
+            this.NombreCategoriaSimple,
+            this.idCategorias,
+            this.NombreCategoria});
             this.dgbCategoria.EnableHeadersVisualStyles = false;
             this.dgbCategoria.Location = new System.Drawing.Point(6, 99);
             this.dgbCategoria.Name = "dgbCategoria";
             this.dgbCategoria.ReadOnly = true;
             this.dgbCategoria.RowHeadersVisible = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Cyan;
-            this.dgbCategoria.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Cyan;
+            this.dgbCategoria.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgbCategoria.Size = new System.Drawing.Size(724, 295);
             this.dgbCategoria.TabIndex = 72;
             this.dgbCategoria.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbCategoria_CellDoubleClick);
-            // 
-            // Categoria
-            // 
-            this.Categoria.DataPropertyName = "Categoria";
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 200;
-            // 
-            // CategoriaSimple
-            // 
-            this.CategoriaSimple.DataPropertyName = "CategoriaSimple";
-            this.CategoriaSimple.HeaderText = "CategoriaSimple";
-            this.CategoriaSimple.Name = "CategoriaSimple";
-            this.CategoriaSimple.ReadOnly = true;
-            this.CategoriaSimple.Width = 200;
-            // 
-            // SubCategoria
-            // 
-            this.SubCategoria.DataPropertyName = "SubCategoria";
-            this.SubCategoria.HeaderText = "SubCategoria";
-            this.SubCategoria.Name = "SubCategoria";
-            this.SubCategoria.ReadOnly = true;
-            this.SubCategoria.Width = 200;
-            // 
-            // IDSubCategoria
-            // 
-            this.IDSubCategoria.DataPropertyName = "IDSubCategoria";
-            this.IDSubCategoria.HeaderText = "IDSubCategoria";
-            this.IDSubCategoria.Name = "IDSubCategoria";
-            this.IDSubCategoria.ReadOnly = true;
             // 
             // label1
             // 
@@ -249,9 +222,12 @@
             this.cmbBuscarEn.ForeColor = System.Drawing.Color.White;
             this.cmbBuscarEn.FormattingEnabled = true;
             this.cmbBuscarEn.Items.AddRange(new object[] {
-            "Categoria",
-            "CategoriaSimple",
-            "SubCategoria"});
+            "idCategoria",
+            "NombreCategoria",
+            "idCategoriaSimple",
+            "NombreCategoriaSimple",
+            "idSubCategoria",
+            "NombreSubCategoria"});
             this.cmbBuscarEn.Location = new System.Drawing.Point(97, 23);
             this.cmbBuscarEn.Name = "cmbBuscarEn";
             this.cmbBuscarEn.Size = new System.Drawing.Size(121, 21);
@@ -276,6 +252,54 @@
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox11.TabIndex = 166;
             this.pictureBox11.TabStop = false;
+            // 
+            // idSubCategoria
+            // 
+            this.idSubCategoria.DataPropertyName = "idSubCategoria";
+            this.idSubCategoria.HeaderText = "idSubCategoria";
+            this.idSubCategoria.Name = "idSubCategoria";
+            this.idSubCategoria.ReadOnly = true;
+            this.idSubCategoria.Width = 80;
+            // 
+            // NombreSubCategoria
+            // 
+            this.NombreSubCategoria.DataPropertyName = "NombreSubCategoria";
+            this.NombreSubCategoria.HeaderText = "NombreSubCategoria";
+            this.NombreSubCategoria.Name = "NombreSubCategoria";
+            this.NombreSubCategoria.ReadOnly = true;
+            this.NombreSubCategoria.Width = 160;
+            // 
+            // idCategoriaSimple
+            // 
+            this.idCategoriaSimple.DataPropertyName = "idCategoriaSimple";
+            this.idCategoriaSimple.HeaderText = "idCategoriaSimple";
+            this.idCategoriaSimple.Name = "idCategoriaSimple";
+            this.idCategoriaSimple.ReadOnly = true;
+            this.idCategoriaSimple.Width = 80;
+            // 
+            // NombreCategoriaSimple
+            // 
+            this.NombreCategoriaSimple.DataPropertyName = "NombreCategoriaSimple";
+            this.NombreCategoriaSimple.HeaderText = "NombreCategoriaSimple";
+            this.NombreCategoriaSimple.Name = "NombreCategoriaSimple";
+            this.NombreCategoriaSimple.ReadOnly = true;
+            this.NombreCategoriaSimple.Width = 150;
+            // 
+            // idCategorias
+            // 
+            this.idCategorias.DataPropertyName = "idCategorias";
+            this.idCategorias.HeaderText = "idCategorias";
+            this.idCategorias.Name = "idCategorias";
+            this.idCategorias.ReadOnly = true;
+            this.idCategorias.Width = 80;
+            // 
+            // NombreCategoria
+            // 
+            this.NombreCategoria.DataPropertyName = "NombreCategoria";
+            this.NombreCategoria.HeaderText = "NombreCategoria";
+            this.NombreCategoria.Name = "NombreCategoria";
+            this.NombreCategoria.ReadOnly = true;
+            this.NombreCategoria.Width = 150;
             // 
             // ProductosBuscarCategoria
             // 
@@ -318,10 +342,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DataGridView dgbCategoria;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoriaSimple;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDSubCategoria;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtBuscarEn;
@@ -329,5 +349,11 @@
         private System.Windows.Forms.ComboBox cmbBuscarEn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idSubCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreSubCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCategoriaSimple;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCategoriaSimple;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCategorias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCategoria;
     }
 }

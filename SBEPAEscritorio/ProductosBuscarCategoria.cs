@@ -32,7 +32,7 @@ namespace SBEPAEscritorio
         private void ProductosBuscarCategoria_Load(object sender, EventArgs e)
         {    
             CargarCategorias();
-            cmbBuscarEn.Text = "SubCategoria";
+            cmbBuscarEn.Text = "Nombre Sub Categoria";
         }
 
         private void CargarCategorias()
@@ -41,7 +41,7 @@ namespace SBEPAEscritorio
             try
             {
                 cargarCategorias.AbrirConexionBD1();
-                dgbCategoria.DataSource = cargarCategorias.RellenarTabla1("SELECT * FROM sbepa.vista_categorias_unidas;");
+                dgbCategoria.DataSource = cargarCategorias.RellenarTabla1("select idCategorias, categorias.nombre as 'NombreCategoria', categoriasimple.idCategoriaSimple, categoriasimple.Nombre as 'NombreCategoriaSimple',subcategoria.idSubCategoria, subcategoria.nombre as 'NombreSubCategoria' from categorias inner join CategoriaSimple on categorias.idCategorias = categoriasimple.id_categorias inner join subcategoria on categoriasimple.idCategoriaSimple = subcategoria.idCategoriaSimple;");
             }
             catch (Exception ex)
             {
@@ -60,18 +60,7 @@ namespace SBEPAEscritorio
             try
             {
                 cargarBusquedaCategoria.AbrirConexionBD1();
-                if (cmbBuscarEn.Text == "Categoria")
-                {
-                    dgbCategoria.DataSource = cargarBusquedaCategoria.RellenarTabla1("SELECT categorias.nombre as 'Categoria', categoria_simple.nombre_categoriasimple 'CategoriaSimple', sub_categoria.nombre_categoria as 'SubCategoria', sub_categoria.id_subcategoria as 'IDSubCategoria' FROM categorias inner join categoria_simple on categorias.idcategoria = categoria_simple.id_categorias inner join sub_categoria on categoria_simple.id_categoriasimple = sub_categoria.id_categoria_simple where categorias.nombre LIKE '%" + txtBuscarEn.Text + "%'; ");
-                }
-                else if (cmbBuscarEn.Text == "CategoriaSimple")
-                {
-                    dgbCategoria.DataSource = cargarBusquedaCategoria.RellenarTabla1("SELECT categorias.nombre as 'Categoria', categoria_simple.nombre_categoriasimple 'CategoriaSimple', sub_categoria.nombre_categoria as 'SubCategoria', sub_categoria.id_subcategoria as 'IDSubCategoria' FROM categorias inner join categoria_simple on categorias.idcategoria = categoria_simple.id_categorias inner join sub_categoria on categoria_simple.id_categoriasimple = sub_categoria.id_categoria_simple where categoria_simple.nombre_categoriasimple LIKE '%" + txtBuscarEn.Text + "%'; ");
-                }
-                else
-                {
-                    dgbCategoria.DataSource = cargarBusquedaCategoria.RellenarTabla1("SELECT categorias.nombre as 'Categoria', categoria_simple.nombre_categoriasimple 'CategoriaSimple', sub_categoria.nombre_categoria as 'SubCategoria', sub_categoria.id_subcategoria as 'IDSubCategoria' FROM categorias inner join categoria_simple on categorias.idcategoria = categoria_simple.id_categorias inner join sub_categoria on categoria_simple.id_categoriasimple = sub_categoria.id_categoria_simple where sub_categoria.nombre_categoria LIKE '%" + txtBuscarEn.Text + "%'; ");
-                }
+                dgbCategoria.DataSource = cargarBusquedaCategoria.RellenarTabla1("call sbepa2.BuscarCategoriasTodas('"+ cmbBuscarEn.Text+ "', '"+ txtBuscarEn.Text+ "', 0, 9999999);");
             }
             catch (Exception ex)
             {
@@ -91,7 +80,7 @@ namespace SBEPAEscritorio
                 //Se extraen los datos de la sucursal
                 DataGridViewRow fila = dgbCategoria.Rows[e.RowIndex];
                 String IDSubCategoria = Convert.ToString(fila.Cells["IDSubCategoria"].Value);
-                String NombreSubCategoria = Convert.ToString(fila.Cells["SubCategoria"].Value);
+                String NombreSubCategoria = Convert.ToString(fila.Cells["NombreSubCategoria"].Value);
 
                 //Se crea una instancia especial para enviar los datos entre los 2 forms 
                 Productos f1 = Application.OpenForms.OfType<Productos>().SingleOrDefault();
