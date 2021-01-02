@@ -28,14 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrosLoginUsuarios));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrosLoginUsuarios));
             this.Barra = new System.Windows.Forms.Panel();
+            this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.picLupa = new System.Windows.Forms.PictureBox();
             this.lnlParametrosABuscar = new System.Windows.Forms.Label();
             this.txtRegistrosEncontradosSuperior = new System.Windows.Forms.Label();
             this.txtBuscarEn = new System.Windows.Forms.TextBox();
@@ -44,14 +50,12 @@
             this.txtPaginasDisponiblesBusqueda = new System.Windows.Forms.Label();
             this.cmbBuscarEn = new System.Windows.Forms.ComboBox();
             this.lblPaginaActualBusqueda = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPaginasDisponibles = new System.Windows.Forms.Label();
             this.nudPaginaActualBuscar = new System.Windows.Forms.NumericUpDown();
             this.lblRecargar = new System.Windows.Forms.Label();
-            this.dgbCambiosAdmins = new System.Windows.Forms.DataGridView();
-            this.idRegistroLoginAdministradores = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCredencialAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnActualizar = new System.Windows.Forms.PictureBox();
+            this.pbBuscarTienda = new System.Windows.Forms.PictureBox();
             this.btnCambiarPagina = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.lblPaginaActual = new System.Windows.Forms.Label();
@@ -64,9 +68,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtFechaInicioSesion = new System.Windows.Forms.TextBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.txtRUTAdmin = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnGuardarRegistro = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtIDAdmin = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -77,37 +84,30 @@
             this.nudPaginaActual = new System.Windows.Forms.NumericUpDown();
             this.txtPaginasDisponibles = new System.Windows.Forms.Label();
             this.lblCantidadTotalRegistros = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.picLupa = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnActualizar = new System.Windows.Forms.PictureBox();
-            this.pbBuscarTienda = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.idCredencialAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idRegistroLoginAdministradores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgbCambiosAdmins = new System.Windows.Forms.DataGridView();
             this.Barra.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActualBuscar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgbCambiosAdmins)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLupa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBuscarTienda)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLupa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActualBuscar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBuscarTienda)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbCambiosAdmins)).BeginInit();
             this.SuspendLayout();
             // 
             // Barra
@@ -127,6 +127,41 @@
             this.Barra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Barra_MouseDown);
             this.Barra.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Barra_MouseMove);
             this.Barra.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Barra_MouseUp);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimizar.Image = global::SBEPAEscritorio.Properties.Resources.icons8_minimizar_la_ventana_48;
+            this.btnMinimizar.Location = new System.Drawing.Point(746, 0);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(20, 20);
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMinimizar.TabIndex = 26;
+            this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // pictureBox20
+            // 
+            this.pictureBox20.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox20.Image = global::SBEPAEscritorio.Properties.Resources.LogoPequeño;
+            this.pictureBox20.Location = new System.Drawing.Point(1, -1);
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Size = new System.Drawing.Size(21, 21);
+            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox20.TabIndex = 25;
+            this.pictureBox20.TabStop = false;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = global::SBEPAEscritorio.Properties.Resources.icons8_cerrar_ventana_48;
+            this.btnCerrar.Location = new System.Drawing.Point(766, 0);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(20, 20);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.TabIndex = 23;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // lblTitulo
             // 
@@ -164,6 +199,16 @@
             this.panel2.Size = new System.Drawing.Size(788, 478);
             this.panel2.TabIndex = 159;
             // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(743, 4);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -197,6 +242,27 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Visible = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::SBEPAEscritorio.Properties.Resources.Clientes;
+            this.pictureBox2.Location = new System.Drawing.Point(53, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(46, 46);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 65;
+            this.pictureBox2.TabStop = false;
+            // 
+            // picLupa
+            // 
+            this.picLupa.Image = ((System.Drawing.Image)(resources.GetObject("picLupa.Image")));
+            this.picLupa.Location = new System.Drawing.Point(610, 0);
+            this.picLupa.Name = "picLupa";
+            this.picLupa.Size = new System.Drawing.Size(50, 32);
+            this.picLupa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLupa.TabIndex = 132;
+            this.picLupa.TabStop = false;
+            this.picLupa.Visible = false;
             // 
             // lnlParametrosABuscar
             // 
@@ -290,6 +356,16 @@
             this.lblPaginaActualBusqueda.Text = "Pagina Actual:";
             this.lblPaginaActualBusqueda.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SBEPAEscritorio.Properties.Resources.Llave;
+            this.pictureBox1.Location = new System.Drawing.Point(5, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(46, 46);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 56;
+            this.pictureBox1.TabStop = false;
+            // 
             // lblPaginasDisponibles
             // 
             this.lblPaginasDisponibles.AutoSize = true;
@@ -324,72 +400,26 @@
             this.lblRecargar.TabIndex = 157;
             this.lblRecargar.Text = "Recargar";
             // 
-            // dgbCambiosAdmins
+            // btnActualizar
             // 
-            this.dgbCambiosAdmins.AllowUserToAddRows = false;
-            this.dgbCambiosAdmins.AllowUserToDeleteRows = false;
-            this.dgbCambiosAdmins.AllowUserToResizeRows = false;
-            this.dgbCambiosAdmins.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dgbCambiosAdmins.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgbCambiosAdmins.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgbCambiosAdmins.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgbCambiosAdmins.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idRegistroLoginAdministradores,
-            this.FechaInicio,
-            this.IP,
-            this.idCredencialAdmin});
-            this.dgbCambiosAdmins.EnableHeadersVisualStyles = false;
-            this.dgbCambiosAdmins.Location = new System.Drawing.Point(3, 81);
-            this.dgbCambiosAdmins.Name = "dgbCambiosAdmins";
-            this.dgbCambiosAdmins.ReadOnly = true;
-            this.dgbCambiosAdmins.RowHeadersVisible = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Cyan;
-            this.dgbCambiosAdmins.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgbCambiosAdmins.Size = new System.Drawing.Size(539, 337);
-            this.dgbCambiosAdmins.TabIndex = 145;
-            this.dgbCambiosAdmins.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbCambiosAdmins_CellContentClick);
+            this.btnActualizar.Image = global::SBEPAEscritorio.Properties.Resources.actualizar;
+            this.btnActualizar.Location = new System.Drawing.Point(477, 436);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(50, 36);
+            this.btnActualizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnActualizar.TabIndex = 156;
+            this.btnActualizar.TabStop = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // idRegistroLoginAdministradores
+            // pbBuscarTienda
             // 
-            this.idRegistroLoginAdministradores.DataPropertyName = "idRegistroLoginAdministradores";
-            this.idRegistroLoginAdministradores.HeaderText = "idRegistroLoginAdministradores";
-            this.idRegistroLoginAdministradores.Name = "idRegistroLoginAdministradores";
-            this.idRegistroLoginAdministradores.ReadOnly = true;
-            this.idRegistroLoginAdministradores.Width = 190;
-            // 
-            // FechaInicio
-            // 
-            this.FechaInicio.DataPropertyName = "FechaInicio";
-            this.FechaInicio.HeaderText = "FechaInicio";
-            this.FechaInicio.Name = "FechaInicio";
-            this.FechaInicio.ReadOnly = true;
-            this.FechaInicio.Width = 150;
-            // 
-            // IP
-            // 
-            this.IP.DataPropertyName = "IP";
-            this.IP.HeaderText = "IP";
-            this.IP.Name = "IP";
-            this.IP.ReadOnly = true;
-            this.IP.Width = 120;
-            // 
-            // idCredencialAdmin
-            // 
-            this.idCredencialAdmin.DataPropertyName = "idCredencialAdmin";
-            this.idCredencialAdmin.HeaderText = "idCredencialAdmin";
-            this.idCredencialAdmin.Name = "idCredencialAdmin";
-            this.idCredencialAdmin.ReadOnly = true;
-            this.idCredencialAdmin.Width = 110;
+            this.pbBuscarTienda.Image = global::SBEPAEscritorio.Properties.Resources.info;
+            this.pbBuscarTienda.Location = new System.Drawing.Point(-31, 57);
+            this.pbBuscarTienda.Name = "pbBuscarTienda";
+            this.pbBuscarTienda.Size = new System.Drawing.Size(20, 20);
+            this.pbBuscarTienda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBuscarTienda.TabIndex = 147;
+            this.pbBuscarTienda.TabStop = false;
             // 
             // btnCambiarPagina
             // 
@@ -522,6 +552,16 @@
             this.txtFechaInicioSesion.Size = new System.Drawing.Size(209, 20);
             this.txtFechaInicioSesion.TabIndex = 150;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::SBEPAEscritorio.Properties.Resources.pdf;
+            this.pictureBox5.Location = new System.Drawing.Point(183, 360);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(45, 45);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 149;
+            this.pictureBox5.TabStop = false;
+            // 
             // txtRUTAdmin
             // 
             this.txtRUTAdmin.Location = new System.Drawing.Point(104, 92);
@@ -540,6 +580,16 @@
             this.label12.TabIndex = 145;
             this.label12.Text = "RUT Admin:";
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::SBEPAEscritorio.Properties.Resources.guardar;
+            this.pictureBox4.Location = new System.Drawing.Point(8, 360);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(45, 45);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 144;
+            this.pictureBox4.TabStop = false;
+            // 
             // btnGuardarRegistro
             // 
             this.btnGuardarRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -550,6 +600,16 @@
             this.btnGuardarRegistro.Text = "Guardar Registro";
             this.btnGuardarRegistro.UseVisualStyleBackColor = true;
             this.btnGuardarRegistro.Click += new System.EventHandler(this.btnGuardarRegistro_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::SBEPAEscritorio.Properties.Resources.lista;
+            this.pictureBox3.Location = new System.Drawing.Point(198, 3);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(36, 37);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 134;
+            this.pictureBox3.TabStop = false;
             // 
             // label10
             // 
@@ -647,132 +707,72 @@
             this.lblCantidadTotalRegistros.TabIndex = 154;
             this.lblCantidadTotalRegistros.Text = "Cantidad Registros:";
             // 
-            // pictureBox2
+            // idCredencialAdmin
             // 
-            this.pictureBox2.Image = global::SBEPAEscritorio.Properties.Resources.Clientes;
-            this.pictureBox2.Location = new System.Drawing.Point(53, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(46, 46);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 65;
-            this.pictureBox2.TabStop = false;
+            this.idCredencialAdmin.DataPropertyName = "idCredencialAdmin";
+            this.idCredencialAdmin.HeaderText = "idCredencialAdmin";
+            this.idCredencialAdmin.Name = "idCredencialAdmin";
+            this.idCredencialAdmin.ReadOnly = true;
+            this.idCredencialAdmin.Width = 110;
             // 
-            // picLupa
+            // IP
             // 
-            this.picLupa.Image = ((System.Drawing.Image)(resources.GetObject("picLupa.Image")));
-            this.picLupa.Location = new System.Drawing.Point(610, 0);
-            this.picLupa.Name = "picLupa";
-            this.picLupa.Size = new System.Drawing.Size(50, 32);
-            this.picLupa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLupa.TabIndex = 132;
-            this.picLupa.TabStop = false;
-            this.picLupa.Visible = false;
+            this.IP.DataPropertyName = "IP";
+            this.IP.HeaderText = "IP";
+            this.IP.Name = "IP";
+            this.IP.ReadOnly = true;
+            this.IP.Width = 120;
             // 
-            // pictureBox1
+            // FechaInicio
             // 
-            this.pictureBox1.Image = global::SBEPAEscritorio.Properties.Resources.Llave;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(46, 46);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 56;
-            this.pictureBox1.TabStop = false;
+            this.FechaInicio.DataPropertyName = "FechaInicio";
+            this.FechaInicio.HeaderText = "FechaInicio";
+            this.FechaInicio.Name = "FechaInicio";
+            this.FechaInicio.ReadOnly = true;
+            this.FechaInicio.Width = 150;
             // 
-            // btnActualizar
+            // idRegistroLoginAdministradores
             // 
-            this.btnActualizar.Image = global::SBEPAEscritorio.Properties.Resources.actualizar;
-            this.btnActualizar.Location = new System.Drawing.Point(477, 436);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(50, 36);
-            this.btnActualizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnActualizar.TabIndex = 156;
-            this.btnActualizar.TabStop = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            this.idRegistroLoginAdministradores.DataPropertyName = "idRegistroLoginAdministradores";
+            this.idRegistroLoginAdministradores.HeaderText = "idRegistroLoginAdministradores";
+            this.idRegistroLoginAdministradores.Name = "idRegistroLoginAdministradores";
+            this.idRegistroLoginAdministradores.ReadOnly = true;
+            this.idRegistroLoginAdministradores.Width = 190;
             // 
-            // pbBuscarTienda
+            // dgbCambiosAdmins
             // 
-            this.pbBuscarTienda.Image = global::SBEPAEscritorio.Properties.Resources.info;
-            this.pbBuscarTienda.Location = new System.Drawing.Point(-31, 57);
-            this.pbBuscarTienda.Name = "pbBuscarTienda";
-            this.pbBuscarTienda.Size = new System.Drawing.Size(20, 20);
-            this.pbBuscarTienda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbBuscarTienda.TabIndex = 147;
-            this.pbBuscarTienda.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::SBEPAEscritorio.Properties.Resources.pdf;
-            this.pictureBox5.Location = new System.Drawing.Point(183, 360);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 149;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::SBEPAEscritorio.Properties.Resources.guardar;
-            this.pictureBox4.Location = new System.Drawing.Point(8, 360);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 144;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::SBEPAEscritorio.Properties.Resources.lista;
-            this.pictureBox3.Location = new System.Drawing.Point(198, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(36, 37);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 134;
-            this.pictureBox3.TabStop = false;
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinimizar.Image = global::SBEPAEscritorio.Properties.Resources.icons8_minimizar_la_ventana_48;
-            this.btnMinimizar.Location = new System.Drawing.Point(746, 0);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(20, 20);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMinimizar.TabIndex = 26;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
-            // 
-            // pictureBox20
-            // 
-            this.pictureBox20.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pictureBox20.Image = global::SBEPAEscritorio.Properties.Resources.LogoPequeño;
-            this.pictureBox20.Location = new System.Drawing.Point(1, -1);
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.Size = new System.Drawing.Size(21, 21);
-            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox20.TabIndex = 25;
-            this.pictureBox20.TabStop = false;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::SBEPAEscritorio.Properties.Resources.icons8_cerrar_ventana_48;
-            this.btnCerrar.Location = new System.Drawing.Point(766, 0);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(20, 20);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 23;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
-            this.pictureBox11.Location = new System.Drawing.Point(743, 4);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox11.TabIndex = 166;
-            this.pictureBox11.TabStop = false;
+            this.dgbCambiosAdmins.AllowUserToAddRows = false;
+            this.dgbCambiosAdmins.AllowUserToDeleteRows = false;
+            this.dgbCambiosAdmins.AllowUserToResizeRows = false;
+            this.dgbCambiosAdmins.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dgbCambiosAdmins.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbCambiosAdmins.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgbCambiosAdmins.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgbCambiosAdmins.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idRegistroLoginAdministradores,
+            this.FechaInicio,
+            this.IP,
+            this.idCredencialAdmin});
+            this.dgbCambiosAdmins.EnableHeadersVisualStyles = false;
+            this.dgbCambiosAdmins.Location = new System.Drawing.Point(3, 81);
+            this.dgbCambiosAdmins.Name = "dgbCambiosAdmins";
+            this.dgbCambiosAdmins.ReadOnly = true;
+            this.dgbCambiosAdmins.RowHeadersVisible = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Cyan;
+            this.dgbCambiosAdmins.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgbCambiosAdmins.Size = new System.Drawing.Size(539, 337);
+            this.dgbCambiosAdmins.TabIndex = 145;
+            this.dgbCambiosAdmins.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbCambiosAdmins_CellContentClick);
             // 
             // RegistrosLoginUsuarios
             // 
@@ -789,27 +789,27 @@
             this.Text = "Registros Login Usuarios";
             this.Barra.ResumeLayout(false);
             this.Barra.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActualBuscar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgbCambiosAdmins)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picLupa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBuscarTienda)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLupa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActualBuscar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBuscarTienda)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbCambiosAdmins)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -838,11 +838,6 @@
         private System.Windows.Forms.Label lblPaginasDisponibles;
         private System.Windows.Forms.NumericUpDown nudPaginaActualBuscar;
         private System.Windows.Forms.Label lblRecargar;
-        private System.Windows.Forms.DataGridView dgbCambiosAdmins;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idRegistroLoginAdministradores;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idCredencialAdmin;
         private System.Windows.Forms.PictureBox btnActualizar;
         private System.Windows.Forms.PictureBox pbBuscarTienda;
         private System.Windows.Forms.Button btnCambiarPagina;
@@ -874,5 +869,10 @@
         private System.Windows.Forms.Label txtPaginasDisponibles;
         private System.Windows.Forms.Label lblCantidadTotalRegistros;
         private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.DataGridView dgbCambiosAdmins;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idRegistroLoginAdministradores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCredencialAdmin;
     }
 }

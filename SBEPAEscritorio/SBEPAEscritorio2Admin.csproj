@@ -399,6 +399,7 @@
     <Content Include="Logo.ico" />
     <Content Include="Logo.png" />
     <Content Include="LogoPequeño.ico" />
+    <None Include="Resources\CambiosProducto.png" />
     <None Include="Resources\MiniLogo.png" />
     <None Include="Resources\dinero.png" />
     <None Include="Resources\Productos1.png" />

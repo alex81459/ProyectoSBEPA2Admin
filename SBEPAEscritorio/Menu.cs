@@ -210,12 +210,6 @@ namespace SBEPAEscritorio
             abrirRegistrosUsuario.ShowDialog();
         }
 
-        private void pictureBox16_Click(object sender, EventArgs e)
-        {
-            RegistrosAccesos abrirRegistros = new RegistrosAccesos();
-            abrirRegistros.ShowDialog();
-        }
-
         private void pictureBox15_Click(object sender, EventArgs e)
         {
             RegistrosCambiosUsuario abrirRegistrosUsuario = new RegistrosCambiosUsuario();
