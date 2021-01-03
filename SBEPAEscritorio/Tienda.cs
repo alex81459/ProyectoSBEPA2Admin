@@ -364,7 +364,7 @@ namespace SBEPAEscritorio
             try
             {
                 SiguientePagina.AbrirConexionBD1();
-                dgbTiendas.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.tienda limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
+                dgbTiendas.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.tienda ORDER BY tienda.Idtienda DESC limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
             }
             catch (Exception ex)
             {

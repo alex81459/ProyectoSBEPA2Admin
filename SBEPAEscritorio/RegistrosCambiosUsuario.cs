@@ -110,7 +110,7 @@ namespace SBEPAEscritorio
             try
             {
                 SiguientePagina.AbrirConexionBD1();
-                dgbCambiosUsuarios.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.registrocambiosusuario limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
+                dgbCambiosUsuarios.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.registrocambiosusuario ORDER BY registrocambiosusuario.idRegistroCambiosUsuario DESC limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
             }
             catch (Exception ex)
             {

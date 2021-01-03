@@ -189,6 +189,12 @@
     <Compile Include="ProductosBuscarCategoria.Designer.cs">
       <DependentUpon>ProductosBuscarCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductosBuscarSucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductosBuscarSucursal.Designer.cs">
+      <DependentUpon>ProductosBuscarSucursal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrosCambiosAdmin.cs">
@@ -307,6 +313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductosBuscarCategoria.resx">
       <DependentUpon>ProductosBuscarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductosBuscarSucursal.resx">
+      <DependentUpon>ProductosBuscarSucursal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

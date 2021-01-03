@@ -153,7 +153,7 @@ namespace SBEPAEscritorio
             try
             {
                 SiguientePagina.AbrirConexionBD1();
-                dgbUsuarios.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.usuarios limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
+                dgbUsuarios.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.usuarios ORDER BY usuarios.Id_usuario DESC limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
             }
             catch (Exception ex)
             {

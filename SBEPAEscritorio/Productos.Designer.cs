@@ -148,7 +148,6 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btnGuardarProducto = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.cbImagenProductoSeleccionada = new System.Windows.Forms.CheckBox();
             this.pbImageProducto = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnBuscarImagen = new System.Windows.Forms.Button();
@@ -228,6 +227,8 @@
             this.Barra.Size = new System.Drawing.Size(990, 22);
             this.Barra.TabIndex = 70;
             this.Barra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Barra_MouseDown);
+            this.Barra.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Barra_MouseMove);
+            this.Barra.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Barra_MouseUp);
             // 
             // btnMinimizar
             // 
@@ -977,6 +978,7 @@
             this.btnBuscarSucursal.TabIndex = 164;
             this.btnBuscarSucursal.Text = "Buscar Sucursal...";
             this.btnBuscarSucursal.UseVisualStyleBackColor = true;
+            this.btnBuscarSucursal.Click += new System.EventHandler(this.btnBuscarSucursal_Click);
             // 
             // txtIDSucursal
             // 
@@ -1002,7 +1004,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(9, 88);
+            this.label17.Location = new System.Drawing.Point(9, 89);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(145, 13);
             this.label17.TabIndex = 160;
@@ -1570,7 +1572,6 @@
             // btnGuardarProducto
             // 
             this.btnGuardarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardarProducto.Enabled = false;
             this.btnGuardarProducto.Location = new System.Drawing.Point(110, 739);
             this.btnGuardarProducto.Name = "btnGuardarProducto";
             this.btnGuardarProducto.Size = new System.Drawing.Size(100, 23);
@@ -1582,7 +1583,6 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel5.Controls.Add(this.cbImagenProductoSeleccionada);
             this.panel5.Controls.Add(this.pbImageProducto);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.btnBuscarImagen);
@@ -1592,16 +1592,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(310, 349);
             this.panel5.TabIndex = 23;
-            // 
-            // cbImagenProductoSeleccionada
-            // 
-            this.cbImagenProductoSeleccionada.AutoSize = true;
-            this.cbImagenProductoSeleccionada.Enabled = false;
-            this.cbImagenProductoSeleccionada.Location = new System.Drawing.Point(275, 20);
-            this.cbImagenProductoSeleccionada.Name = "cbImagenProductoSeleccionada";
-            this.cbImagenProductoSeleccionada.Size = new System.Drawing.Size(15, 14);
-            this.cbImagenProductoSeleccionada.TabIndex = 117;
-            this.cbImagenProductoSeleccionada.UseVisualStyleBackColor = true;
             // 
             // pbImageProducto
             // 
@@ -1766,7 +1756,6 @@
         private System.Windows.Forms.PictureBox pictureBox20;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.CheckBox cbImagenProductoSeleccionada;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.PictureBox picLupa;

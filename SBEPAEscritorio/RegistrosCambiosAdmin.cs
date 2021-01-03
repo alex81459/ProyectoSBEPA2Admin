@@ -96,7 +96,7 @@ namespace SBEPAEscritorio
             try
             {
                 SiguientePagina.AbrirConexionBD1();
-                dgbCambiosAdmins.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.registroscambiosadministradores limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
+                dgbCambiosAdmins.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.registroscambiosadministradores ORDER BY registroscambiosadministradores.idRegistroLoginAdministradores DESC limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
             }
             catch (Exception ex)
             {
@@ -142,7 +142,7 @@ namespace SBEPAEscritorio
                 nudPaginaActualBuscar.Refresh();
 
                 cargarSucursales.AbrirConexionBD1();
-                dgbCambiosAdmins.DataSource = cargarSucursales.RellenarTabla1("SELECT * FROM sbepa2.vistaregistrocambioadministradores;;");
+                dgbCambiosAdmins.DataSource = cargarSucursales.RellenarTabla1("SELECT * FROM sbepa2.vistaregistrocambioadministradores;");
             }
             catch (Exception ex)
             {

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductosBuscarCategoria));
             this.Barra = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
@@ -37,6 +37,12 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label21 = new System.Windows.Forms.Label();
             this.dgbCategoria = new System.Windows.Forms.DataGridView();
+            this.idSubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreSubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCategoriaSimple = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCategoriaSimple = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCategorias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -45,12 +51,6 @@
             this.cmbBuscarEn = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.idSubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreSubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCategoriaSimple = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCategoriaSimple = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCategorias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
@@ -75,6 +75,9 @@
             this.Barra.Name = "Barra";
             this.Barra.Size = new System.Drawing.Size(737, 22);
             this.Barra.TabIndex = 71;
+            this.Barra.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Barra_MouseDown);
+            this.Barra.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Barra_MouseMove);
+            this.Barra.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Barra_MouseUp);
             // 
             // btnMinimizar
             // 
@@ -117,7 +120,7 @@
             this.label21.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(185, 2);
+            this.label21.Location = new System.Drawing.Point(232, 2);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(247, 18);
             this.label21.TabIndex = 22;
@@ -130,14 +133,14 @@
             this.dgbCategoria.AllowUserToResizeRows = false;
             this.dgbCategoria.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dgbCategoria.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgbCategoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbCategoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgbCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgbCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idSubCategoria,
@@ -151,14 +154,62 @@
             this.dgbCategoria.Name = "dgbCategoria";
             this.dgbCategoria.ReadOnly = true;
             this.dgbCategoria.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Cyan;
-            this.dgbCategoria.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Cyan;
+            this.dgbCategoria.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgbCategoria.Size = new System.Drawing.Size(724, 295);
             this.dgbCategoria.TabIndex = 72;
             this.dgbCategoria.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbCategoria_CellDoubleClick);
+            // 
+            // idSubCategoria
+            // 
+            this.idSubCategoria.DataPropertyName = "idSubCategoria";
+            this.idSubCategoria.HeaderText = "idSubCategoria";
+            this.idSubCategoria.Name = "idSubCategoria";
+            this.idSubCategoria.ReadOnly = true;
+            this.idSubCategoria.Width = 80;
+            // 
+            // NombreSubCategoria
+            // 
+            this.NombreSubCategoria.DataPropertyName = "NombreSubCategoria";
+            this.NombreSubCategoria.HeaderText = "NombreSubCategoria";
+            this.NombreSubCategoria.Name = "NombreSubCategoria";
+            this.NombreSubCategoria.ReadOnly = true;
+            this.NombreSubCategoria.Width = 160;
+            // 
+            // idCategoriaSimple
+            // 
+            this.idCategoriaSimple.DataPropertyName = "idCategoriaSimple";
+            this.idCategoriaSimple.HeaderText = "idCategoriaSimple";
+            this.idCategoriaSimple.Name = "idCategoriaSimple";
+            this.idCategoriaSimple.ReadOnly = true;
+            this.idCategoriaSimple.Width = 80;
+            // 
+            // NombreCategoriaSimple
+            // 
+            this.NombreCategoriaSimple.DataPropertyName = "NombreCategoriaSimple";
+            this.NombreCategoriaSimple.HeaderText = "NombreCategoriaSimple";
+            this.NombreCategoriaSimple.Name = "NombreCategoriaSimple";
+            this.NombreCategoriaSimple.ReadOnly = true;
+            this.NombreCategoriaSimple.Width = 150;
+            // 
+            // idCategorias
+            // 
+            this.idCategorias.DataPropertyName = "idCategorias";
+            this.idCategorias.HeaderText = "idCategorias";
+            this.idCategorias.Name = "idCategorias";
+            this.idCategorias.ReadOnly = true;
+            this.idCategorias.Width = 80;
+            // 
+            // NombreCategoria
+            // 
+            this.NombreCategoria.DataPropertyName = "NombreCategoria";
+            this.NombreCategoria.HeaderText = "NombreCategoria";
+            this.NombreCategoria.Name = "NombreCategoria";
+            this.NombreCategoria.ReadOnly = true;
+            this.NombreCategoria.Width = 150;
             // 
             // label1
             // 
@@ -202,6 +253,7 @@
             this.txtBuscarEn.Name = "txtBuscarEn";
             this.txtBuscarEn.Size = new System.Drawing.Size(157, 20);
             this.txtBuscarEn.TabIndex = 63;
+            this.txtBuscarEn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarEn_KeyPress);
             this.txtBuscarEn.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscarEn_KeyUp);
             // 
             // label9
@@ -252,54 +304,6 @@
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox11.TabIndex = 166;
             this.pictureBox11.TabStop = false;
-            // 
-            // idSubCategoria
-            // 
-            this.idSubCategoria.DataPropertyName = "idSubCategoria";
-            this.idSubCategoria.HeaderText = "idSubCategoria";
-            this.idSubCategoria.Name = "idSubCategoria";
-            this.idSubCategoria.ReadOnly = true;
-            this.idSubCategoria.Width = 80;
-            // 
-            // NombreSubCategoria
-            // 
-            this.NombreSubCategoria.DataPropertyName = "NombreSubCategoria";
-            this.NombreSubCategoria.HeaderText = "NombreSubCategoria";
-            this.NombreSubCategoria.Name = "NombreSubCategoria";
-            this.NombreSubCategoria.ReadOnly = true;
-            this.NombreSubCategoria.Width = 160;
-            // 
-            // idCategoriaSimple
-            // 
-            this.idCategoriaSimple.DataPropertyName = "idCategoriaSimple";
-            this.idCategoriaSimple.HeaderText = "idCategoriaSimple";
-            this.idCategoriaSimple.Name = "idCategoriaSimple";
-            this.idCategoriaSimple.ReadOnly = true;
-            this.idCategoriaSimple.Width = 80;
-            // 
-            // NombreCategoriaSimple
-            // 
-            this.NombreCategoriaSimple.DataPropertyName = "NombreCategoriaSimple";
-            this.NombreCategoriaSimple.HeaderText = "NombreCategoriaSimple";
-            this.NombreCategoriaSimple.Name = "NombreCategoriaSimple";
-            this.NombreCategoriaSimple.ReadOnly = true;
-            this.NombreCategoriaSimple.Width = 150;
-            // 
-            // idCategorias
-            // 
-            this.idCategorias.DataPropertyName = "idCategorias";
-            this.idCategorias.HeaderText = "idCategorias";
-            this.idCategorias.Name = "idCategorias";
-            this.idCategorias.ReadOnly = true;
-            this.idCategorias.Width = 80;
-            // 
-            // NombreCategoria
-            // 
-            this.NombreCategoria.DataPropertyName = "NombreCategoria";
-            this.NombreCategoria.HeaderText = "NombreCategoria";
-            this.NombreCategoria.Name = "NombreCategoria";
-            this.NombreCategoria.ReadOnly = true;
-            this.NombreCategoria.Width = 150;
             // 
             // ProductosBuscarCategoria
             // 

@@ -577,7 +577,7 @@ namespace SBEPAEscritorio
             try
             {
                 SiguientePagina.AbrirConexionBD1();
-                dgbSucursal.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.sucursales limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
+                dgbSucursal.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.sucursales ORDER BY sucursales.idSucursales DESC limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
             }
             catch (Exception ex)
             {

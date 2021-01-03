@@ -12,7 +12,7 @@ namespace SBEPAEscritorio
 {
     public partial class ProductosBuscarCategoria : Form
     {
-        private DataTable DTCategorias = new DataTable();
+        FuncionesAplicacion VerificarCaracteres = new FuncionesAplicacion();
         public ProductosBuscarCategoria()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace SBEPAEscritorio
             try
             {
                 cargarCategorias.AbrirConexionBD1();
-                dgbCategoria.DataSource = cargarCategorias.RellenarTabla1("select idCategorias, categorias.nombre as 'NombreCategoria', categoriasimple.idCategoriaSimple, categoriasimple.Nombre as 'NombreCategoriaSimple',subcategoria.idSubCategoria, subcategoria.nombre as 'NombreSubCategoria' from categorias inner join CategoriaSimple on categorias.idCategorias = categoriasimple.id_categorias inner join subcategoria on categoriasimple.idCategoriaSimple = subcategoria.idCategoriaSimple;");
+                dgbCategoria.DataSource = cargarCategorias.RellenarTabla1("select idCategorias, categorias.nombre as 'NombreCategoria', categoriasimple.idCategoriaSimple, categoriasimple.Nombre as 'NombreCategoriaSimple',subcategoria.idSubCategoria, subcategoria.nombre as 'NombreSubCategoria' from categorias inner join CategoriaSimple on categorias.idCategorias = categoriasimple.id_categorias inner join subcategoria on categoriasimple.idCategoriaSimple = subcategoria.idCategoriaSimple ORDER BY subcategoria.idSubCategoria DESC;");
             }
             catch (Exception ex)
             {
@@ -90,6 +90,37 @@ namespace SBEPAEscritorio
                 //Se cierra el formulario
                 this.Close();
             }
+        }
+
+        private void txtBuscarEn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = VerificarCaracteres.RestringirCaracteresBuscar(e);
+        }
+
+        private void Barra_MouseDown(object sender, MouseEventArgs e)
+        {
+            //Si puntero del maus esta sobre la barra y se da click continuado, se cambia la posicion y se activa mover
+            posicion = new Point(e.X, e.Y);
+            mover = true;
+        }
+
+        private void Barra_MouseMove(object sender, MouseEventArgs e)
+        {
+            //Si mover esta activado, se cambia la posicion del Form
+            if (mover)
+            {
+                Location = new Point((this.Left + e.X - posicion.X), (this.Top + e.Y - posicion.Y));
+            }
+        }
+
+        //Se crean las variables de la posicion del Form y si esta activado mover
+        private Point posicion = Point.Empty;
+        private bool mover = false;
+
+        private void Barra_MouseUp(object sender, MouseEventArgs e)
+        {
+            //Si el se deja de dar click a la Barra, se deja de mover el Form
+            mover = false;
         }
     }
 }

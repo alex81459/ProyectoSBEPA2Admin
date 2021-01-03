@@ -96,7 +96,7 @@ namespace SBEPAEscritorio
             try
             {
                 SiguientePagina.AbrirConexionBD1();
-                dgbCambiosAdmins.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.registrologinadministradores limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
+                dgbCambiosAdmins.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.registrologinadministradores ORDER BY registrologinadministradores.idRegistroLoginAdministradores DESC limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
             }
             catch (Exception ex)
             {

@@ -206,7 +206,7 @@ namespace SBEPAEscritorio
 
         private void button8_Click(object sender, EventArgs e)
         {
-            RegistrosCambiosUsuario abrirRegistrosUsuario = new RegistrosCambiosUsuario();
+            RegistrosLoginUsuarios abrirRegistrosUsuario = new RegistrosLoginUsuarios();
             abrirRegistrosUsuario.ShowDialog();
         }
 
