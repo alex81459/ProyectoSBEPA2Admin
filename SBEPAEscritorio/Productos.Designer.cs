@@ -133,9 +133,9 @@
             this.cmbProductoUnico = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.pbCodigoProducto = new System.Windows.Forms.PictureBox();
-            this.txtCodigoProducto = new System.Windows.Forms.TextBox();
+            this.txtCodigoUPC = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtIDProducto = new System.Windows.Forms.TextBox();
             this.pbID = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -623,7 +623,6 @@
             this.btnBuscar.TabIndex = 133;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Visible = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // picLupa
@@ -635,7 +634,6 @@
             this.picLupa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picLupa.TabIndex = 132;
             this.picLupa.TabStop = false;
-            this.picLupa.Visible = false;
             // 
             // lnlParametrosABuscar
             // 
@@ -854,6 +852,7 @@
             this.btnEliminarProducto.TabIndex = 155;
             this.btnEliminarProducto.Text = "Eliminar Producto";
             this.btnEliminarProducto.UseVisualStyleBackColor = true;
+            this.btnEliminarProducto.Click += new System.EventHandler(this.btnEliminarProducto_Click);
             // 
             // gbDatosEspecificos
             // 
@@ -1111,7 +1110,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(3, 253);
+            this.label22.Location = new System.Drawing.Point(3, 252);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(176, 13);
             this.label22.TabIndex = 151;
@@ -1205,7 +1204,7 @@
             this.cmbUnidadMedida.Items.AddRange(new object[] {
             "Mililitros",
             "Gramos",
-            "Centimetros Cubicos"});
+            "CentimetrosCubicos"});
             this.cmbUnidadMedida.Location = new System.Drawing.Point(153, 165);
             this.cmbUnidadMedida.Name = "cmbUnidadMedida";
             this.cmbUnidadMedida.Size = new System.Drawing.Size(129, 21);
@@ -1332,9 +1331,9 @@
             this.gbDatosBase.Controls.Add(this.cmbProductoUnico);
             this.gbDatosBase.Controls.Add(this.label11);
             this.gbDatosBase.Controls.Add(this.pbCodigoProducto);
-            this.gbDatosBase.Controls.Add(this.txtCodigoProducto);
+            this.gbDatosBase.Controls.Add(this.txtCodigoUPC);
             this.gbDatosBase.Controls.Add(this.label8);
-            this.gbDatosBase.Controls.Add(this.txtID);
+            this.gbDatosBase.Controls.Add(this.txtIDProducto);
             this.gbDatosBase.Controls.Add(this.pbID);
             this.gbDatosBase.Controls.Add(this.label2);
             this.gbDatosBase.Controls.Add(this.txtNombre);
@@ -1431,17 +1430,17 @@
             this.pbCodigoProducto.TabIndex = 113;
             this.pbCodigoProducto.TabStop = false;
             // 
-            // txtCodigoProducto
+            // txtCodigoUPC
             // 
-            this.txtCodigoProducto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodigoProducto.Enabled = false;
-            this.txtCodigoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoProducto.Location = new System.Drawing.Point(178, 113);
-            this.txtCodigoProducto.MaxLength = 15;
-            this.txtCodigoProducto.Name = "txtCodigoProducto";
-            this.txtCodigoProducto.Size = new System.Drawing.Size(110, 20);
-            this.txtCodigoProducto.TabIndex = 112;
-            this.txtCodigoProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoProducto_KeyPress);
+            this.txtCodigoUPC.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigoUPC.Enabled = false;
+            this.txtCodigoUPC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoUPC.Location = new System.Drawing.Point(178, 113);
+            this.txtCodigoUPC.MaxLength = 15;
+            this.txtCodigoUPC.Name = "txtCodigoUPC";
+            this.txtCodigoUPC.Size = new System.Drawing.Size(110, 20);
+            this.txtCodigoUPC.TabIndex = 112;
+            this.txtCodigoUPC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigoProducto_KeyPress);
             // 
             // label8
             // 
@@ -1454,14 +1453,14 @@
             this.label8.TabIndex = 111;
             this.label8.Text = "Código Universal de Producto\r\n(UPC)";
             // 
-            // txtID
+            // txtIDProducto
             // 
-            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.Location = new System.Drawing.Point(198, 36);
-            this.txtID.Name = "txtID";
-            this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(88, 20);
-            this.txtID.TabIndex = 67;
+            this.txtIDProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDProducto.Location = new System.Drawing.Point(198, 36);
+            this.txtIDProducto.Name = "txtIDProducto";
+            this.txtIDProducto.ReadOnly = true;
+            this.txtIDProducto.Size = new System.Drawing.Size(88, 20);
+            this.txtIDProducto.TabIndex = 67;
             // 
             // pbID
             // 
@@ -1736,7 +1735,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtIDProducto;
         private System.Windows.Forms.PictureBox pbImagenProducto;
         private System.Windows.Forms.PictureBox pbID;
         private System.Windows.Forms.PictureBox pbNombreProducto;
@@ -1780,7 +1779,7 @@
         private System.Windows.Forms.PictureBox btnActualizar;
         private System.Windows.Forms.GroupBox gbDatosBase;
         private System.Windows.Forms.PictureBox pbCodigoProducto;
-        private System.Windows.Forms.TextBox txtCodigoProducto;
+        private System.Windows.Forms.TextBox txtCodigoUPC;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnCorroborarProducto;
         private System.Windows.Forms.PictureBox pbProductoUnico;

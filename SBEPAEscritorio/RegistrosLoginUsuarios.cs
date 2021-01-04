@@ -63,7 +63,7 @@ namespace SBEPAEscritorio
                     txtPaginasDisponiblesBusqueda.Text = (Convert.ToInt32(CantidadRegistrosDetectados) / 50).ToString();
                     nudPaginaActualBuscar.Maximum = (Convert.ToInt32(CantidadRegistrosDetectados) / 50);
                     ActivarControlpaginas();
-                    dgbCambiosAdmins.DataSource = BuscarRegistros.RellenarTabla2("call sbepa2.BuscarRegistroLoginUsuarios('" + cmbBuscarEn.Text + "', '" + txtBuscarEn.Text + "', " + Convert.ToUInt32(nudPaginaActualBuscar.Value * 50).ToString() + ", 50);");
+                    dgbLoginUsuarios.DataSource = BuscarRegistros.RellenarTabla2("call sbepa2.BuscarRegistroLoginUsuarios('" + cmbBuscarEn.Text + "', '" + txtBuscarEn.Text + "', " + Convert.ToUInt32(nudPaginaActualBuscar.Value * 50).ToString() + ", 50);");
                     lblRegistrosEncontrados.Visible = true;
                     txtRegistrosEncontradosSuperior.Visible = true;
                 }
@@ -95,11 +95,11 @@ namespace SBEPAEscritorio
             try
             {
                 SiguientePagina.AbrirConexionBD1();
-                dgbCambiosAdmins.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.registrologinusuarios ORDER BY registrologinusuarios.idRegistroLoginUsuarios DESC limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
+                dgbLoginUsuarios.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.registrologinusuarios ORDER BY registrologinusuarios.idRegistroLoginUsuarios DESC limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Problema detectado al intentar cargar los datos de los registros de los cambios de los Administradores ERROR: " + ex.Message + "", "Error Cargar Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Problema detectado al intentar cargar los datos de los registros de inicio de sesion de los usuarios ERROR: " + ex.Message + "", "Error Cargar Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             finally
             {
@@ -141,7 +141,7 @@ namespace SBEPAEscritorio
                 nudPaginaActualBuscar.Refresh();
 
                 cargarRegistros.AbrirConexionBD1();
-                dgbCambiosAdmins.DataSource = cargarRegistros.RellenarTabla1("SELECT * FROM sbepa2.vistaregistrologinusuarios;");
+                dgbLoginUsuarios.DataSource = cargarRegistros.RellenarTabla1("SELECT * FROM sbepa2.vistaregistrologinusuarios;");
             }
             catch (Exception ex)
             {
@@ -177,7 +177,7 @@ namespace SBEPAEscritorio
             if (e.RowIndex >= 0)
             {
                 //Se extraen los datos de el DataGridView
-                DataGridViewRow fila = dgbCambiosAdmins.Rows[e.RowIndex];
+                DataGridViewRow fila = dgbLoginUsuarios.Rows[e.RowIndex];
                 txtIDRegistro.Text = Convert.ToString(fila.Cells["idRegistroLoginUsuarios"].Value);
                 txtFechaInicioSesion.Text = Convert.ToString(fila.Cells["FechaInicio"].Value);
                 txtIPublica.Text = Convert.ToString(fila.Cells["IP"].Value);
@@ -188,8 +188,8 @@ namespace SBEPAEscritorio
                 try
                 {
                     BuscarInfo.AbrirConexionBD1();
-                    txtRUTAdmin.Text = BuscarInfo.RellenarTabla1("select RutUsuario from usuarios INNER JOIN credencialesusuarios ON usuarios.Id_usuario= credencialesusuarios.idUsuario INNER JOIN registrologinusuarios ON credencialesusuarios.idCredencialesUsuarios = registrologinusuarios.idCredencialUsuario where registrologinusuarios.idRegistroLoginUsuarios = "+txtIDAdmin.Text+";").Rows[0]["RuUsuario"].ToString();
-                    txtIDAdmin.Text = BuscarInfo.RellenarTabla1("select Id_usuario from usuarios INNER JOIN credencialesusuarios ON usuarios.Id_usuario= credencialesusuarios.idUsuario INNER JOIN registrologinusuarios ON credencialesusuarios.idCredencialesUsuarios = registrologinusuarios.idCredencialUsuario where registrologinusuarios.idRegistroLoginUsuarios = "+txtIDAdmin.Text+";").Rows[0]["Id_usuario"].ToString();
+                    txtRUTUsuario.Text = BuscarInfo.RellenarTabla1("select RutUsuario from usuarios INNER JOIN credencialesusuarios ON usuarios.Id_usuario= credencialesusuarios.idUsuario INNER JOIN registrologinusuarios ON credencialesusuarios.idCredencialesUsuarios = registrologinusuarios.idCredencialUsuario where registrologinusuarios.idRegistroLoginUsuarios = '"+txtIDRegistro.Text+"'").Rows[0]["RutUsuario"].ToString();
+                    txtIDUsuario.Text = BuscarInfo.RellenarTabla1("select Id_usuario from usuarios INNER JOIN credencialesusuarios ON usuarios.Id_usuario= credencialesusuarios.idUsuario INNER JOIN registrologinusuarios ON credencialesusuarios.idCredencialesUsuarios = registrologinusuarios.idCredencialUsuario where registrologinusuarios.idRegistroLoginUsuarios = "+txtIDRegistro.Text+";").Rows[0]["Id_usuario"].ToString();
                     txtNombreUsuarioCredencial.Text = BuscarInfo.RellenarTabla1("select NombreUsuario from credencialesusuarios INNER JOIN registrologinusuarios ON credencialesusuarios.idCredencialesUsuarios = registrologinusuarios.idCredencialUsuario where registrologinusuarios.idRegistroLoginUsuarios = "+txtIDRegistro.Text+";").Rows[0]["NombreUsuario"].ToString();
                 }
                 catch (Exception ex)
@@ -240,10 +240,10 @@ namespace SBEPAEscritorio
                         doc.Add(new Paragraph(txtIDRegistro.Text));
                         doc.Add(new Paragraph(" "));
                         doc.Add(new Paragraph("-------ID del Usuario que realizo el Inicio de Sesion-------"));
-                        doc.Add(new Paragraph(txtIDAdmin.Text));
+                        doc.Add(new Paragraph(txtIDUsuario.Text));
                         doc.Add(new Paragraph(" "));
                         doc.Add(new Paragraph("-------RUT del Usuario que Inicio Sesion-------"));
-                        doc.Add(new Paragraph(" " + txtRUTAdmin.Text));
+                        doc.Add(new Paragraph(" " + txtRUTUsuario.Text));
                         doc.Add(new Paragraph(" "));
                         doc.Add(new Paragraph("-------Fecha de Inicio de la Sesion-------"));
                         doc.Add(new Paragraph(" " + txtFechaInicioSesion.Text));

@@ -54,6 +54,7 @@
             this.lblPaginasDisponibles = new System.Windows.Forms.Label();
             this.nudPaginaActualBuscar = new System.Windows.Forms.NumericUpDown();
             this.lblRecargar = new System.Windows.Forms.Label();
+            this.dgbLoginUsuarios = new System.Windows.Forms.DataGridView();
             this.btnActualizar = new System.Windows.Forms.PictureBox();
             this.pbBuscarTienda = new System.Windows.Forms.PictureBox();
             this.btnCambiarPagina = new System.Windows.Forms.Button();
@@ -69,13 +70,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtFechaInicioSesion = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.txtRUTAdmin = new System.Windows.Forms.TextBox();
+            this.txtRUTUsuario = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnGuardarRegistro = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtIDAdmin = new System.Windows.Forms.TextBox();
+            this.txtIDUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIDRegistro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,11 +85,10 @@
             this.nudPaginaActual = new System.Windows.Forms.NumericUpDown();
             this.txtPaginasDisponibles = new System.Windows.Forms.Label();
             this.lblCantidadTotalRegistros = new System.Windows.Forms.Label();
-            this.idCredencialAdmin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idRegistroLoginUsuarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idRegistroLoginAdministradores = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgbCambiosAdmins = new System.Windows.Forms.DataGridView();
+            this.IP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCredencialUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
@@ -100,6 +100,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picLupa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActualBuscar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbLoginUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscarTienda)).BeginInit();
             this.panel1.SuspendLayout();
@@ -107,7 +108,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgbCambiosAdmins)).BeginInit();
             this.SuspendLayout();
             // 
             // Barra
@@ -181,7 +181,7 @@
             this.panel2.Controls.Add(this.pictureBox11);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.lblRecargar);
-            this.panel2.Controls.Add(this.dgbCambiosAdmins);
+            this.panel2.Controls.Add(this.dgbLoginUsuarios);
             this.panel2.Controls.Add(this.btnActualizar);
             this.panel2.Controls.Add(this.pbBuscarTienda);
             this.panel2.Controls.Add(this.btnCambiarPagina);
@@ -400,6 +400,41 @@
             this.lblRecargar.TabIndex = 157;
             this.lblRecargar.Text = "Recargar";
             // 
+            // dgbLoginUsuarios
+            // 
+            this.dgbLoginUsuarios.AllowUserToAddRows = false;
+            this.dgbLoginUsuarios.AllowUserToDeleteRows = false;
+            this.dgbLoginUsuarios.AllowUserToResizeRows = false;
+            this.dgbLoginUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dgbLoginUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbLoginUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgbLoginUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgbLoginUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idRegistroLoginUsuarios,
+            this.FechaInicio,
+            this.IP,
+            this.idCredencialUsuario});
+            this.dgbLoginUsuarios.EnableHeadersVisualStyles = false;
+            this.dgbLoginUsuarios.Location = new System.Drawing.Point(3, 81);
+            this.dgbLoginUsuarios.Name = "dgbLoginUsuarios";
+            this.dgbLoginUsuarios.ReadOnly = true;
+            this.dgbLoginUsuarios.RowHeadersVisible = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Cyan;
+            this.dgbLoginUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgbLoginUsuarios.Size = new System.Drawing.Size(539, 337);
+            this.dgbLoginUsuarios.TabIndex = 145;
+            this.dgbLoginUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbCambiosAdmins_CellContentClick);
+            // 
             // btnActualizar
             // 
             this.btnActualizar.Image = global::SBEPAEscritorio.Properties.Resources.actualizar;
@@ -465,13 +500,13 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtFechaInicioSesion);
             this.panel1.Controls.Add(this.pictureBox5);
-            this.panel1.Controls.Add(this.txtRUTAdmin);
+            this.panel1.Controls.Add(this.txtRUTUsuario);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Controls.Add(this.btnGuardarRegistro);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.txtIDAdmin);
+            this.panel1.Controls.Add(this.txtIDUsuario);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtIDRegistro);
             this.panel1.Controls.Add(this.label1);
@@ -562,13 +597,13 @@
             this.pictureBox5.TabIndex = 149;
             this.pictureBox5.TabStop = false;
             // 
-            // txtRUTAdmin
+            // txtRUTUsuario
             // 
-            this.txtRUTAdmin.Location = new System.Drawing.Point(104, 92);
-            this.txtRUTAdmin.Name = "txtRUTAdmin";
-            this.txtRUTAdmin.ReadOnly = true;
-            this.txtRUTAdmin.Size = new System.Drawing.Size(88, 20);
-            this.txtRUTAdmin.TabIndex = 146;
+            this.txtRUTUsuario.Location = new System.Drawing.Point(104, 92);
+            this.txtRUTUsuario.Name = "txtRUTUsuario";
+            this.txtRUTUsuario.ReadOnly = true;
+            this.txtRUTUsuario.Size = new System.Drawing.Size(88, 20);
+            this.txtRUTUsuario.TabIndex = 146;
             // 
             // label12
             // 
@@ -622,23 +657,23 @@
             this.label10.TabIndex = 134;
             this.label10.Text = "Info Cambio Realizado";
             // 
-            // txtIDAdmin
+            // txtIDUsuario
             // 
-            this.txtIDAdmin.Location = new System.Drawing.Point(104, 69);
-            this.txtIDAdmin.Name = "txtIDAdmin";
-            this.txtIDAdmin.ReadOnly = true;
-            this.txtIDAdmin.Size = new System.Drawing.Size(88, 20);
-            this.txtIDAdmin.TabIndex = 135;
+            this.txtIDUsuario.Location = new System.Drawing.Point(104, 69);
+            this.txtIDUsuario.Name = "txtIDUsuario";
+            this.txtIDUsuario.ReadOnly = true;
+            this.txtIDUsuario.Size = new System.Drawing.Size(88, 20);
+            this.txtIDUsuario.TabIndex = 135;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(18, 72);
+            this.label2.Location = new System.Drawing.Point(43, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 136;
-            this.label2.Text = "ID Administrador:";
+            this.label2.Text = "ID Usuario:";
             // 
             // txtIDRegistro
             // 
@@ -652,7 +687,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(15, 49);
+            this.label1.Location = new System.Drawing.Point(13, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 134;
@@ -707,13 +742,21 @@
             this.lblCantidadTotalRegistros.TabIndex = 154;
             this.lblCantidadTotalRegistros.Text = "Cantidad Registros:";
             // 
-            // idCredencialAdmin
+            // idRegistroLoginUsuarios
             // 
-            this.idCredencialAdmin.DataPropertyName = "idCredencialAdmin";
-            this.idCredencialAdmin.HeaderText = "idCredencialAdmin";
-            this.idCredencialAdmin.Name = "idCredencialAdmin";
-            this.idCredencialAdmin.ReadOnly = true;
-            this.idCredencialAdmin.Width = 110;
+            this.idRegistroLoginUsuarios.DataPropertyName = "idRegistroLoginUsuarios";
+            this.idRegistroLoginUsuarios.HeaderText = "idRegistroLoginUsuarios";
+            this.idRegistroLoginUsuarios.Name = "idRegistroLoginUsuarios";
+            this.idRegistroLoginUsuarios.ReadOnly = true;
+            this.idRegistroLoginUsuarios.Width = 140;
+            // 
+            // FechaInicio
+            // 
+            this.FechaInicio.DataPropertyName = "FechaInicio";
+            this.FechaInicio.HeaderText = "FechaInicio";
+            this.FechaInicio.Name = "FechaInicio";
+            this.FechaInicio.ReadOnly = true;
+            this.FechaInicio.Width = 140;
             // 
             // IP
             // 
@@ -723,56 +766,13 @@
             this.IP.ReadOnly = true;
             this.IP.Width = 120;
             // 
-            // FechaInicio
+            // idCredencialUsuario
             // 
-            this.FechaInicio.DataPropertyName = "FechaInicio";
-            this.FechaInicio.HeaderText = "FechaInicio";
-            this.FechaInicio.Name = "FechaInicio";
-            this.FechaInicio.ReadOnly = true;
-            this.FechaInicio.Width = 150;
-            // 
-            // idRegistroLoginAdministradores
-            // 
-            this.idRegistroLoginAdministradores.DataPropertyName = "idRegistroLoginAdministradores";
-            this.idRegistroLoginAdministradores.HeaderText = "idRegistroLoginAdministradores";
-            this.idRegistroLoginAdministradores.Name = "idRegistroLoginAdministradores";
-            this.idRegistroLoginAdministradores.ReadOnly = true;
-            this.idRegistroLoginAdministradores.Width = 190;
-            // 
-            // dgbCambiosAdmins
-            // 
-            this.dgbCambiosAdmins.AllowUserToAddRows = false;
-            this.dgbCambiosAdmins.AllowUserToDeleteRows = false;
-            this.dgbCambiosAdmins.AllowUserToResizeRows = false;
-            this.dgbCambiosAdmins.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dgbCambiosAdmins.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgbCambiosAdmins.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgbCambiosAdmins.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgbCambiosAdmins.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idRegistroLoginAdministradores,
-            this.FechaInicio,
-            this.IP,
-            this.idCredencialAdmin});
-            this.dgbCambiosAdmins.EnableHeadersVisualStyles = false;
-            this.dgbCambiosAdmins.Location = new System.Drawing.Point(3, 81);
-            this.dgbCambiosAdmins.Name = "dgbCambiosAdmins";
-            this.dgbCambiosAdmins.ReadOnly = true;
-            this.dgbCambiosAdmins.RowHeadersVisible = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Cyan;
-            this.dgbCambiosAdmins.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgbCambiosAdmins.Size = new System.Drawing.Size(539, 337);
-            this.dgbCambiosAdmins.TabIndex = 145;
-            this.dgbCambiosAdmins.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbCambiosAdmins_CellContentClick);
+            this.idCredencialUsuario.DataPropertyName = "idCredencialUsuario";
+            this.idCredencialUsuario.HeaderText = "idCredencialUsuario";
+            this.idCredencialUsuario.Name = "idCredencialUsuario";
+            this.idCredencialUsuario.ReadOnly = true;
+            this.idCredencialUsuario.Width = 120;
             // 
             // RegistrosLoginUsuarios
             // 
@@ -801,6 +801,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picLupa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActualBuscar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgbLoginUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscarTienda)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -809,7 +810,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgbCambiosAdmins)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -853,13 +853,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtFechaInicioSesion;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.TextBox txtRUTAdmin;
+        private System.Windows.Forms.TextBox txtRUTUsuario;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btnGuardarRegistro;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtIDAdmin;
+        private System.Windows.Forms.TextBox txtIDUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIDRegistro;
         private System.Windows.Forms.Label label1;
@@ -869,10 +869,10 @@
         private System.Windows.Forms.Label txtPaginasDisponibles;
         private System.Windows.Forms.Label lblCantidadTotalRegistros;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.DataGridView dgbCambiosAdmins;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idRegistroLoginAdministradores;
+        private System.Windows.Forms.DataGridView dgbLoginUsuarios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idRegistroLoginUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn IP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idCredencialAdmin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCredencialUsuario;
     }
 }
