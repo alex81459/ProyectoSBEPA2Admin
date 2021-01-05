@@ -221,5 +221,11 @@ namespace SBEPAEscritorio
             BaneoUsuarios abrirBaneo = new BaneoUsuarios();
             abrirBaneo.ShowDialog();
         }
+
+        private void btngestionarproductosdeusuario_Click(object sender, EventArgs e)
+        {
+            CambioInfoProductos abrirCambio = new CambioInfoProductos();
+            abrirCambio.ShowDialog();
+        }
     }
 }

@@ -126,6 +126,12 @@
     <Compile Include="BaneoUsuariosBuscarUsuario.Designer.cs">
       <DependentUpon>BaneoUsuariosBuscarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="CambioInfoProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CambioInfoProductos.Designer.cs">
+      <DependentUpon>CambioInfoProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="CargaSistema.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaneoUsuariosBuscarUsuario.resx">
       <DependentUpon>BaneoUsuariosBuscarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CambioInfoProductos.resx">
+      <DependentUpon>CambioInfoProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CargaSistema.resx">
       <DependentUpon>CargaSistema.cs</DependentUpon>

@@ -146,7 +146,7 @@ namespace SBEPAEscritorio
             try
             {
                 SiguientePagina.AbrirConexionBD1();
-                dgbProductos.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.productos inner join sucursalesproductos on productos.idProducto = sucursalesproductos.ProductosID ORDER BY productos.idProducto DESC limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
+                dgbProductos.DataSource = SiguientePagina.RellenarTabla1("SELECT * FROM sbepa2.cambioinfoproducto ORDER BY CambioInfoProducto DESC limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
             }
             catch (Exception ex)
             {
@@ -407,52 +407,78 @@ namespace SBEPAEscritorio
                     if (cmbProductoUnico.Text == "SI")
                     {
                         ComandosBDMySQL GuardarProducto = new ComandosBDMySQL();
-                        try
+
+                        //Se envia mensaje para verificar la decision
+                        DialogResult resultadoMensaje = MessageBox.Show("¿Esta seguro que guardara el producto con los datos ingresados, su sucursal y precio?, al ser un producto UNICO podra editarlo directamente nuevamente si comedio un error", "¿Guardar Producto?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                        //Si contesta que si
+                        if (resultadoMensaje == DialogResult.Yes)
                         {
-                            GuardarProducto.AbrirConexionBD1();
-                            //Si el producto es Unico
-                            GuardarProducto.IngresarImagen("call sbepa2.InsertarProducto('" + txtNombre.Text + "', '" + txtMarca.Text + "', '" + cmbEmvase.Text + "', '" + cmbUnidadMedida.Text + "', " + NUDCantidadMedida.Value.ToString() + ", " + txtIDCategoriaSeleccionada.Text + ", '" + txtDescripcionProducto.Text + "', @imagen, '" + cmbProductoUnico.Text + "', '" + txtCodigoUPC.Text + "');", pbImageProducto.Image);
-                            //Se extrae el ID el producto registrado y se registra en la tabla intermedia
-                            String IDProductoRegistrado = GuardarProducto.RellenarTabla1("SELECT idProducto FROM sbepa2.productos where Nombre = '" + txtNombre.Text + "' and Marca = '" + txtMarca.Text + "' and Envase= '" + cmbEmvase.Text + "' and DescripcionProducto = '" + txtDescripcionProducto.Text + "' order by idProducto desc LIMIT 1;").Rows[0]["idProducto"].ToString();
-                            GuardarProducto.IngresarConsulta1("call sbepa2.InsertarSucursalesProducto(" + txtIDSucursal.Text + ", " + IDProductoRegistrado + ");");
-                            //Se extraer el idSucursalProducto para poder registar el precio del producto
-                            String IDSucursalProducto = GuardarProducto.RellenarTabla1("SELECT idSucursalesProductos FROM sbepa2.sucursalesproductos where SucursalID = '" + txtIDSucursal.Text + "' and ProductosID = '" + IDProductoRegistrado + "' order by idSucursalesProductos desc LIMIT 1;").Rows[0]["idSucursalesProductos"].ToString();
-                            GuardarProducto.IngresarConsulta1("call sbepa2.InsertarPreciosProductos(" + NUDPrecioProducto.Value.ToString() + ", " + IDSucursalProducto + ");");
-                            //Se registra el cambio
-                            GuardarProducto.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Productos', 'Insertar', 'REGISTRO EL PRODUCTO: CON EL NOMBRE" + txtNombre.Text + ", CON LA MARCA: " + txtMarca.Text + ", CON EL EMVASE: " + cmbEmvase.Text + ", CON LA UNIDAD DE MEDIDA: " + cmbUnidadMedida.Text + ", CON LA CANTIDAD DE MEDIDA: " + NUDCantidadMedida.Value.ToString() + ", CON EL ID DE SUB CATEGORIA: " + txtIDCategoriaSeleccionada.Text + ", CON LA DESCRIPCION: " + txtDescripcionProducto.Text + ", CON EL CODIGO DEL PRODUCTO: " + txtCodigoUPC.Text + ", EL CUAL FUE REGISTRADO CON EL ID DE PRODUCTO: " + IDProductoRegistrado + " CON EL ID DE SUCURSAL-PRODUCTO: " + IDSucursalProducto + ", CON EL PRECIO DE PRODUCTO: " + NUDPrecioProducto.Value.ToString() + "');");
-                            MessageBox.Show("El producto con nombre: " + txtNombre.Text + " y con codigo UPC: " + txtCodigoUPC.Text + " a sido correctamente registrado", "Guardado Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LimpiarCampos();
-                            CargarProductos();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error al intentar registrar el porducto en el sistema ERROR: "+ex.Message+"","Error Guardar",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                        }
-                        finally
-                        {
-                            GuardarProducto.CerrarConexionBD1();
+                            try
+                            {
+                                GuardarProducto.AbrirConexionBD1();
+                                //Si el producto es Unico
+                                GuardarProducto.IngresarImagen("call sbepa2.InsertarProducto('" + txtNombre.Text + "', '" + txtMarca.Text + "', '" + cmbEmvase.Text + "', '" + cmbUnidadMedida.Text + "', " + NUDCantidadMedida.Value.ToString() + ", " + txtIDCategoriaSeleccionada.Text + ", '" + txtDescripcionProducto.Text + "', @imagen, '" + cmbProductoUnico.Text + "', '" + txtCodigoUPC.Text + "');", pbImageProducto.Image);
+                                //Se extrae el ID el producto registrado y se registra en la tabla intermedia
+                                String IDProductoRegistrado = GuardarProducto.RellenarTabla1("SELECT idProducto FROM sbepa2.productos where Nombre = '" + txtNombre.Text + "' and Marca = '" + txtMarca.Text + "' and Envase= '" + cmbEmvase.Text + "' and DescripcionProducto = '" + txtDescripcionProducto.Text + "' order by idProducto desc LIMIT 1;").Rows[0]["idProducto"].ToString();
+                                GuardarProducto.IngresarConsulta1("call sbepa2.InsertarSucursalesProducto(" + txtIDSucursal.Text + ", " + IDProductoRegistrado + ");");
+                                //Se extraer el idSucursalProducto para poder registar el precio del producto
+                                String IDSucursalProducto = GuardarProducto.RellenarTabla1("SELECT idSucursalesProductos FROM sbepa2.sucursalesproductos where SucursalID = '" + txtIDSucursal.Text + "' and ProductosID = '" + IDProductoRegistrado + "' order by idSucursalesProductos desc LIMIT 1;").Rows[0]["idSucursalesProductos"].ToString();
+                                GuardarProducto.IngresarConsulta1("call sbepa2.InsertarPreciosProductos(" + NUDPrecioProducto.Value.ToString() + ", " + IDSucursalProducto + ");");
+                                //Se registra el cambio
+                                GuardarProducto.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Productos', 'Insertar', 'REGISTRO EL PRODUCTO: CON EL NOMBRE" + txtNombre.Text + ", CON LA MARCA: " + txtMarca.Text + ", CON EL EMVASE: " + cmbEmvase.Text + ", CON LA UNIDAD DE MEDIDA: " + cmbUnidadMedida.Text + ", CON LA CANTIDAD DE MEDIDA: " + NUDCantidadMedida.Value.ToString() + ", CON EL ID DE SUB CATEGORIA: " + txtIDCategoriaSeleccionada.Text + ", CON LA DESCRIPCION: " + txtDescripcionProducto.Text + ", CON EL CODIGO DEL PRODUCTO: " + txtCodigoUPC.Text + ", EL CUAL FUE REGISTRADO CON EL ID DE PRODUCTO: " + IDProductoRegistrado + " CON EL ID DE SUCURSAL-PRODUCTO: " + IDSucursalProducto + ", CON EL PRECIO DE PRODUCTO: " + NUDPrecioProducto.Value.ToString() + "');");
+                                MessageBox.Show("El producto con nombre: " + txtNombre.Text + " y con codigo UPC: " + txtCodigoUPC.Text + " a sido correctamente registrado", "Guardado Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                LimpiarCampos();
+                                CargarProductos();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error al intentar registrar el porducto en el sistema ERROR: " + ex.Message + "", "Error Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            finally
+                            {
+                                GuardarProducto.CerrarConexionBD1();
+                            }
                         }
                     }
                     else
                     {
                         ComandosBDMySQL GuardarProducto = new ComandosBDMySQL();
 
+                        //Se envia mensaje para verificar la decision
+                        DialogResult resultadoMensaje = MessageBox.Show("¿Esta seguro que guardara el producto con los datos ingresados, su sucursal y precio?, al ser un producto NO UNICO no podra editarlo directamente si comedio un error, debe ir a la seccion Cambio Info Producto en el Menu", "¿Guardar Producto?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
                         if (cmbProductoUnico.Text == "NO" && UPCRegistrado == false)
                         {
-                            //Si el producto no es unico y no se encuentra registrado, se almacenan todos sus datos: producto, Sucursales-Productos y precio
-                            GuardarProducto.AbrirConexionBD1();
-                            GuardarProducto.IngresarImagen("call sbepa2.InsertarProducto('" + txtNombre.Text + "', '" + txtMarca.Text + "', '" + cmbEmvase.Text + "', '" + cmbUnidadMedida.Text + "', " + NUDCantidadMedida.Value.ToString() + ", " + txtIDCategoriaSeleccionada.Text + ", '" + txtDescripcionProducto.Text + "', @imagen, '" + cmbProductoUnico.Text + "', '" + txtCodigoUPC.Text + "');", pbImageProducto.Image);
-                            //Se extrae el ID el producto registrado y se registra en la tabla intermedia
-                            String IDProductoRegistrado = GuardarProducto.RellenarTabla1("SELECT idProducto FROM sbepa2.productos where Nombre = '" + txtNombre.Text + "' and Marca = '" + txtMarca.Text + "' and Envase= '" + cmbEmvase.Text + "' and DescripcionProducto = '" + txtDescripcionProducto.Text + "' order by idProducto desc LIMIT 1;").Rows[0]["idProducto"].ToString();
-                            GuardarProducto.IngresarConsulta1("call sbepa2.InsertarSucursalesProducto(" + txtIDSucursal.Text + ", " + IDProductoRegistrado + ");");
-                            //Se extraer el idSucursalProducto para poder registar el precio del producto
-                            String IDSucursalProducto = GuardarProducto.RellenarTabla1("SELECT idSucursalesProductos FROM sbepa2.sucursalesproductos where SucursalID = '" + txtIDSucursal.Text + "' and ProductosID = '" + IDProductoRegistrado + "' order by idSucursalesProductos desc LIMIT 1;").Rows[0]["idSucursalesProductos"].ToString();
-                            GuardarProducto.IngresarConsulta1("call sbepa2.InsertarPreciosProductos(" + NUDPrecioProducto.Value.ToString() + ", " + IDSucursalProducto + ");");
-                            //Se registra el cambio
-                            GuardarProducto.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Productos', 'Insertar', 'REGISTRO EL PRODUCTO CON UPC NO REGISTRADO CON EL NOMBRE: " + txtNombre.Text + ", CON LA MARCA: " + txtMarca.Text + ", CON EL EMVASE: " + cmbEmvase.Text + ", CON LA UNIDAD DE MEDIDA: " + cmbUnidadMedida.Text + ", CON LA CANTIDAD DE MEDIDA: " + NUDCantidadMedida.Value.ToString() + ", CON EL ID DE SUB CATEGORIA: " + txtIDCategoriaSeleccionada.Text + ", CON LA DESCRIPCION: " + txtDescripcionProducto.Text + ", CON EL CODIGO DEL PRODUCTO: " + txtCodigoUPC.Text + ", EL CUAL FUE REGISTRADO CON EL ID DE PRODUCTO: " + IDProductoRegistrado + " CON EL ID DE SUCURSAL-PRODUCTO: " + IDSucursalProducto + ", CON EL PRECIO DE PRODUCTO: " + NUDPrecioProducto.Value.ToString() + "');");
-                            MessageBox.Show("El producto con nombre: " + txtNombre.Text + " y con codigo UPC: " + txtCodigoUPC.Text + " a sido correctamente registrado", "Guardado Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LimpiarCampos();
-                            CargarProductos();
+                            //Si contesta que si
+                            if (resultadoMensaje == DialogResult.Yes)
+                            {
+                                try
+                                {
+                                    GuardarProducto.AbrirConexionBD1();
+                                    //Si el producto no es unico y no se encuentra registrado, se almacenan todos sus datos: producto, Sucursales-Productos y precio
+                                    GuardarProducto.IngresarImagen("call sbepa2.InsertarProducto('" + txtNombre.Text + "', '" + txtMarca.Text + "', '" + cmbEmvase.Text + "', '" + cmbUnidadMedida.Text + "', " + NUDCantidadMedida.Value.ToString() + ", " + txtIDCategoriaSeleccionada.Text + ", '" + txtDescripcionProducto.Text + "', @imagen, '" + cmbProductoUnico.Text + "', '" + txtCodigoUPC.Text + "');", pbImageProducto.Image);
+                                    //Se extrae el ID el producto registrado y se registra en la tabla intermedia
+                                    String IDProductoRegistrado = GuardarProducto.RellenarTabla1("SELECT idProducto FROM sbepa2.productos where Nombre = '" + txtNombre.Text + "' and Marca = '" + txtMarca.Text + "' and Envase= '" + cmbEmvase.Text + "' and DescripcionProducto = '" + txtDescripcionProducto.Text + "' order by idProducto desc LIMIT 1;").Rows[0]["idProducto"].ToString();
+                                    GuardarProducto.IngresarConsulta1("call sbepa2.InsertarSucursalesProducto(" + txtIDSucursal.Text + ", " + IDProductoRegistrado + ");");
+                                    //Se extraer el idSucursalProducto para poder registar el precio del producto
+                                    String IDSucursalProducto = GuardarProducto.RellenarTabla1("SELECT idSucursalesProductos FROM sbepa2.sucursalesproductos where SucursalID = '" + txtIDSucursal.Text + "' and ProductosID = '" + IDProductoRegistrado + "' order by idSucursalesProductos desc LIMIT 1;").Rows[0]["idSucursalesProductos"].ToString();
+                                    GuardarProducto.IngresarConsulta1("call sbepa2.InsertarPreciosProductos(" + NUDPrecioProducto.Value.ToString() + ", " + IDSucursalProducto + ");");
+                                    //Se registra el cambio
+                                    GuardarProducto.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Productos', 'Insertar', 'REGISTRO EL PRODUCTO CON UPC NO REGISTRADO CON EL NOMBRE: " + txtNombre.Text + ", CON LA MARCA: " + txtMarca.Text + ", CON EL EMVASE: " + cmbEmvase.Text + ", CON LA UNIDAD DE MEDIDA: " + cmbUnidadMedida.Text + ", CON LA CANTIDAD DE MEDIDA: " + NUDCantidadMedida.Value.ToString() + ", CON EL ID DE SUB CATEGORIA: " + txtIDCategoriaSeleccionada.Text + ", CON LA DESCRIPCION: " + txtDescripcionProducto.Text + ", CON EL CODIGO DEL PRODUCTO: " + txtCodigoUPC.Text + ", EL CUAL FUE REGISTRADO CON EL ID DE PRODUCTO: " + IDProductoRegistrado + " CON EL ID DE SUCURSAL-PRODUCTO: " + IDSucursalProducto + ", CON EL PRECIO DE PRODUCTO: " + NUDPrecioProducto.Value.ToString() + "');");
+                                    MessageBox.Show("El producto con nombre: " + txtNombre.Text + " y con codigo UPC: " + txtCodigoUPC.Text + " a sido correctamente registrado", "Guardado Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    LimpiarCampos();
+                                    CargarProductos();
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Error al intentar Registar el nuevo producto Unico sin UPC Registrado en el Sistema ERROR: "+ex.Message+"","Error al registrar nuevo producto",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                                }
+                                finally
+                                {
+                                    GuardarProducto.CerrarConexionBD1();
+                                }
+                            }
                         }
                     } 
                 }
@@ -463,43 +489,50 @@ namespace SBEPAEscritorio
                     //Si el ID el producto existe se modifica sus datos, dependiendo del tipo
                     if (cmbProductoUnico.Text == "SI" && txtIDProducto.Text !="")
                     {
-                        try
-                        {
-                            //Si el producto es unico, se permite modificar los datos del producto y se registra un nuevo precio, pero la sucursal no se toca
-                            ActualizarProducto.AbrirConexionBD1();
-                            //Se actualizan los datos del producto
-                            ActualizarProducto.IngresarImagen("call sbepa2.ActualizarProducto(" + txtIDProducto.Text + ", '" + txtNombre.Text + "', '" + txtMarca.Text + "', '" + cmbEmvase.Text + "', '" + cmbUnidadMedida.Text + "', " + NUDCantidadMedida.Value.ToString() + ", " + txtIDCategoriaSeleccionada.Text + ",  @imagen, '" + txtDescripcionProducto.Text + "', '" + cmbProductoUnico.Text + "', '" + txtCodigoUPC.Text + "');", pbImageProducto.Image);
+                        //Se envia mensaje para verificar la decision
+                        DialogResult resultadoMensaje = MessageBox.Show("¿Esta seguro que Actualizara el producto con los datos ingresados y su precio?, al ser un producto UNICO podra editarlo directamente nuevamente si comedio un error", "¿Actualizar Producto?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                            //Se registra el nuevo precio del producto si es diferente al orignal
-                            if (PrecioOrignal != NUDPrecioProducto.Value.ToString())
-                            {
-                                //Se extraer el idSucursalProducto para poder registar el precio del producto
-                                String IDSucursalProducto = ActualizarProducto.RellenarTabla1("SELECT idSucursalesProductos FROM sbepa2.sucursalesproductos where SucursalID = '" + txtIDSucursal.Text + "' and ProductosID = '" + txtIDProducto.Text + "' order by idSucursalesProductos desc LIMIT 1;").Rows[0]["idSucursalesProductos"].ToString();
-                                //Se registra el nuevo precio
-                                ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarPreciosProductos(" + NUDPrecioProducto.Value.ToString() + ", " + IDSucursalProducto + ");");
-                                //Se registra el cambio
-                                ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Productos', 'Actualizar', 'ACTUALIZO EL PRODUCTO UNICO CON EL NOMBRE: " + txtNombre.Text + ", CON LA MARCA: " + txtMarca.Text + ", CON EL EMVASE: " + cmbEmvase.Text + ", CON LA UNIDAD DE MEDIDA: " + cmbUnidadMedida.Text + ", CON LA CANTIDAD DE MEDIDA: " + NUDCantidadMedida.Value.ToString() + ", CON EL ID DE SUB CATEGORIA: " + txtIDCategoriaSeleccionada.Text + ", CON LA DESCRIPCION: " + txtDescripcionProducto.Text + ", CON EL CODIGO DEL PRODUCTO: " + txtCodigoUPC.Text + ", EL CUAL FUE ACTUALIZADO CON EL ID DE PRODUCTO: " + txtIDProducto.Text + " SIN MODIFICAR LA SUCURSAL QUE TENIA ASIGNADA, CON EL NUEVO PRECIO DE PRODUCTO: " + NUDPrecioProducto.Value.ToString() + "');");
-                                MessageBox.Show("El producto con nombre: " + txtNombre.Text + " y con codigo UPC: " + txtCodigoUPC.Text + " a sido correctamente Actualizado", "Actualizacion Correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                LimpiarCampos();
-                                CargarProductos();
-                            }
-                            else
-                            {
-                                //Solo se registra el cambio de datos del producto, pero el precio no
-                                ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Productos', 'Actualizar', 'ACTUALIZO EL PRODUCTO UNICO CON EL NOMBRE: " + txtNombre.Text + ", CON LA MARCA: " + txtMarca.Text + ", CON EL EMVASE: " + cmbEmvase.Text + ", CON LA UNIDAD DE MEDIDA: " + cmbUnidadMedida.Text + ", CON LA CANTIDAD DE MEDIDA: " + NUDCantidadMedida.Value.ToString() + ", CON EL ID DE SUB CATEGORIA: " + txtIDCategoriaSeleccionada.Text + ", CON LA DESCRIPCION: " + txtDescripcionProducto.Text + ", CON EL CODIGO DEL PRODUCTO: " + txtCodigoUPC.Text + ", EL CUAL FUE ACTUALIZADO CON EL ID DE PRODUCTO: " + txtIDProducto.Text + " SIN MODIFICAR LA SUCURSAL QUE TENIA ASIGNADA, SIN CAMBIAR EL PRECIO DEL PRODUCTO');");
-                                MessageBox.Show("El precio no ha sido actualizado, ya que no a sufrido cambios", "Precio no Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                MessageBox.Show("El producto con nombre: " + txtNombre.Text + " y con codigo UPC: " + txtCodigoUPC.Text + " a sido correctamente Actualizado", "Actualizacion Correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                LimpiarCampos();
-                                CargarProductos();
-                            }
-                        }
-                        catch (Exception ex)
+                        //Si contesta que si
+                        if (resultadoMensaje == DialogResult.Yes)
                         {
-                            MessageBox.Show("Error al intentar Actual9zar los datos del producto Unico: "+txtNombre.Text+" ERROR: "+ex.Message+"","Error Actualizar Producto",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                        }
-                        finally
-                        {
-                            ActualizarProducto.CerrarConexionBD1();
+                            try
+                            {
+                                //Si el producto es unico, se permite modificar los datos del producto y se registra un nuevo precio, pero la sucursal no se toca
+                                ActualizarProducto.AbrirConexionBD1();
+                                //Se actualizan los datos del producto
+                                ActualizarProducto.IngresarImagen("call sbepa2.ActualizarProducto(" + txtIDProducto.Text + ", '" + txtNombre.Text + "', '" + txtMarca.Text + "', '" + cmbEmvase.Text + "', '" + cmbUnidadMedida.Text + "', " + NUDCantidadMedida.Value.ToString() + ", " + txtIDCategoriaSeleccionada.Text + ",  @imagen, '" + txtDescripcionProducto.Text + "', '" + cmbProductoUnico.Text + "', '" + txtCodigoUPC.Text + "');", pbImageProducto.Image);
+
+                                //Se registra el nuevo precio del producto si es diferente al orignal
+                                if (PrecioOrignal != NUDPrecioProducto.Value.ToString())
+                                {
+                                    //Se extraer el idSucursalProducto para poder registar el precio del producto
+                                    String IDSucursalProducto = ActualizarProducto.RellenarTabla1("SELECT idSucursalesProductos FROM sbepa2.sucursalesproductos where SucursalID = '" + txtIDSucursal.Text + "' and ProductosID = '" + txtIDProducto.Text + "' order by idSucursalesProductos desc LIMIT 1;").Rows[0]["idSucursalesProductos"].ToString();
+                                    //Se registra el nuevo precio
+                                    ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarPreciosProductos(" + NUDPrecioProducto.Value.ToString() + ", " + IDSucursalProducto + ");");
+                                    //Se registra el cambio
+                                    ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Productos', 'Actualizar', 'ACTUALIZO EL PRODUCTO UNICO CON EL NOMBRE: " + txtNombre.Text + ", CON LA MARCA: " + txtMarca.Text + ", CON EL EMVASE: " + cmbEmvase.Text + ", CON LA UNIDAD DE MEDIDA: " + cmbUnidadMedida.Text + ", CON LA CANTIDAD DE MEDIDA: " + NUDCantidadMedida.Value.ToString() + ", CON EL ID DE SUB CATEGORIA: " + txtIDCategoriaSeleccionada.Text + ", CON LA DESCRIPCION: " + txtDescripcionProducto.Text + ", CON EL CODIGO DEL PRODUCTO: " + txtCodigoUPC.Text + ", EL CUAL FUE ACTUALIZADO CON EL ID DE PRODUCTO: " + txtIDProducto.Text + " SIN MODIFICAR LA SUCURSAL QUE TENIA ASIGNADA, CON EL NUEVO PRECIO DE PRODUCTO: " + NUDPrecioProducto.Value.ToString() + "');");
+                                    MessageBox.Show("El producto con nombre: " + txtNombre.Text + " y con codigo UPC: " + txtCodigoUPC.Text + " a sido correctamente Actualizado", "Actualizacion Correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    LimpiarCampos();
+                                    CargarProductos();
+                                }
+                                else
+                                {
+                                    //Solo se registra el cambio de datos del producto, pero el precio no
+                                    ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Productos', 'Actualizar', 'ACTUALIZO EL PRODUCTO UNICO CON EL NOMBRE: " + txtNombre.Text + ", CON LA MARCA: " + txtMarca.Text + ", CON EL EMVASE: " + cmbEmvase.Text + ", CON LA UNIDAD DE MEDIDA: " + cmbUnidadMedida.Text + ", CON LA CANTIDAD DE MEDIDA: " + NUDCantidadMedida.Value.ToString() + ", CON EL ID DE SUB CATEGORIA: " + txtIDCategoriaSeleccionada.Text + ", CON LA DESCRIPCION: " + txtDescripcionProducto.Text + ", CON EL CODIGO DEL PRODUCTO: " + txtCodigoUPC.Text + ", EL CUAL FUE ACTUALIZADO CON EL ID DE PRODUCTO: " + txtIDProducto.Text + " SIN MODIFICAR LA SUCURSAL QUE TENIA ASIGNADA, SIN CAMBIAR EL PRECIO DEL PRODUCTO');");
+                                    MessageBox.Show("El precio no ha sido actualizado, ya que no a sufrido cambios", "Precio no Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    MessageBox.Show("El producto con nombre: " + txtNombre.Text + " y con codigo UPC: " + txtCodigoUPC.Text + " a sido correctamente Actualizado", "Actualizacion Correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    LimpiarCampos();
+                                    CargarProductos();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error al intentar Actual9zar los datos del producto Unico: " + txtNombre.Text + " ERROR: " + ex.Message + "", "Error Actualizar Producto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                            finally
+                            {
+                                ActualizarProducto.CerrarConexionBD1();
+                            }
                         }
                     } 
 
@@ -508,50 +541,74 @@ namespace SBEPAEscritorio
                         //Si el producto esta registrado pero la sucursal-producto y el precio no
                         if (txtIDProducto.Text != "" && btnBuscarSucursal.Enabled == true)
                         {
-                            //Si el producto no es unico y se encuentra registrado, no se almacenan los datos del producto
-                            ActualizarProducto.AbrirConexionBD1();
-                            //se guarda la Union SucursalProducto
-                            ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarSucursalesProducto(" + txtIDSucursal.Text + ", " + txtIDProducto.Text + ");");
-                            //Se extraer el idSucursalProducto para poder registar el precio del producto
-                            String IDSucursalProducto = ActualizarProducto.RellenarTabla1("SELECT idSucursalesProductos FROM sbepa2.sucursalesproductos where SucursalID = '" + txtIDSucursal.Text + "' and ProductosID = '" + txtIDProducto.Text + "' order by idSucursalesProductos desc LIMIT 1;").Rows[0]["idSucursalesProductos"].ToString();
-                            ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarPreciosProductos(" + NUDPrecioProducto.Value.ToString() + ", " + IDSucursalProducto + ");");
-                            //Se registra el cambio
-                            ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Productos', 'Insertar', 'REGISTRO EL PRODUCTO NO UNICO YA EXISTENTE EL UPC CON EL NOMBRE" + txtNombre.Text + ", CON LA MARCA: " + txtMarca.Text + ", CON EL EMVASE: " + cmbEmvase.Text + ", CON LA UNIDAD DE MEDIDA: " + cmbUnidadMedida.Text + ", CON LA CANTIDAD DE MEDIDA: " + NUDCantidadMedida.Value.ToString() + ", CON EL ID DE SUB CATEGORIA: " + txtIDCategoriaSeleccionada.Text + ", CON LA DESCRIPCION: " + txtDescripcionProducto.Text + ", CON EL CODIGO DEL PRODUCTO: " + txtCodigoUPC.Text + ", EL CUAL FUE REGISTRADO CON EL ID DE PRODUCTO: " + txtIDProducto.Text + " CON EL ID DE SUCURSAL-PRODUCTO: " + IDSucursalProducto + ", CON EL PRECIO DE PRODUCTO: " + NUDPrecioProducto.Value.ToString() + " EL CUAL YA ESTABA REGISTRADO AL SISTEMA PERO LO ASIGNO A UNA NUEVA SUCURSAL CON UN NUEVO PRECIO');");
-                            MessageBox.Show("El producto con nombre: " + txtNombre.Text + " y con codigo UPC: " + txtCodigoUPC.Text + " a sido correctamente registrado", "Guardado Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //Se envia mensaje para verificar la decision
+                            DialogResult resultadoMensajes = MessageBox.Show("¿Esta seguro que añadira el producto actual a la sucursal seleccionada y precio con el precio ingresado?, al ser un producto NO UNICO no podra editarlo directamente nuevamente si comedio un error", "¿Guardar Producto?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
+                            //Si contesta que si
+                            if (resultadoMensajes == DialogResult.Yes)
+                            {
+                                try
+                                {
+                                    //Si el producto no es unico y se encuentra registrado, no se almacenan los datos del producto
+                                    ActualizarProducto.AbrirConexionBD1();
+                                    //se guarda la Union SucursalProducto
+                                    ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarSucursalesProducto(" + txtIDSucursal.Text + ", " + txtIDProducto.Text + ");");
+                                    //Se extraer el idSucursalProducto para poder registar el precio del producto
+                                    String IDSucursalProducto = ActualizarProducto.RellenarTabla1("SELECT idSucursalesProductos FROM sbepa2.sucursalesproductos where SucursalID = '" + txtIDSucursal.Text + "' and ProductosID = '" + txtIDProducto.Text + "' order by idSucursalesProductos desc LIMIT 1;").Rows[0]["idSucursalesProductos"].ToString();
+                                    ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarPreciosProductos(" + NUDPrecioProducto.Value.ToString() + ", " + IDSucursalProducto + ");");
+                                    //Se registra el cambio
+                                    ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Productos', 'Insertar', 'REGISTRO EL PRODUCTO NO UNICO YA EXISTENTE EL UPC CON EL NOMBRE" + txtNombre.Text + ", CON LA MARCA: " + txtMarca.Text + ", CON EL EMVASE: " + cmbEmvase.Text + ", CON LA UNIDAD DE MEDIDA: " + cmbUnidadMedida.Text + ", CON LA CANTIDAD DE MEDIDA: " + NUDCantidadMedida.Value.ToString() + ", CON EL ID DE SUB CATEGORIA: " + txtIDCategoriaSeleccionada.Text + ", CON LA DESCRIPCION: " + txtDescripcionProducto.Text + ", CON EL CODIGO DEL PRODUCTO: " + txtCodigoUPC.Text + ", EL CUAL FUE REGISTRADO CON EL ID DE PRODUCTO: " + txtIDProducto.Text + " CON EL ID DE SUCURSAL-PRODUCTO: " + IDSucursalProducto + ", CON EL PRECIO DE PRODUCTO: " + NUDPrecioProducto.Value.ToString() + " EL CUAL YA ESTABA REGISTRADO AL SISTEMA PERO LO ASIGNO A UNA NUEVA SUCURSAL CON UN NUEVO PRECIO');");
+                                    MessageBox.Show("El producto con nombre: " + txtNombre.Text + " y con codigo UPC: " + txtCodigoUPC.Text + " a sido correctamente registrado", "Guardado Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Error al intentar Guardar el producto No Unico con UPC Registrado en el Sistema ERROR: "+ex.Message+"","Errir Guardar Producto",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                                }
+                                finally
+                                {
+                                    ActualizarProducto.CerrarConexionBD1();
+                                }
+                                
+                            }
                         }
 
                         //Si el producto NO es unico y esta registrado, se permite modificar solamente el precio
                         //Si el precio es distinto al original
-                        try
-                        {
-                            if (PrecioOrignal != NUDPrecioProducto.Value.ToString() && btnBuscarSucursal.Enabled == false)
-                            {
-                                ActualizarProducto.AbrirConexionBD1();
-                                //Se registra la Union de precio producto
-                                String IDSucursalProducto = ActualizarProducto.RellenarTabla1("SELECT idSucursalesProductos FROM sbepa2.sucursalesproductos where SucursalID = '" + txtIDSucursal.Text + "' and ProductosID = '" + txtIDProducto.Text + "' order by idSucursalesProductos desc LIMIT 1;").Rows[0]["idSucursalesProductos"].ToString();
-                                //Se registra el nuevo precio
-                                ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarPreciosProductos(" + NUDPrecioProducto.Value.ToString() + ", " + IDSucursalProducto + ");");
-                                //Se registra el cambio
-                                ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Productos', 'Actualizar', 'ACTUALIZO EL PRODUCTO NO UNICO CON UPC CON EL NOMBRE: " + txtNombre.Text + ", CON EL ID DE SUB CATEGORIA: " + txtIDCategoriaSeleccionada.Text + ", CON EL CODIGO DEL PRODUCTO: " + txtCodigoUPC.Text + ", EL CUAL FUE ACTUALIZADO CON EL ID DE PRODUCTO: " + txtIDProducto.Text + " SIN MODIFICAR LA SUCURSAL QUE TENIA ASIGNADA, CON EL NUEVO PRECIO DE PRODUCTO ES: " + NUDPrecioProducto.Value.ToString() + "');");
-                                MessageBox.Show("El producto con nombre: " + txtNombre.Text + " y con codigo UPC: " + txtCodigoUPC.Text + " ha sido correctamente actualizado su precio", "Actualizacion Correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                      
-                            }
-                            else if(PrecioOrignal == NUDPrecioProducto.Value.ToString() && btnBuscarSucursal.Enabled == false)
-                            {
-                                //Si el precio es igual no se hace nada
-                                MessageBox.Show("El Producto no ha podido ser actualizado, ya que solamente se puede cambiar su precio, al estar registrado como NO UNICO y CON UPC", "No Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error al intentar actualizar el precio del producto No Unico con Nombre : "+txtNombre.Text+",  ERROR: "+ex.Message+"","Error Actualizar Precio Producto",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                        }
-                        finally
-                        {
-                            ActualizarProducto.CerrarConexionBD1();
-                        }
+                        //Se envia mensaje para verificar la decision
+                        DialogResult resultadoMensaje = MessageBox.Show("¿Esta seguro que actualizara el precio del producto seleccionado?, cada cambio que realize en el precio del producto quedara registrado", "¿Guardar Producto?", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
+                        //Si contesta que si
+                        if (resultadoMensaje == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                if (PrecioOrignal != NUDPrecioProducto.Value.ToString() && btnBuscarSucursal.Enabled == false)
+                                {
+                                    ActualizarProducto.AbrirConexionBD1();
+                                    //Se registra la Union de precio producto
+                                    String IDSucursalProducto = ActualizarProducto.RellenarTabla1("SELECT idSucursalesProductos FROM sbepa2.sucursalesproductos where SucursalID = '" + txtIDSucursal.Text + "' and ProductosID = '" + txtIDProducto.Text + "' order by idSucursalesProductos desc LIMIT 1;").Rows[0]["idSucursalesProductos"].ToString();
+                                    //Se registra el nuevo precio
+                                    ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarPreciosProductos(" + NUDPrecioProducto.Value.ToString() + ", " + IDSucursalProducto + ");");
+                                    //Se registra el cambio
+                                    ActualizarProducto.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Productos', 'Actualizar', 'ACTUALIZO EL PRODUCTO NO UNICO CON UPC CON EL NOMBRE: " + txtNombre.Text + ", CON EL ID DE SUB CATEGORIA: " + txtIDCategoriaSeleccionada.Text + ", CON EL CODIGO DEL PRODUCTO: " + txtCodigoUPC.Text + ", EL CUAL FUE ACTUALIZADO CON EL ID DE PRODUCTO: " + txtIDProducto.Text + " SIN MODIFICAR LA SUCURSAL QUE TENIA ASIGNADA, CON EL NUEVO PRECIO DE PRODUCTO ES: " + NUDPrecioProducto.Value.ToString() + "');");
+                                    MessageBox.Show("El producto con nombre: " + txtNombre.Text + " y con codigo UPC: " + txtCodigoUPC.Text + " ha sido correctamente actualizado su precio", "Actualizacion Correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                }
+                                else if (PrecioOrignal == NUDPrecioProducto.Value.ToString() && btnBuscarSucursal.Enabled == false)
+                                {
+                                    //Si el precio es igual no se hace nada
+                                    MessageBox.Show("El Producto no ha podido ser actualizado, ya que solamente se puede cambiar su precio, al estar registrado como NO UNICO y CON UPC", "No Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error al intentar actualizar el precio del producto No Unico con Nombre : " + txtNombre.Text + ",  ERROR: " + ex.Message + "", "Error Actualizar Precio Producto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                            finally
+                            {
+                                ActualizarProducto.CerrarConexionBD1();
+                            }
+                        }
                         LimpiarCampos();
                         CargarProductos();
                     }
@@ -683,8 +740,7 @@ namespace SBEPAEscritorio
                             txtDescripcionProducto.Enabled = false;
                             NUDPrecioProducto.Enabled = true;
                             txtIDSucursal.Text = "";
-
-
+                            txtNombre.Enabled = true;
                         }
                         else
                         {
@@ -716,6 +772,7 @@ namespace SBEPAEscritorio
             {
                 txtCodigoUPC.Enabled = true;
                 txtCodigoUPC.Text = "";
+                txtNombre.Enabled = true;
             }
         }
 
@@ -756,10 +813,6 @@ namespace SBEPAEscritorio
                 //Si contesta que si
                 if (resultadoMensaje == DialogResult.Yes)
                 {
-                    //si la tienda no tiene registros se puede borrar
-                    ClaveMaestra verificarEliminarClave = new ClaveMaestra();
-                    if (verificarEliminarClave.ShowDialog() == DialogResult.OK)
-                    {
                         //Si la clave es correcta se procede a eliminar el producto
                         ComandosBDMySQL EliminarProducto = new ComandosBDMySQL();
                         //Si es un producto Unico se elimina el producto, sucursal-producto y el precio
@@ -809,13 +862,6 @@ namespace SBEPAEscritorio
                                 EliminarProducto.CerrarConexionBD1();
                             }
                         }
-                    }
-                    else
-                    {
-                        //Se muestra un mensaje para que el usuario ingrese la clave
-                        MessageBox.Show("Debe Ingresar La Clave Maestra para continuar con el Proceso", "Clave no ingresada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-
                 }
             }
             else

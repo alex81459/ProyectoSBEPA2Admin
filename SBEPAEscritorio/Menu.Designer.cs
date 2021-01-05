@@ -127,7 +127,6 @@
             // btngestionarproductosdeusuario
             // 
             this.btngestionarproductosdeusuario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btngestionarproductosdeusuario.Enabled = false;
             this.btngestionarproductosdeusuario.ForeColor = System.Drawing.Color.Black;
             this.btngestionarproductosdeusuario.Location = new System.Drawing.Point(88, 109);
             this.btngestionarproductosdeusuario.Name = "btngestionarproductosdeusuario";
@@ -135,6 +134,7 @@
             this.btngestionarproductosdeusuario.TabIndex = 31;
             this.btngestionarproductosdeusuario.Text = "Cambios Info Producto";
             this.btngestionarproductosdeusuario.UseVisualStyleBackColor = true;
+            this.btngestionarproductosdeusuario.Click += new System.EventHandler(this.btngestionarproductosdeusuario_Click);
             // 
             // btnUsuarios
             // 
