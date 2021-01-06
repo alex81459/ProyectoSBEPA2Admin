@@ -454,5 +454,17 @@ namespace SBEPAEscritorio
                 MessageBox.Show("Debe seleccionar una solicitud de producto a actualizar","No selecciono solicitud",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
+
+        private void cmbBuscarEn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ActivarBusqueda();
+        }
+
+        private void ActivarBusqueda()
+        {
+            txtBuscarEn.Visible = true;
+            btnBuscar.Visible = true;
+            picLupa.Visible = true;
+        }
     }
 }

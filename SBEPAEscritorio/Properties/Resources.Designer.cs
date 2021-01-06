@@ -323,6 +323,16 @@ namespace SBEPAEscritorio.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap comuna {
+            get {
+                object obj = ResourceManager.GetObject("comuna", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap derecha {
             get {
                 object obj = ResourceManager.GetObject("derecha", resourceCulture);
@@ -716,6 +726,16 @@ namespace SBEPAEscritorio.Properties {
         internal static System.Drawing.Bitmap programador {
             get {
                 object obj = ResourceManager.GetObject("programador", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Region {
+            get {
+                object obj = ResourceManager.GetObject("Region", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

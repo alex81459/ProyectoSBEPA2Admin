@@ -1425,6 +1425,7 @@
             this.cmbBuscarEn.Name = "cmbBuscarEn";
             this.cmbBuscarEn.Size = new System.Drawing.Size(121, 21);
             this.cmbBuscarEn.TabIndex = 62;
+            this.cmbBuscarEn.SelectedIndexChanged += new System.EventHandler(this.cmbBuscarEn_SelectedIndexChanged);
             // 
             // lblPaginaActualBusqueda
             // 

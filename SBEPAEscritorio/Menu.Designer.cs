@@ -257,7 +257,6 @@
             // button9
             // 
             this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.Enabled = false;
             this.button9.ForeColor = System.Drawing.Color.Black;
             this.button9.Location = new System.Drawing.Point(433, 109);
             this.button9.Name = "button9";
@@ -265,6 +264,7 @@
             this.button9.TabIndex = 58;
             this.button9.Text = "Regiones y Comunas";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // label4
             // 
