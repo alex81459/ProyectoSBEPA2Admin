@@ -209,6 +209,12 @@
     <Compile Include="RegionesyComunas.Designer.cs">
       <DependentUpon>RegionesyComunas.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegionesyComunasBuscarRegion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegionesyComunasBuscarRegion.Designer.cs">
+      <DependentUpon>RegionesyComunasBuscarRegion.cs</DependentUpon>
+    </Compile>
     <Compile Include="RegistrosCambiosAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -344,6 +350,9 @@
     </Compile>
     <EmbeddedResource Include="RegionesyComunas.resx">
       <DependentUpon>RegionesyComunas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegionesyComunasBuscarRegion.resx">
+      <DependentUpon>RegionesyComunasBuscarRegion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrosCambiosAdmin.resx">
       <DependentUpon>RegistrosCambiosAdmin.cs</DependentUpon>

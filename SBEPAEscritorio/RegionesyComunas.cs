@@ -172,12 +172,10 @@ namespace SBEPAEscritorio
 
                 //Se extraen los datos de el DataGridView
                 txtIDComuna.Text = Convert.ToString(fila.Cells["idComuna"].Value);
-                txtIDComuna.Enabled = true;
                 txtNombreComuna.Text = Convert.ToString(fila.Cells["NombreComuna"].Value);
                 txtNombreComuna.Enabled = true;
                 cbNuevaComuna.Checked = false;
                 txtIDRegion.Text = Convert.ToString(fila.Cells["idRegion"].Value);
-                txtIDRegion.Enabled = true;
                 txtNombreRegion.Text = Convert.ToString(fila.Cells["NombreRegion"].Value);
                 txtNombreRegion.Enabled = true;
                 cbNuevaRegion.Checked = false;
@@ -198,7 +196,7 @@ namespace SBEPAEscritorio
             txtNombreComuna.Text = "";
             txtIDRegion.Text = "";
             txtNombreRegion.Text = "";
-            btnBuscarRegion.Enabled = true;
+            btnBuscarRegionRegistrada.Enabled = true;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -236,6 +234,197 @@ namespace SBEPAEscritorio
         //Se crean las variables de la posicion del Form y si esta activado mover
         private Point posicion = Point.Empty;
         private bool mover = false;
-    }
 
+        private Boolean RevisarExitenciaComuna()
+        {
+            ComandosBDMySQL revisarComuna = new ComandosBDMySQL();
+            try
+            {
+                //Se revisa si la comuna existe
+                revisarComuna.AbrirConexionBD1();
+                return revisarComuna.VerificarExistenciaDato1("SELECT * FROM sbepa2.comunas where NombreComuna = '" + txtNombreComuna.Text + "';");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al intentar revisar si el nombre de la comuna esta registrado ERROR: " + ex.Message + "", "Error Verificar Comuna", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+            finally
+            {
+                revisarComuna.CerrarConexionBD1();
+            }
+        }
+
+        private Boolean RevisarExistenciaRegion()
+        {
+            ComandosBDMySQL revisarRegion = new ComandosBDMySQL();
+            try
+            {
+                //Se revisa si la comuna existe
+                revisarRegion.AbrirConexionBD1();
+                return revisarRegion.VerificarExistenciaDato1("SELECT * FROM sbepa2.regiones where NombreRegion = '" + txtNombreRegion.Text + "';");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo un error al intentar revisar si el nombre de la region esta registrado ERROR: " + ex.Message + "", "Error Verificar Comuna", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return true;
+            }
+            finally
+            {
+                revisarRegion.CerrarConexionBD1();
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (txtIDComuna.Text == "" && txtIDRegion.Text == "")
+            {
+                //Si no hay comuna ni region registrada se revisan su existen en el sistema
+                if (RevisarExitenciaComuna() == false && RevisarExistenciaRegion() == false)
+                {
+                    ComandosBDMySQL RegistrarComunaRegion = new ComandosBDMySQL();
+                    try
+                    {
+                        RegistrarComunaRegion.AbrirConexionBD1();
+                        RegistrarComunaRegion.IngresarConsulta1("call sbepa2.InsertarRegion('" + txtNombreRegion.Text + "');");
+                        String IDRegionNueva = RegistrarComunaRegion.RellenarTabla1("SELECT idRegion FROM sbepa2.regiones where NombreRegion = '" + txtNombreRegion.Text + "' ORDER BY idRegion DESC limit 1;").Rows[0]["idRegion"].ToString();
+                        RegistrarComunaRegion.IngresarConsulta1("call sbepa2.InsertarComuna(" + IDRegionNueva + ", '" + txtNombreComuna.Text + "');");
+                        MessageBox.Show("La Nueva Region con el Nombre: " + txtNombreRegion.Text + " y la nueva primera Comuna con el nombre de: " + txtNombreComuna.Text + " Ha sido Registrada Correctamente", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RegistrarComunaRegion.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Regiones y Comunas', 'Añadir', 'Añadio la Region: " + txtNombreRegion.Text + " y su primera Comuna: " + txtNombreComuna.Text + "');");
+                        Limpiar();
+                        CargarComunasRegiones();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al intentar registrar la nueva Comuna y La Nueva Region ERORR: " + ex.Message + "", "Error al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        RegistrarComunaRegion.CerrarConexionBD1();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El nombre de la Comuna o Region ya se encuentra registrado en el Sistema, debe de ingresar uno autentico no pueden repetirse, si desea registar una comuna para una region exitente seleccionela con el Boton 'Buscar Region Registrada'", "Nombres Registrados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+            if (txtIDComuna.Text == "" && txtIDRegion.Text != "")
+            {
+                //Se registra la nueva comuna para la region
+                if (RevisarExitenciaComuna() == false)
+                {
+                    ComandosBDMySQL RegistrarComuna = new ComandosBDMySQL();
+                    try
+                    {
+                        RegistrarComuna.AbrirConexionBD1();
+                        RegistrarComuna.IngresarConsulta1("call sbepa2.InsertarComuna(" + txtIDRegion.Text + ", '" + txtNombreComuna.Text + "');");
+                        RegistrarComuna.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Regiones y Comunas', 'Añadir', 'En la Region: " + txtNombreRegion.Text + " fue registrada la nueva Comuna: " + txtNombreComuna.Text + "');");
+                        MessageBox.Show("En la Region: " + txtNombreRegion.Text + " fue registrada la nueva Comuna: " + txtNombreComuna.Text + " Ha sido Registrada Correctamente", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Limpiar();
+                        CargarComunasRegiones();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al intentar registrar la nueva Comuna y La Nueva Region ERORR: " + ex.Message + "", "Error al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        RegistrarComuna.CerrarConexionBD1();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El nombre de la comuna ingresada para la region ya se encuentra registrado", "Nombres Registrados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+
+            if (txtIDComuna.Text != "" && txtIDRegion.Text != "")
+            {
+                //Se envia mensaje para verificar la decision
+                DialogResult resultadoMensaje = MessageBox.Show("¿Esta seguro que desea continuar, el nombre de la comuna selecciona y la region sera cambiado por los actuales?", "Cambio Nombres", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                //Si contesta que si
+                if (resultadoMensaje == DialogResult.Yes)
+                {
+                    //Se actualiza el nombre de la comuna y region
+                    ComandosBDMySQL ActualizarComunaRegion = new ComandosBDMySQL();
+                    try
+                    {
+                        ActualizarComunaRegion.AbrirConexionBD1();
+                        ActualizarComunaRegion.IngresarConsulta1("call sbepa2.ActualizarRegion(" + txtIDRegion.Text + ", '" + txtNombreRegion.Text + "');");
+                        ActualizarComunaRegion.IngresarConsulta1("call sbepa2.ActualizarComunas(" + txtIDComuna.Text + ", " + txtIDRegion.Text + ", '" + txtNombreComuna.Text + "');");
+                        ActualizarComunaRegion.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Regiones y Comunas', 'Actualizar', 'La Comuna con ID " + txtIDComuna.Text + " a sido actualizado su nombre Por: " + txtNombreComuna.Text + " y el Nombre de la Region con ID " + txtIDRegion.Text + " fue actualizado Por: " + txtNombreRegion.Text + "');");
+                        MessageBox.Show("El nombre de la Comuna y la Region han sido Actualizados Correctamente", "Actualizacion Correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Limpiar();
+                        CargarComunasRegiones();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al intentar registrar la nueva Comuna y La Nueva Region ERORR: " + ex.Message + "", "Error al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        ActualizarComunaRegion.CerrarConexionBD1();
+                    }
+                }
+            }
+        }
+
+        private void btnBuscarRegionRegistrada_Click(object sender, EventArgs e)
+        {
+            RegionesyComunasBuscarRegion BuscarRegion = new RegionesyComunasBuscarRegion();
+            BuscarRegion.ShowDialog();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (txtIDComuna.Text != "")
+            {
+                //Se envia mensaje para verificar la decision
+                DialogResult resultadoMensaje = MessageBox.Show("¿Esta Seguro que eliminara la Comuna Actual?, al Eliminar la COMUNA ACTUAL TAMBIEN SE ELIMINARAN LOS PRODUCTOS ASIGNADOS A ELLA", "ELIMINACION COMUNA", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                //Si contesta que si
+                if (resultadoMensaje == DialogResult.Yes)
+                {
+                    ClaveMaestra verificarEliminarClave = new ClaveMaestra();
+                    ComandosBDMySQL EliminarComuna = new ComandosBDMySQL();
+                    try
+                    {
+                        //Se verifica la clave maestra
+                        if (verificarEliminarClave.ShowDialog() == DialogResult.OK)
+                        {
+                            //Si la clave es correcta se procede a eliminar la tienda del sistema
+                            EliminarComuna.AbrirConexionBD1();
+                            //Se elimina
+                            EliminarComuna.IngresarConsulta1("call sbepa2.EliminarComuna(" + txtIDComuna.Text + ");");
+                            //Se guarda el registro
+                            EliminarComuna.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Regiones y Comunas', 'Eliminar', 'ELIMINO LA COMUNA CON EL ID:" + txtIDComuna.Text + " CON EL NOMBRE:" + txtNombreComuna.Text + "');");
+                            MessageBox.Show("Comuna Eliminada Correctamente", "Proceso Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Limpiar();
+                            CargarComunasRegiones();
+                        }
+                        else
+                        {
+                            //Se muestra un mensaje para que el usuario ingrese la clave
+                            MessageBox.Show("Debe Ingresar La Clave Maestra para continuar con el Proceso", "Clave no ingresada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al Intentar Eliminar a la Comuna del Sistema ERROR:" + ex.Message, "Error Borrar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    finally
+                    {
+                        EliminarComuna.CerrarConexionBD1();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar alguna Comuna para ser eliminada", "Falta Seleccion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+    }
 }
