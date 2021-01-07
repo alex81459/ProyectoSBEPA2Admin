@@ -179,7 +179,8 @@ namespace SBEPAEscritorio
                 txtNombreRegion.Text = Convert.ToString(fila.Cells["NombreRegion"].Value);
                 txtNombreRegion.Enabled = true;
                 cbNuevaRegion.Checked = false;
-                btnEliminar.Enabled = true;
+                btnEliminarComuna.Enabled = true;
+                btnREgion.Enabled = true;
             }
         }
 
@@ -395,7 +396,7 @@ namespace SBEPAEscritorio
                         //Se verifica la clave maestra
                         if (verificarEliminarClave.ShowDialog() == DialogResult.OK)
                         {
-                            //Si la clave es correcta se procede a eliminar la tienda del sistema
+                            //Si la clave es correcta se procede a eliminar la comuna del sistema
                             EliminarComuna.AbrirConexionBD1();
                             //Se elimina
                             EliminarComuna.IngresarConsulta1("call sbepa2.EliminarComuna(" + txtIDComuna.Text + ");");
@@ -424,6 +425,55 @@ namespace SBEPAEscritorio
             else
             {
                 MessageBox.Show("Debe seleccionar alguna Comuna para ser eliminada", "Falta Seleccion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnREgion_Click(object sender, EventArgs e)
+        {
+            if (txtIDRegion.Text != "")
+            {
+                //Se envia mensaje para verificar la decision
+                DialogResult resultadoMensaje = MessageBox.Show("¿Esta Seguro que eliminara la Region Actual?, al Eliminar la REGION ACTUAL TAMBIEN SE ELIMINARAN LOS PRODUCTOS ASIGNADOS A ELLA Y LAS COMUNAS QUE ESTEN CONECTADAS A ELLA", "ELIMINACION REGION", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                //Si contesta que si
+                if (resultadoMensaje == DialogResult.Yes)
+                {
+                    ClaveMaestra verificarEliminarClave = new ClaveMaestra();
+                    ComandosBDMySQL EliminarComuna = new ComandosBDMySQL();
+                    try
+                    {
+                        //Se verifica la clave maestra
+                        if (verificarEliminarClave.ShowDialog() == DialogResult.OK)
+                        {
+                            //Si la clave es correcta se procede a eliminar la region del sistema
+                            EliminarComuna.AbrirConexionBD1();
+                            //Se elimina
+                            EliminarComuna.IngresarConsulta1("call sbepa2.EliminarRegion("+txtIDRegion.Text+");");
+                            //Se guarda el registro
+                            EliminarComuna.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Regiones y Comunas', 'Eliminar', 'ELIMINO LA REGION CON EL ID:" + txtIDComuna.Text + " CON EL NOMBRE:" + txtNombreComuna.Text + " Y TODAS SUS COMUNAS ASIGNADAS');");
+                            MessageBox.Show("Region Eliminada Correctamente", "Proceso Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Limpiar();
+                            CargarComunasRegiones();
+                        }
+                        else
+                        {
+                            //Se muestra un mensaje para que el usuario ingrese la clave
+                            MessageBox.Show("Debe Ingresar La Clave Maestra para continuar con el Proceso", "Clave no ingresada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al Intentar Eliminar a la REgion del Sistema ERROR:" + ex.Message, "Error Borrar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    finally
+                    {
+                        EliminarComuna.CerrarConexionBD1();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar alguna Region para ser eliminada", "Falta Seleccion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

@@ -233,5 +233,11 @@ namespace SBEPAEscritorio
             RegionesyComunas abrirGestor = new RegionesyComunas();
             abrirGestor.ShowDialog();
         }
+
+        private void btnEstadisticas_Click(object sender, EventArgs e)
+        {
+            Estadisticas abrirEstadisticas = new Estadisticas();
+            abrirEstadisticas.ShowDialog();
+        }
     }
 }

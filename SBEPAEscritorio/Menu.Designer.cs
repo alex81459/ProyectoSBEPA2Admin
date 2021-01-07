@@ -42,7 +42,7 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.button9 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnEstadisticas = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button8 = new System.Windows.Forms.Button();
@@ -205,7 +205,7 @@
             this.groupBox3.Controls.Add(this.pictureBox9);
             this.groupBox3.Controls.Add(this.button9);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.btnEstadisticas);
             this.groupBox3.Controls.Add(this.button7);
             this.groupBox3.Controls.Add(this.pictureBox3);
             this.groupBox3.Controls.Add(this.button8);
@@ -276,17 +276,17 @@
             this.label4.TabIndex = 57;
             this.label4.Text = "Registros";
             // 
-            // button3
+            // btnEstadisticas
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Enabled = false;
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(342, 109);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 27);
-            this.button3.TabIndex = 46;
-            this.button3.Text = "Estadisticas";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnEstadisticas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEstadisticas.ForeColor = System.Drawing.Color.Black;
+            this.btnEstadisticas.Location = new System.Drawing.Point(342, 109);
+            this.btnEstadisticas.Name = "btnEstadisticas";
+            this.btnEstadisticas.Size = new System.Drawing.Size(84, 27);
+            this.btnEstadisticas.TabIndex = 46;
+            this.btnEstadisticas.Text = "Estadisticas";
+            this.btnEstadisticas.UseVisualStyleBackColor = true;
+            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
             // 
             // button7
             // 
@@ -874,7 +874,7 @@
         private System.Windows.Forms.PictureBox pictureBox22;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnEstadisticas;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.PictureBox pictureBox6;

@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegionesyComunas));
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEliminarComuna = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -90,6 +90,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnREgion = new System.Windows.Forms.Button();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -111,6 +113,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -118,10 +121,8 @@
             this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.pictureBox6);
-            this.panel2.Controls.Add(this.btnEliminar);
             this.panel2.Controls.Add(this.btnGuardar);
             this.panel2.Controls.Add(this.btnLimpiar);
             this.panel2.Controls.Add(this.groupBox3);
@@ -142,7 +143,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::SBEPAEscritorio.Properties.Resources.eliminar;
-            this.pictureBox5.Location = new System.Drawing.Point(869, 446);
+            this.pictureBox5.Location = new System.Drawing.Point(226, 23);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(78, 52);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -152,7 +153,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::SBEPAEscritorio.Properties.Resources.guardar;
-            this.pictureBox4.Location = new System.Drawing.Point(762, 446);
+            this.pictureBox4.Location = new System.Drawing.Point(819, 446);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(78, 52);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -162,31 +163,31 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::SBEPAEscritorio.Properties.Resources.limpiar1;
-            this.pictureBox6.Location = new System.Drawing.Point(655, 446);
+            this.pictureBox6.Location = new System.Drawing.Point(712, 446);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(78, 52);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 232;
             this.pictureBox6.TabStop = false;
             // 
-            // btnEliminar
+            // btnEliminarComuna
             // 
-            this.btnEliminar.Enabled = false;
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminar.Location = new System.Drawing.Point(861, 501);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(95, 20);
-            this.btnEliminar.TabIndex = 173;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnEliminarComuna.Enabled = false;
+            this.btnEliminarComuna.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarComuna.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminarComuna.Location = new System.Drawing.Point(213, 78);
+            this.btnEliminarComuna.Name = "btnEliminarComuna";
+            this.btnEliminarComuna.Size = new System.Drawing.Size(95, 20);
+            this.btnEliminarComuna.TabIndex = 173;
+            this.btnEliminarComuna.Text = "Eliminar Comuna";
+            this.btnEliminarComuna.UseVisualStyleBackColor = true;
+            this.btnEliminarComuna.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardar.Location = new System.Drawing.Point(753, 501);
+            this.btnGuardar.Location = new System.Drawing.Point(810, 501);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(95, 20);
             this.btnGuardar.TabIndex = 172;
@@ -198,7 +199,7 @@
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiar.Location = new System.Drawing.Point(646, 501);
+            this.btnLimpiar.Location = new System.Drawing.Point(703, 501);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(95, 20);
             this.btnLimpiar.TabIndex = 165;
@@ -209,6 +210,8 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.groupBox3.Controls.Add(this.pictureBox9);
+            this.groupBox3.Controls.Add(this.btnREgion);
             this.groupBox3.Controls.Add(this.pictureBox8);
             this.groupBox3.Controls.Add(this.cbNuevaRegion);
             this.groupBox3.Controls.Add(this.txtNombreRegion);
@@ -228,7 +231,7 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::SBEPAEscritorio.Properties.Resources.Region;
-            this.pictureBox8.Location = new System.Drawing.Point(235, 19);
+            this.pictureBox8.Location = new System.Drawing.Point(110, 44);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(78, 55);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -275,7 +278,7 @@
             // 
             this.txtIDRegion.Enabled = false;
             this.txtIDRegion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDRegion.Location = new System.Drawing.Point(103, 66);
+            this.txtIDRegion.Location = new System.Drawing.Point(92, 19);
             this.txtIDRegion.Name = "txtIDRegion";
             this.txtIDRegion.Size = new System.Drawing.Size(117, 20);
             this.txtIDRegion.TabIndex = 22;
@@ -284,7 +287,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(31, 69);
+            this.label4.Location = new System.Drawing.Point(20, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 23;
@@ -294,7 +297,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(107, 102);
+            this.label1.Location = new System.Drawing.Point(15, 102);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 13);
             this.label1.TabIndex = 24;
@@ -303,8 +306,10 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.groupBox2.Controls.Add(this.pictureBox5);
             this.groupBox2.Controls.Add(this.pictureBox7);
             this.groupBox2.Controls.Add(this.cbNuevaComuna);
+            this.groupBox2.Controls.Add(this.btnEliminarComuna);
             this.groupBox2.Controls.Add(this.txtNombreComuna);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
@@ -321,7 +326,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = global::SBEPAEscritorio.Properties.Resources.comuna;
-            this.pictureBox7.Location = new System.Drawing.Point(234, 19);
+            this.pictureBox7.Location = new System.Drawing.Point(110, 46);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(78, 57);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -335,7 +340,7 @@
             this.cbNuevaComuna.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbNuevaComuna.Enabled = false;
             this.cbNuevaComuna.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbNuevaComuna.Location = new System.Drawing.Point(17, 138);
+            this.cbNuevaComuna.Location = new System.Drawing.Point(17, 155);
             this.cbNuevaComuna.Name = "cbNuevaComuna";
             this.cbNuevaComuna.Size = new System.Drawing.Size(112, 17);
             this.cbNuevaComuna.TabIndex = 21;
@@ -345,7 +350,7 @@
             // txtNombreComuna
             // 
             this.txtNombreComuna.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreComuna.Location = new System.Drawing.Point(17, 112);
+            this.txtNombreComuna.Location = new System.Drawing.Point(17, 129);
             this.txtNombreComuna.MaxLength = 45;
             this.txtNombreComuna.Name = "txtNombreComuna";
             this.txtNombreComuna.Size = new System.Drawing.Size(291, 20);
@@ -356,7 +361,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(89, 96);
+            this.label3.Location = new System.Drawing.Point(15, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 13);
             this.label3.TabIndex = 18;
@@ -366,7 +371,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 63);
+            this.label2.Location = new System.Drawing.Point(20, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 13);
             this.label2.TabIndex = 17;
@@ -376,9 +381,9 @@
             // 
             this.txtIDComuna.Enabled = false;
             this.txtIDComuna.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDComuna.Location = new System.Drawing.Point(92, 60);
+            this.txtIDComuna.Location = new System.Drawing.Point(92, 20);
             this.txtIDComuna.Name = "txtIDComuna";
-            this.txtIDComuna.Size = new System.Drawing.Size(127, 20);
+            this.txtIDComuna.Size = new System.Drawing.Size(117, 20);
             this.txtIDComuna.TabIndex = 16;
             // 
             // groupBox1
@@ -510,14 +515,14 @@
             this.dgbComunasRegiones.AllowUserToResizeRows = false;
             this.dgbComunasRegiones.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dgbComunasRegiones.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgbComunasRegiones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbComunasRegiones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgbComunasRegiones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgbComunasRegiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idComuna,
@@ -529,11 +534,11 @@
             this.dgbComunasRegiones.Name = "dgbComunasRegiones";
             this.dgbComunasRegiones.ReadOnly = true;
             this.dgbComunasRegiones.RowHeadersVisible = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Cyan;
-            this.dgbComunasRegiones.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Cyan;
+            this.dgbComunasRegiones.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgbComunasRegiones.Size = new System.Drawing.Size(630, 317);
             this.dgbComunasRegiones.TabIndex = 166;
             this.dgbComunasRegiones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbComunasRegiones_CellContentClick);
@@ -826,6 +831,28 @@
             this.lblTitulo.TabIndex = 22;
             this.lblTitulo.Text = "Gestion de Cambios de Productos NO Unicos";
             // 
+            // btnREgion
+            // 
+            this.btnREgion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnREgion.ForeColor = System.Drawing.Color.Black;
+            this.btnREgion.Location = new System.Drawing.Point(217, 77);
+            this.btnREgion.Name = "btnREgion";
+            this.btnREgion.Size = new System.Drawing.Size(95, 20);
+            this.btnREgion.TabIndex = 236;
+            this.btnREgion.Text = "Eliminar Region";
+            this.btnREgion.UseVisualStyleBackColor = true;
+            this.btnREgion.Click += new System.EventHandler(this.btnREgion_Click);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::SBEPAEscritorio.Properties.Resources.eliminar;
+            this.pictureBox9.Location = new System.Drawing.Point(228, 19);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(78, 52);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 236;
+            this.pictureBox9.TabStop = false;
+            // 
             // RegionesyComunas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -866,6 +893,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -912,7 +940,7 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEliminarComuna;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.PictureBox pictureBox6;
@@ -931,5 +959,7 @@
         public System.Windows.Forms.CheckBox cbNuevaComuna;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Button btnREgion;
     }
 }
