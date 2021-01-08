@@ -143,11 +143,6 @@ namespace SBEPAEscritorio
             abrirRegistros.ShowDialog();
         }
 
-        private void btnActualizarPrecioProducto_Click(object sender, EventArgs e)
-        {
-            ActualizarPrecioProducto abrirPrecioProducto = new ActualizarPrecioProducto();
-            abrirPrecioProducto.ShowDialog();
-        }
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -238,6 +233,12 @@ namespace SBEPAEscritorio
         {
             Estadisticas abrirEstadisticas = new Estadisticas();
             abrirEstadisticas.ShowDialog();
+        }
+
+        private void btnRegistrosPrecios_Click(object sender, EventArgs e)
+        {
+            ActualizarPrecioProducto abrirPreciosProductos = new ActualizarPrecioProducto();
+            abrirPreciosProductos.ShowDialog();
         }
     }
 }

@@ -1,8 +1,12 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,11 +25,6 @@ namespace SBEPAEscritorio
         public ActualizarPrecioProducto()
         {
             InitializeComponent();
-            //se establecen los mensajes de informacion del Formulario
-            ttmensaje.SetToolTip(pbIDTienda, "Debe Seleccionar el ID (Identificador) de la Tienda en la que se actualizara el precio del producto " + System.Environment.NewLine + "o donde se añadira un nuevo producto a la tienda y su precio");
-            ttmensaje.SetToolTip(pbPrecioProducto, "El Precio que el Producto tendra en la Tienda");
-            ttmensaje.SetToolTip(pbFinalOferta, "Si la oferta del producto tendra un final especificado");
-            ttmensaje.SetToolTip(pbFechaFinal, "La Fecha de cuando terminara la oferta del producto");
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -61,80 +60,29 @@ namespace SBEPAEscritorio
             mover = false;
         }
 
-        private void ckFinalOferta_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ckFinalOferta.Checked == true)
-            {
-                txtFinalOfertaTexto.Visible = true;
-                pbFinalOferta.Visible = true;
-                ckFechaFinal.Checked = false;
-                dtpFinalOferta.Visible = false;
-                pbFechaFinal.Visible = false;
-            }
-        }
-
-        private void ckFechaFinal_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ckFechaFinal.Checked == true)
-            {
-                ckFinalOferta.Checked = false;
-                txtFinalOfertaTexto.Visible = false;
-                dtpFinalOferta.Visible = true;
-                pbFechaFinal.Visible = true;
-                pbFinalOferta.Visible = false;
-            }
-        }
-
-        private void ActivarPrecioOferta()
-        {
-            ckFechaFinal.Visible = true;
-            pbFechaFinal.Visible = true;
-            dtpFinalOferta.Visible = true;
-            ckFinalOferta.Visible = true;
-            pbFinalOferta.Visible = true;
-            txtFinalOfertaTexto.Visible = true;
-
-        }
-        private void DesactivarPrecioOferta()
-        {
-            ckFechaFinal.Visible = false;
-            pbFechaFinal.Visible = false;
-            dtpFinalOferta.Visible = false;
-            ckFinalOferta.Visible = false;
-            pbFinalOferta.Visible = false;
-            txtFinalOfertaTexto.Visible = false;
-        }
-
-        private void cbPrecioOferta_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbPrecioOferta.Checked == true)
-            {
-                //Si el checkbox precio oferta esta seleccionado se activa la oferta
-                ActivarPrecioOferta();
-            }
-            else
-            {
-                //Si el checkbox precio oferta NO estaseleccionado se desactiva la oferta la oferta
-                DesactivarPrecioOferta();
-            }
-        }
 
         private void ActualizarPrecioProducto_Load(object sender, EventArgs e)
         {
             CargarProductos();
             cmbBuscarEn.Text = "ID Producto";
-            
+            CargarProductosSucursales();
         }
 
         private void CargarProductos()
         {
             //Se crea la instancia para conectar con la BD, se extrae la tabla, si falla se muestra un mensaje y
             //siempre se cierra la conexion
-            ComandosBDMySQL cargarProductos = new ComandosBDMySQL();
+            ComandosBDMySQL cargarProductosSucursales = new ComandosBDMySQL();
             try
             {
-                cargarProductos.AbrirConexionBD1();
-                dgbProductos.DataSource = cargarProductos.RellenarTabla1("SELECT * FROM sbepa.vista_productos;");
+                //Se verifica la cantidad de tiendas, se rellena la cantidad de paginas y sus opciones para avanzar a travez de los registros y se carga la tabla 
+                cargarProductosSucursales.AbrirConexionBD1();
+                txtCantidadRegistro.Text = cargarProductosSucursales.RellenarTabla1("SELECT COUNT(idProducto) FROM sbepa2.productos inner join sucursalesproductos on productos.idProducto = sucursalesproductos.ProductosID inner join Sucursales on sucursalesproductos.SucursalID = sucursales.idSucursales ORDER BY productos.idProducto DESC LIMIT 50;").Rows[0][0].ToString();
+                txtPaginasDisponibles.Text = (Convert.ToInt32(txtCantidadRegistro.Text) / 50).ToString();
+                nudPaginaActual.Maximum = Convert.ToDecimal(txtPaginasDisponibles.Text);
+                nudPaginaActualBuscar.Refresh();
+                cargarProductosSucursales.AbrirConexionBD1();
+                dgbProductosSucursal.DataSource = cargarProductosSucursales.RellenarTabla1("SELECT * FROM sbepa2.vistacambiospreciosproductos;");
             }
             catch (Exception ex)
             {
@@ -142,76 +90,7 @@ namespace SBEPAEscritorio
             }
             finally
             {
-                cargarProductos.CerrarConexionBD1();
-            }
-        }
-
-        private void txtBuscarEn_KeyUp(object sender, KeyEventArgs e)
-        {
-            String BuscarEn = "";
-
-            if (cmbBuscarEn.Text == "ID Producto")
-            {
-                BuscarEn = "idproducto";
-            }
-            else if (cmbBuscarEn.Text == "Nombre Producto")
-            {
-                BuscarEn = "nombre";
-            }
-            else if (cmbBuscarEn.Text == "ID Sucursal del Producto")
-            {
-                BuscarEn = "id_sucursal";
-            }
-            else if (cmbBuscarEn.Text == "Marca del Producto")
-            {
-                BuscarEn = "marca";
-            }
-            else if (cmbBuscarEn.Text == "Tipo de Envase")
-            {
-                BuscarEn = "envase";
-            }
-            else if (cmbBuscarEn.Text == "Unidad de Medida")
-            {
-                BuscarEn = "unidad_medida";
-            }
-            else if (cmbBuscarEn.Text == "Cantidad Medida")
-            {
-                BuscarEn = "cantidad_medida";
-            }
-            else if (cmbBuscarEn.Text == "ID Sub Categoria")
-            {
-                BuscarEn = "id_subcategoria";
-            }
-            else if (cmbBuscarEn.Text == "Cantidad Visitas")
-            {
-                BuscarEn = "cantidad_visita";
-            }
-            else if (cmbBuscarEn.Text == "Descripcion Producto")
-            {
-                BuscarEn = "descripcion_producto";
-            }
-            else if (cmbBuscarEn.Text == "Codigo Producto")
-            {
-                BuscarEn = "codigo_producto";
-            }
-            else if (cmbBuscarEn.Text == "Duracion del Producto")
-            {
-                BuscarEn = "duracionProducto";
-            }
-
-            ComandosBDMySQL buscarTabla = new ComandosBDMySQL();
-            try
-            {
-                buscarTabla.AbrirConexionBD1();
-                dgbProductos.DataSource = buscarTabla.RellenarTabla1("SELECT `idproducto` AS `ID Producto`,`nombre` AS `Nombre Producto`,`fecharegistro` AS `Fecha Registro`,`marca` AS `Marca del Producto`,`envase` AS `Tipo de Envase`,`unidad_medida` AS `Unidad Medida`,`cantidad_medida` AS `Cantidad Medida`,`id_subcategoria` AS `ID Sub Categoria`,`cantidad_visita` AS `Cantidad Visitas`,`descripcion_producto` AS `Descripcion Producto`, `codigo_producto` AS `Codigo Producto`,`producto`.`duracionProducto` AS `Duracion del Producto` FROM `producto` Where " + BuscarEn + " like '%" + txtBuscarEn.Text + "%';");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al Intentar Buscar con los parametros ingresados ERROR: " + ex.Message, "Error busqueda", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                buscarTabla.CerrarConexionBD1();
+                cargarProductosSucursales.CerrarConexionBD1();
             }
         }
 
@@ -220,193 +99,270 @@ namespace SBEPAEscritorio
             e.Handled = verificarCaracteres.RestringirCaracteresBuscar(e);
         }
 
-        private void txtFinalOfertaTexto_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            e.Handled = verificarCaracteres.RestringirCaracteresDescripcion(e);
+            if (txtBuscarEn.Text == "")
+            {
+                MessageBox.Show("Debe ingresar algun dato a buscar en el campo 'Parametros a Buscar'", "Faltan Datos para la Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                ComandosBDMySQL BuscarRegistros = new ComandosBDMySQL();
+                try
+                {
+                    //Se cargan los datos necesarios para la busqueda y el ordenamiento de las paginas
+                    BuscarRegistros.AbrirConexionBD1();
+                    String CantidadRegistrosDetectados = (BuscarRegistros.RellenarTabla1("SELECT COUNT(idProducto) ,Nombre, Marca, UPC, sucursalesproductos.idSucursalesProductos, sucursalesproductos.SucursalID, sucursales.direccion  FROM sbepa2.productos inner join sucursalesproductos on productos.idProducto = sucursalesproductos.ProductosID inner join Sucursales on sucursalesproductos.SucursalID = sucursales.idSucursales Where " + cmbBuscarEn.Text + " like '%" + txtBuscarEn.Text + "%' ORDER BY productos.idProducto DESC LIMIT 50;").Rows[0][0].ToString());
+                    txtRegistrosEncontradosSuperior.Text = CantidadRegistrosDetectados;
+                    txtPaginasDisponiblesBusqueda.Text = (Convert.ToInt32(CantidadRegistrosDetectados) / 50).ToString();
+                    nudPaginaActualBuscar.Maximum = (Convert.ToInt32(CantidadRegistrosDetectados) / 50);
+                    ActivarControlpaginas();
+                    dgbProductosSucursal.DataSource = BuscarRegistros.RellenarTabla2("call sbepa2.BuscarProductosSucursales('" + cmbBuscarEn.Text + "', '" + txtBuscarEn.Text + "', " + Convert.ToUInt32(nudPaginaActualBuscar.Value * 50).ToString() + ", 50);");
+                    lblRegistrosEncontrados.Visible = true;
+                    txtRegistrosEncontradosSuperior.Visible = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al intentar Los productos y sus Sucursales en el sistema ERROR: " + ex.Message + "", "Error Detectado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    BuscarRegistros.CerrarConexionBD1();
+                }
+            }
+        }
+
+        private void ActivarControlpaginas()
+        {
+            nudPaginaActualBuscar.Visible = true;
+            lblBuscarPor.Visible = true;
+            txtPaginasDisponiblesBusqueda.Visible = true;
+            lblPaginasDisponibles.Visible = true;
+            lblPaginaActualBusqueda.Visible = true;
+            lblPaginasDisponibles.Visible = true;
+        }
+
+        private void btnCambiarPagina_Click(object sender, EventArgs e)
+        {
+            //Se avanza a la siguiente pagina
+            ComandosBDMySQL SiguientePagina = new ComandosBDMySQL();
+            try
+            {
+                SiguientePagina.AbrirConexionBD1();
+                dgbProductosSucursal.DataSource = SiguientePagina.RellenarTabla1("SELECT idProducto,Nombre, Marca, UPC, sucursalesproductos.idSucursalesProductos, sucursalesproductos.SucursalID, sucursales.direccion  FROM sbepa2.productos inner join sucursalesproductos on productos.idProducto = sucursalesproductos.ProductosID inner join Sucursales on sucursalesproductos.SucursalID = sucursales.idSucursales ORDER BY productos.idProducto DESC limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problema detectado al intentar cargar los datos los Producto-Sucursales del sistema ERROR: " + ex.Message + "", "Error Cargar Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            finally
+            {
+                SiguientePagina.CerrarConexionBD1();
+            }
+        }
+
+        private void CargarProductosSucursales()
+        {
+            //Se crea la instancia para conectar con la BD, se extrae la tabla, si falla se muestra un mensaje y
+            //siempre se cierra la conexion
+            ComandosBDMySQL cargarRegistros = new ComandosBDMySQL();
+            try
+            {
+                //Se verifica la cantidad de tiendas, se rellena la cantidad de paginas y sus opciones para avanzar a travez de los registros y se carga la tabla 
+                cargarRegistros.AbrirConexionBD1();
+                txtCantidadRegistro.Text = cargarRegistros.RellenarTabla1("SELECT COUNT(idComuna) FROM sbepa2.comunas inner join sbepa2.regiones on comunas.idRegion = regiones.idRegion ").Rows[0][0].ToString();
+                txtPaginasDisponibles.Text = (Convert.ToInt32(txtCantidadRegistro.Text) / 50).ToString();
+                nudPaginaActual.Maximum = Convert.ToDecimal(txtPaginasDisponibles.Text);
+                nudPaginaActualBuscar.Refresh();
+                cargarRegistros.AbrirConexionBD1();
+                dgbProductosSucursal.DataSource = cargarRegistros.RellenarTabla1("SELECT * FROM sbepa2.vistacambiospreciosproductos;");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Cargar la tabla de los cambios de producto del sistema ERROR: " + ex.Message, "Error Tabla", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            finally
+            {
+                cargarRegistros.CerrarConexionBD1();
+            }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
+            CargarProductosSucursales();
+            HacerInvisiblesyLimpiarCampos();
         }
 
-        private void LimpiarCampos()
+        private void HacerInvisiblesyLimpiarCampos()
         {
-            CargarProductos();
+            txtBuscarEn.Visible = false;
+            nudPaginaActualBuscar.Visible = false;
+            txtPaginasDisponiblesBusqueda.Visible = false;
             txtBuscarEn.Text = "";
-            cmbBuscarEn.Text = "ID Producto";
-            PanelNuevoPrecio.Enabled = false;
-            lblIDProducto.Text = "¿?";
-            lblNombreProducto.Text = "¿?";
-            dgbPrecios.DataSource = null;
-            txtIDTienda.Text = "";
-            txtListaNombreTienda.Text = "";
-            nupListaPrecio.Value = 1;
-            txtFinalOfertaTexto.Text = "";
+            nudPaginaActualBuscar.Value = 0;
+            txtPaginasDisponiblesBusqueda.Text = "?????????";
+            txtPaginasDisponiblesBusqueda.Visible = false;
+            lblRegistrosEncontrados.Visible = false;
+            txtBuscarEn.Visible = true;
+            lnlParametrosABuscar.Visible = true;
+            lblPaginaActualBusqueda.Visible = false;
+            lblPaginasDisponibles.Visible = false;
+            lblRegistrosEncontrados.Visible = false;
+            txtRegistrosEncontradosSuperior.Visible = false;
         }
 
-        private void cmbBuscarEn_SelectedIndexChanged(object sender, EventArgs e)
+        private void dgbProductosSucursal_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Se verifica que campo fue seleccionado en el ComboBox
-            if (cmbBuscarEn.Text == "Fecha Registro")
-            {
-                //Si se selecciono fecha registro se activan los campos necesarios
-                txtBuscarEn.Visible = false;
-                lblParametrosBuscar.Visible = false;
-            }
-            else
-            {
-                //Si se selecciono cualquier otro campo menos Fecha Registro se activan los campos necesarios
-                txtBuscarEn.Visible = true;
-                lblParametrosBuscar.Visible = true;
-            }
-        }
-
-
-        private void dgbProductos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
+            DataGridViewRow fila = dgbProductosSucursal.Rows[e.RowIndex];
             // Se revisa si el index de el DataGridView empieza en 0, para evitar que los datos se extraigan mal
             if (e.RowIndex >= 0)
             {
                 //Se extraen los datos de el DataGridView
-                DataGridViewRow fila = dgbProductos.Rows[e.RowIndex];
-                PanelNuevoPrecio.Enabled = true;
-                lblIDProducto.Text = Convert.ToString(fila.Cells["IDProducto"].Value);
-                lblNombreProducto.Text = Convert.ToString(fila.Cells["NombreProducto"].Value);
+                txtIDProducto.Text = Convert.ToString(fila.Cells["idProducto"].Value);
+                txtUPC.Text = Convert.ToString(fila.Cells["UPC"].Value);
+                txtSucursalID.Text = Convert.ToString(fila.Cells["SucursalID"].Value);
+                txtNombreProducto.Text = Convert.ToString(fila.Cells["Nombre"].Value);
 
-                //Se extraen los precios del producto
-                ComandosBDMySQL CargarPrecios = new ComandosBDMySQL();
+
+                ComandosBDMySQL CargarDatosFaltantes= new ComandosBDMySQL();
+                //Se extraen los datos de los cambio de precio de producto en la sucursal
                 try
                 {
-                        CargarPrecios.AbrirConexionBD1();
-                        dgbPrecios.DataSource = CargarPrecios.RellenarTabla1("call sbepa.MostrarTodosLosPreciosDelProducto(" + lblIDProducto.Text + ");");
+                    CargarDatosFaltantes.AbrirConexionBD1();
+                    dgbPreciosCambios.DataSource = CargarDatosFaltantes.RellenarTabla1("SELECT FechaIngreso,PrecioCLP from PreciosProductos where idSucursalProducto = '" + Convert.ToString(fila.Cells["idSucursalesProductos"].Value) + " order by FechaIngreso desc';");
+
+                    txtNombreTienda.Text = CargarDatosFaltantes.RellenarTabla1("SELECT nombre FROM sbepa2.tienda inner join sucursales on tienda.idTienda = sucursales.idTienda where sucursales.idSucursales = '"+ txtSucursalID.Text+ "';").Rows[0]["nombre"].ToString();
+                    txtDireccionSucursal.Text = CargarDatosFaltantes.RellenarTabla1("SELECT Direccion FROM sbepa2.tienda inner join sucursales on tienda.idTienda = sucursales.idTienda where sucursales.idSucursales = '" + txtSucursalID.Text + "';").Rows[0]["Direccion"].ToString(); ;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al intentar cargar la tabla de los precios del producto seleccionado ERROR: " + ex.Message + "", "Error Cargar Precios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Error al intentar extraer los datos de los cambios de precio del producto ERROR: "+ex.Message+"","Error Extraer Datos",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 }
                 finally
                 {
-                    CargarPrecios.CerrarConexionBD1();
+                    CargarDatosFaltantes.CerrarConexionBD1();
                 }
             }
         }
 
+        private void txtBuscarEn_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = VerificarCaracteres.RestringirCaracteresBuscar(e);
+        }
+
+        FuncionesAplicacion VerificarCaracteres = new FuncionesAplicacion();
+
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
-        }
-
-        private void btnBuscarTienda_Click(object sender, EventArgs e)
-        {
-            ActualizarPrecioProductoBuscarTienda AbrirBuscar = new ActualizarPrecioProductoBuscarTienda();
-            AbrirBuscar.ShowDialog();
-        }
-
-        private Boolean VerificarDatosAGuardar()
-        {
-            if (txtIDTienda.Text != "")
+            if (txtIDProducto.Text != "")
             {
-                if (nupListaPrecio.Value > 0)
+                //Se abre el SaveFileDialog para fijar la ubicacion de guardado y el nombre del mismo
+                SaveFileDialog DialogoGuardar = new SaveFileDialog();
+                DialogoGuardar.FileName = "RegistroCambiosPrecioProducto" + txtIDProducto.Text + ".pdf";
+
+                if (DialogoGuardar.ShowDialog() == DialogResult.OK)
                 {
-                    if (cbPrecioOferta.Checked == true)
+                    try
                     {
-                        if (txtFinalOfertaTexto.Text != "" || dtpFinalOferta.Text != "")
+                        //Se configura el tipo de documento (letter) y donde cerra almacenado
+                        Document doc = new Document(PageSize.LETTER);
+                        PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(@"" + DialogoGuardar.FileName + "", FileMode.Create));
+
+                        //Se genera el titulo y la informacion del creador
+                        doc.AddTitle("Registro de Cambios de Precios de la ID del Producto: "+ txtIDProducto.Text+ "");
+                        doc.AddCreator("Registro de Cambios de Precios de Producto ©SBEPA");
+
+                        doc.Open();
+                        //Se configura las fuentes del doc
+                        iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.TIMES_ROMAN, 7, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+
+                        //Se agrega el cuerpo del documento
+                        doc.Add(new Paragraph("Registro de Cambios de Precios de un Producto   ID PRODUCTO: "+ txtIDProducto.Text+ "   SUCURSAL ID: "+ txtSucursalID.Text+ "    Fecha Registro: " + DateTime.Now.ToString() + ""));
+                        iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance(Application.StartupPath + @"\Logo.png");
+                        imagen.BorderWidth = 0;
+                        imagen.Alignment = Element.ALIGN_CENTER;
+                        float percentage = 0.0f;
+                        percentage = 100 / imagen.Width;
+                        imagen.ScalePercent(percentage * 90);
+                        doc.Add(imagen);
+                        doc.Add(new Paragraph("------- ID del Producto-------"));
+                        doc.Add(new Paragraph(txtIDProducto.Text));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph("------- UPC del Producto-------"));
+                        doc.Add(new Paragraph(txtUPC.Text));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph("------- ID de la Sucursal asignada al Producto-------"));
+                        doc.Add(new Paragraph(txtSucursalID.Text));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph("------- Nombre del Producto-------"));
+                        doc.Add(new Paragraph(txtNombreProducto.Text));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph("------- Direccion de la Sucursal-------"));
+                        doc.Add(new Paragraph(txtDireccionSucursal.Text));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph("------- Nombre de la Tienda a la que pertenece la Sucursal-------"));
+                        doc.Add(new Paragraph(txtNombreTienda.Text));
+                        doc.Add(new Paragraph(" "));
+
+                        //Se genera la tabla
+                        doc.Add(new Paragraph("------- Tabla de los Cambios de Precio del Producto-------"));
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph(" "));
+
+                        //se instancia el encabezado
+                        Phrase objP = new Phrase();
+                        //se genera el encabezado de la tabla
+                        PdfPTable datatable = new PdfPTable(dgbPreciosCambios.ColumnCount);
+                        for (int i = 0; i < dgbPreciosCambios.ColumnCount; i++)
                         {
-                            return true;
+                            objP = new Phrase(dgbPreciosCambios.Columns[i].HeaderText);
+                            datatable.HorizontalAlignment = Element.ALIGN_CENTER;
+
+                            datatable.AddCell(objP);
                         }
-                        else {
-                            MessageBox.Show("Debe Ingresar un final de ofeta del precio del producto o una fecha para cuando acabe la oferta","Falta Info de Oferta",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                            return false;
+
+                        //se genera el cuerpo de la tabla
+                        for (int i = 0; i < dgbPreciosCambios.RowCount; i++)
+                        {
+                            for (int j = 0; j < dgbPreciosCambios.ColumnCount; j++)
+                            {
+                                objP = new Phrase(dgbPreciosCambios[j, i].Value.ToString());
+                                datatable.AddCell(objP);
+                            }
+                            datatable.CompleteRow();
+                        }
+                        doc.Add(datatable);
+                        doc.Add(new Paragraph(" "));
+                        doc.Add(new Paragraph(" "));
+
+                        //Se cierra el documento y se escribe
+                        doc.Close();
+                        writer.Close();
+
+                        //Se notifica el guardado
+                        MessageBox.Show("Se realizo correctamente la Generacion del Documento", "Documento Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        //Se abre el documento con el visor de PDF preterminado
+                        try
+                        {
+                            Process p = new Process();
+                            p.StartInfo.FileName = @"" + DialogoGuardar.FileName + "";
+                            p.Start();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error al intentar abrir el documento Generado ERROR: " + ex.Message, "Error Abrir Documento", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        return true;
+                        MessageBox.Show("Ha ocurrido un error al intentar realizar la generacion del Documento ERROR: " + ex.Message, "Error Creacion Docuemento", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Debe ingresar un precio mayor a 0 para el producto seleccioando","Falta precio",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                    return false;
                 }
             }
             else
             {
-                MessageBox.Show("Debe Seleccionar Una Tienda en la cual se actualizara el precio del producto","Falta Tienda",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                return false;
-            }
-        }
-
-
-        private void btnAgregarPrecio_Click(object sender, EventArgs e)
-        {
-            if (VerificarDatosAGuardar() == true)
-            {
-                //Se envia mensaje para verificar la decision
-                DialogResult resultadoMensaje = MessageBox.Show("¿Esta seguro que desea actualizar el precio del producto con los datos actualez?, una vez ingresado no podra ser cambiado ni eliminado el precio nuevo", "Precio Nuevo", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                //Se contesta que si
-                if (resultadoMensaje == DialogResult.Yes)
-                {
-                    ComandosBDMySQL registrarNuevoPrecio = new ComandosBDMySQL();
-                    try
-                    {
-                        registrarNuevoPrecio.AbrirConexionBD1();
-
-                        //Se ingresan los datos a la tabla Tienda_Productos
-                        registrarNuevoPrecio.IngresarConsulta1("call sbepa.insertar_tienda_productos(" + txtIDTienda.Text + ", " + lblIDProducto.Text + ");");
-
-                        //Se extrae el ID con la que se registro en la tabla tienda_productos
-                        String IDTiendaProductos = registrarNuevoPrecio.RellenarTabla1("SELECT Max(idtienda_producto) FROM sbepa.tiendas_productos;").Rows[0]["Max(idtienda_producto)"].ToString();
-
-                        String FechaActual = (DateTime.Now.ToString(@"yyyy-MM-dd") + " " + DateTime.Now.ToString(@"HH:mm:ss"));
-
-                        String OfertaProducto = "";
-                        if (cbPrecioOferta.Checked == true)
-                        {
-                            OfertaProducto = "SI";
-                        }
-                        else
-                        {
-                            OfertaProducto = "NO";
-                        }
-
-                        String FinalOFerta = "NO hay Oferta";
-                        if (cbPrecioOferta.Checked == true)
-                        {
-                            if (ckFinalOferta.Checked == true)
-                            {
-                                FinalOFerta = txtFinalOfertaTexto.Text;
-                            }
-                            if (ckFechaFinal.Checked == true)
-                            {
-                                FinalOFerta = dtpFinalOferta.Text;
-                            }
-                        }
-                        else
-                        {
-                            FinalOFerta = "NO hay Oferta";
-                        }
-
-                        //registra el precio del producto y su info
-                        registrarNuevoPrecio.IngresarConsulta1("call sbepa.insertar_precios_productos('" + FechaActual + "', '" + nupListaPrecio.Value.ToString() + "', '" + OfertaProducto + "', '" + FinalOFerta + "', " + IDTiendaProductos + ");");
-
-                        //Se registra que el administrador agrego un nuevo precio a un producto
-                        registrarNuevoPrecio.IngresarConsulta1("call sbepa.registro_cambio_datos_administrador('" + FuncionesAplicacion.IDadministrador + "', '" + (DateTime.Now.ToString(@"yyyy-MM-dd") + " " + DateTime.Now.ToString(@"HH:mm:ss")) + "', 'Actualizar Precio Producto', 'Insertar', 'REGISTRO UN NUEVO PRECIO DE PRODUCTO PARA EL PRODUCTO: " + txtListaNombreTienda.Text + ", CON LA INFORMACION DE PRECIO SIGUIENTE PRECIO PRODUCTO: " + nupListaPrecio.Value.ToString() + " OFETA PRODUCTO: " + OfertaProducto + " FINAL OFERTA: " + FinalOFerta + "'); ");
-                        //Se limpian los campos y se muestra un mesaje de confirmacion
-                        MessageBox.Show("Se guardo correctamente el nuevo precio del producto", "Guardado Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LimpiarCampos();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error al intentar registrar el nuevo precio para el producto en la tienda elegida ERROR: " + ex.Message + "", "Error guardar nuevo precio", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    finally
-                    {
-                        registrarNuevoPrecio.CerrarConexionBD1();
-                    }
-                }   
+                MessageBox.Show("Debe seleccionar un producto para poder almacenar sus cambios de precio", "Faltan Datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

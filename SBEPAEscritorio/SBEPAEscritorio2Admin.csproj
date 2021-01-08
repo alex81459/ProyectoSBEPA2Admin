@@ -97,12 +97,6 @@
     <Compile Include="ActualizarPrecioProducto.Designer.cs">
       <DependentUpon>ActualizarPrecioProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="ActualizarPrecioProductoBuscarTienda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ActualizarPrecioProductoBuscarTienda.Designer.cs">
-      <DependentUpon>ActualizarPrecioProductoBuscarTienda.cs</DependentUpon>
-    </Compile>
     <Compile Include="Administradores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,9 +293,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ActualizarPrecioProducto.resx">
       <DependentUpon>ActualizarPrecioProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ActualizarPrecioProductoBuscarTienda.resx">
-      <DependentUpon>ActualizarPrecioProductoBuscarTienda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administradores.resx">
       <DependentUpon>Administradores.cs</DependentUpon>

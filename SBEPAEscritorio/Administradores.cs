@@ -34,9 +34,8 @@ namespace SBEPAEscritorio
         private void Administradores_Load(object sender, EventArgs e)
         {
             //Se extablecen los valores por defecto
-            cbEstado.Text = "Activo";
             CargarAdmins();
-            cmbBuscarEn.Text = "ID Admin";
+            cmbBuscarEn.Text = "idAdministradores";
         }
 
         private void CargarAdmins()
@@ -47,7 +46,7 @@ namespace SBEPAEscritorio
             try
             {
                 cargarAdmins.AbrirConexionBD1();
-                dgbAdmins.DataSource = cargarAdmins.RellenarTabla1("SELECT * FROM sbepa.vista_login_administradores;");
+                dgbAdmins.DataSource = cargarAdmins.RellenarTabla1("SELECT * FROM sbepa2.vistaadministradores;");
             }
             catch (Exception ex)
             {
@@ -56,52 +55,6 @@ namespace SBEPAEscritorio
             finally
             {
                 cargarAdmins.CerrarConexionBD1();
-            }
-        }
-
-        private void txtBuscarEn_KeyUp(object sender, KeyEventArgs e)
-        {
-            //Se transforma la busqueda para que sea compatible con las columnas de la BD
-            String BuscarEn;
-            if (cmbBuscarEn.Text == "ID Admin")
-            {
-                BuscarEn = "idlogin_administradores";
-            }
-            else if (cmbBuscarEn.Text == "Usuario")
-            {
-                BuscarEn = "usuario";
-            }
-            else if (cmbBuscarEn.Text == "Rut")
-            {
-                BuscarEn = "rut";
-            }
-            else if (cmbBuscarEn.Text == "Nombre")
-            {
-                BuscarEn = "nombre";
-            }
-            else if (cmbBuscarEn.Text == "Telefono")
-            {
-                BuscarEn = "telefono";
-            }
-            else
-            {
-                BuscarEn = "estado";
-            }
-
-            //se crea la instancia para buscar en la tabla, se carga el resultado en el datagridview, y siempre se cierra la conexion 
-            ComandosBDMySQL buscarTabla = new ComandosBDMySQL();
-            try
-            {
-                buscarTabla.AbrirConexionBD1();
-                dgbAdmins.DataSource = buscarTabla.RellenarTabla1("SELECT idlogin_administradores as 'ID Admin',usuario as 'Usuario',rut as 'Rut',nombre as 'Nombre',telefono as 'Telefono',estado as 'Estado' FROM sbepa.login_administradores Where " + BuscarEn + " like '%" + txtBuscarEn.Text + "%';");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al Intentar Buscar con los parametros ingresados ERROR:" +ex.Message, "Error busqueda", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                buscarTabla.CerrarConexionBD1();
             }
         }
 
@@ -155,12 +108,15 @@ namespace SBEPAEscritorio
             btnEliminar.Visible = false;
             pbClaveNueva.Visible = true;
             pbReingreseClave.Visible = true;
+            txtCorreoElectronico.Text = "";
+            txtDireccion.Text = "";
+            txtApellidos.Text = "";
         }
 
         private Boolean VerificarDatos()
         {
             //Se verifica si el los campos tiene contenido
-            if (txtUsuario.Text == "" || txtRut.Text == "" || txtNombre.Text == "" || txtTelefono.Text == "")
+            if (txtUsuario.Text == "" || txtRut.Text == "" || txtNombre.Text == "" || txtTelefono.Text == "" || txtCorreoElectronico.Text == "" || txtDireccion.Text == "" || txtApellidos.Text == "")
             {
                 MessageBox.Show("Verifique que todos los Campos de Datos esten Rellenados","Campo Vacio Detectado", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 return false;
@@ -169,9 +125,18 @@ namespace SBEPAEscritorio
             {
                 //Se verifica si el Rut es correcto
                 FuncionesAplicacion VerificarRut = new FuncionesAplicacion();
+                FuncionesAplicacion VerificarCorreo = new FuncionesAplicacion();
                 if (VerificarRut.validarRut(txtRut.Text) == true)
                 {
-                    return true;
+                    if (VerificarCorreo.VerificarCorreo(txtCorreoElectronico.Text) == true)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El correo ingresado es invalido, debe de tener los parametros base de un correo NombreUsuario@Dominio.com","Correo Invalido",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                        return false;
+                    } 
                 }
                 else
                 {
@@ -266,7 +231,7 @@ namespace SBEPAEscritorio
                         try
                         {
                             VerificarExistenciaUsuario.AbrirConexionBD1();
-                            Boolean ExisteUsuario = VerificarExistenciaUsuario.VerificarExistenciaDato1("SELECT * FROM sbepa.login_administradores WHERE usuario='" + txtUsuario.Text + "';");
+                            Boolean ExisteUsuario = VerificarExistenciaUsuario.VerificarExistenciaDato1("SELECT * FROM sbepa2.credencialesadministradores where NombreUsuario = '"+ txtUsuario.Text+ "';");
                             VerificarExistenciaUsuario.CerrarConexionBD1();
 
                             //Si el usuario existe se muestra un mensaje de error
@@ -281,7 +246,7 @@ namespace SBEPAEscritorio
                                 try
                                 {
                                     verificarRutRegistrado.AbrirConexionBD1();
-                                    Boolean ResultadoExistenciaRut = verificarRutRegistrado.VerificarExistenciaDato1("SELECT * FROM sbepa.login_administradores Where rut = '" + txtRut.Text + "';");
+                                    Boolean ResultadoExistenciaRut = verificarRutRegistrado.VerificarExistenciaDato1("SELECT * FROM sbepa2.administradores where RutAdmin = '"+ txtRut.Text+ "';");
 
                                     if (ResultadoExistenciaRut == true)
                                     {
@@ -289,17 +254,19 @@ namespace SBEPAEscritorio
                                         MessageBox.Show("El Rut Ingresado ya esta registrado en un Usuario Administrador del sistema", "RUT Registrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     }
                                     else
-                                    {
+                                    { 
                                         //si el rut no esta regsitrado se devuelve verdadero
                                         //Se debe de ingresar la Clave Maestra para continuar con la operacion
                                         ClaveMaestra verificarClave = new ClaveMaestra();
 
                                         if (verificarClave.ShowDialog() == DialogResult.OK)
                                         {
-                                            //Si el usuario no existe se registra
-                                            RegistrarAdmin.IngresarConsulta1("call sbepa.inserta_login_administradores('" + txtUsuario.Text + "', '" + HashDeClave + "', '" + txtRut.Text + "', '" + txtNombre.Text + "', '" + txtTelefono.Text + "', '" + cbEstado.Text + "');");
-                                            RegistrarAdmin.IngresarConsulta1("call sbepa.registro_cambio_datos_administrador('" + FuncionesAplicacion.IDadministrador + "', '" + (DateTime.Now.ToString(@"yyyy-MM-dd") + " " + DateTime.Now.ToString(@"HH:mm:ss")) + "','Administradores','Insertar','REGISTRO UN ADMINISTRADOR CON EL NOMBRE: " + txtUsuario.Text + " RUT: " + txtRut.Text + " NOMBRE: " + txtNombre.Text + " TELEFONO: " + txtTelefono.Text + " ESTADO: " + cbEstado.Text + "');");
-                                            MessageBox.Show("Se ha registrado correctamente el nuevo Administrador", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            //Si el administrador no existe se registra
+                                            RegistrarAdmin.IngresarConsulta1("call sbepa2.InsertarAdmin('"+ txtRut.Text+ "', '"+ txtNombre.Text+ "', '"+ txtApellidos.Text+ "', '"+ txtCorreoElectronico.Text+ "', '"+ txtDireccion.Text+ "', '"+ txtTelefono.Text+ "', '"+ cbEstado.Text+ "');");
+                                            String IDRegistroUsuario = RegistrarAdmin.RellenarTabla1("SELECT idAdministradores FROM sbepa2.administradores where RutAdmin = '"+ txtRut.Text+ "';").Rows[0][0].ToString();
+                                            RegistrarAdmin.IngresarConsulta1("call sbepa2.InsertarCredencialAdministrador('"+ txtUsuario.Text+ "', '"+HashDeClave+"', "+ IDRegistroUsuario + ");");
+                                            RegistrarAdmin.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Administradores', 'Insertar', 'Registro un nuevo Administrador con el Nombre: "+txtNombre.Text+" Apellido: "+txtApellidos.Text+" RUT: "+txtRut.Text+" Correo Electronico: "+ txtCorreoElectronico.Text+ " Direccion: "+ txtDireccion.Text+ " Telefono: "+ txtTelefono.Text+ "');");
+                                            MessageBox.Show("Se ha registrado correctamente el nuevo Administrador y su Crendencial", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                             ActivarNuevo();
                                             CargarAdmins();
                                         }
@@ -339,7 +306,7 @@ namespace SBEPAEscritorio
                     //Si el ID tiene contenido Se Modifican los Datos
                     if (cbCambiarClave.Checked == true)
                     {
-                        //Se veririca si se ha ingresado correctamente la nueva clave
+                        //Se verifica si se ha ingresado correctamente la nueva clave
                         if (VerificarContraceña() == true)
                         {
                             FuncionesAplicacion calcularHash = new FuncionesAplicacion();
@@ -354,12 +321,15 @@ namespace SBEPAEscritorio
                                 ComandosBDMySQL ActualizarAdminConClave = new ComandosBDMySQL();
                                 try
                                 {
+                                    //Se cambia la clave se registra
                                     ActualizarAdminConClave.AbrirConexionBD1();
-                                    ActualizarAdminConClave.IngresarConsulta1("call sbepa.actualizar_login_administradores_conclave(" + txtID.Text + ", '" + txtUsuario.Text + "', '" + HashDeClave + "', '" + txtRut.Text + "', '" + txtNombre.Text + "', '" + txtTelefono.Text + "', '" + cbEstado.Text + "');");
-                                    ActualizarAdminConClave.IngresarConsulta1("call sbepa.registro_cambio_datos_administrador('" + FuncionesAplicacion.IDadministrador + "', '" + (DateTime.Now.ToString(@"yyyy-MM-dd") + " " + DateTime.Now.ToString(@"HH:mm:ss")) + "','Administradores','Modificar y Cambio Clave','CAMBIO DE LA CLAVE Y LOS DATOS DEL ADMINISTRADOR CON ID: " + txtID.Text + " CON EL NOMBRE: " + txtUsuario.Text + " RUT: " + txtRut.Text + " NOMBRE: " + txtNombre.Text + " TELEFONO: " + txtTelefono.Text + " ESTADO: " + cbEstado.Text + "');");
+                                    ActualizarAdminConClave.IngresarConsulta1("call sbepa2.ActualizarAdministradores(" + txtID.Text + ", '" + txtCorreoElectronico.Text + "', '" + txtDireccion.Text + "', '" + txtTelefono.Text + "');");
+                                    String IDRegistroUsuario = ActualizarAdminConClave.RellenarTabla1("SELECT idAdministradores FROM sbepa2.administradores where RutAdmin = '" + txtRut.Text + "';").Rows[0][0].ToString();
+                                    ActualizarAdminConClave.IngresarConsulta1("call sbepa2.ActualizarCredencialesAdministradores(" + IDRegistroUsuario + ", '" + txtUsuario.Text+ "', '"+HashDeClave+"');");
+                                    ActualizarAdminConClave.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Administradores', 'Actualizar', 'MODIFICO al administrador con ID:"+txtID.Text+" con el correo:"+txtCorreoElectronico.Text+" la direccion:"+txtDireccion.Text+" el telefono:"+txtTelefono.Text+" Y cambio la clave del administrador');");
                                     CargarAdmins();
                                     ActivarNuevo();
-                                    MessageBox.Show("Datos del Administrador Actualizados Correctamente");
+                                    MessageBox.Show("Datos del Administrador Actualizados Correctamente, se actualizo su Correo, Direccion, Telefono y Clave, los demas datos no puden ser modificados","Administrador Actualizado",MessageBoxButtons.OK,MessageBoxIcon.Information);
                                 }
                                 catch (Exception ex)
                                 {
@@ -387,12 +357,13 @@ namespace SBEPAEscritorio
                             ComandosBDMySQL ActualizarAdminSinClave = new ComandosBDMySQL();
                             try
                             {
+                                //Solo registra el cambio y la clave np
                                 ActualizarAdminSinClave.AbrirConexionBD1();
-                                ActualizarAdminSinClave.IngresarConsulta1("call sbepa.actualizar_login_administradores_sinclave(" + txtID.Text + ", '" + txtUsuario.Text + "', '" + txtRut.Text + "', '" + txtNombre.Text + "', '" + txtTelefono.Text + "', '" + cbEstado.Text + "');");
-                                ActualizarAdminSinClave.IngresarConsulta1("call sbepa.registro_cambio_datos_administrador('" + FuncionesAplicacion.IDadministrador + "', '" + (DateTime.Now.ToString(@"yyyy-MM-dd") + " " + DateTime.Now.ToString(@"HH:mm:ss")) + "','Administradores','Modificar', 'CAMBIO LOS DATOS DEL ADMINISTRADOR CON ID: " + txtID.Text + " CON LOS SIGUIENTES DATOS, NOMBRE: " + txtUsuario.Text + " RUT: " + txtRut.Text + " NOMBRE: " + txtNombre.Text + " TELEFONO: " + txtTelefono.Text + " ESTADO: " + cbEstado.Text + "');");
+                                ActualizarAdminSinClave.IngresarConsulta1("call sbepa2.ActualizarAdministradores(" + txtID.Text + ", '" + txtCorreoElectronico.Text + "', '" + txtDireccion.Text + "', '" + txtTelefono.Text + "');");
+                                ActualizarAdminSinClave.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Administradores', 'Actualizar', 'MODIFICO al administrador con ID:" + txtID.Text + " con el correo:" + txtCorreoElectronico.Text + " la direccion:" + txtDireccion.Text + " el telefono:" + txtTelefono.Text + " Y SIN cambio la clave del administrador');");
                                 CargarAdmins();
                                 ActivarNuevo();
-                                MessageBox.Show("Datos del Administrador Actualizados Correctamente");
+                                MessageBox.Show("Datos del Administrador Actualizados Correctamente, se actualizo su Correo, Direccion, Telefono y SIN LA CLAVE, los demas datos no puden ser modificados", "Administrador Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             catch (Exception ex)
                             {
@@ -464,7 +435,7 @@ namespace SBEPAEscritorio
                     try
                     {
                         VerificarRegistrosAdmin.AbrirConexionBD1();
-                        AdminTieneRegistros = VerificarRegistrosAdmin.VerificarExistenciaDato1("Select id_administrador_login From registro_login_administradores Where id_administrador_login = '" + txtID.Text + "';");
+                        AdminTieneRegistros = VerificarRegistrosAdmin.VerificarExistenciaDato1("SELECT * FROM sbepa2.credencialesadministradores inner join registrologinadministradores on credencialesadministradores.idCredencialesAdministradores = registrologinadministradores.idCredencialAdmin where idAdministrador = '"+ txtID.Text+ "' limit 1;");
                     }
                     catch (Exception ex)
                     {
@@ -487,8 +458,8 @@ namespace SBEPAEscritorio
                             {
                                 //Si la clave es correcta se procede a eliminarlo del sistema
                                 EliminarAdmin.AbrirConexionBD1();
-                                EliminarAdmin.IngresarConsulta1("call sbepa.eliminar_login_administradores('" + txtID.Text + "');");
-                                EliminarAdmin.IngresarConsulta1("call sbepa.registro_cambio_datos_administrador('" + FuncionesAplicacion.IDadministrador + "', '" + (DateTime.Now.ToString(@"yyyy-MM-dd") + " " + DateTime.Now.ToString(@"HH:mm:ss")) + "','Administradores','Eliminar', 'ELIMINO AL ADMINISTRADOR CON EL ID: " + txtID.Text + " , LA CUAL TENIA POR NOMBRE: " + txtNombre.Text + "');");
+                                EliminarAdmin.IngresarConsulta1("call sbepa2.EliminarAdministrador("+txtID.Text+");");
+                                EliminarAdmin.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Administradores', 'Eliminar', 'Elimino al Administrador con el ID: "+txtID+" el cual tenia por RUT: "+txtRut.Text+"');");
                                 MessageBox.Show("Administrador Eliminado Correctamente", "Proceso Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 ActivarNuevo();
                                 CargarAdmins();
@@ -530,12 +501,28 @@ namespace SBEPAEscritorio
                 ActivarModificar();
                 //Se extraen los datos de el DataGridView
                 DataGridViewRow fila = dgbAdmins.Rows[e.RowIndex];
-                txtID.Text = Convert.ToString(fila.Cells["ID Admin"].Value);
-                txtUsuario.Text = Convert.ToString(fila.Cells["Usuario"].Value);
-                txtRut.Text = Convert.ToString(fila.Cells["Rut"].Value);
-                txtNombre.Text = Convert.ToString(fila.Cells["Nombre"].Value);
+                txtID.Text = Convert.ToString(fila.Cells["idAdministradores"].Value);
+                txtRut.Text = Convert.ToString(fila.Cells["RutAdmin"].Value);
+                txtNombre.Text = Convert.ToString(fila.Cells["Nombres"].Value);
+                txtApellidos.Text = Convert.ToString(fila.Cells["Apellidos"].Value);
+                txtCorreoElectronico.Text = Convert.ToString(fila.Cells["Correo"].Value);
                 txtTelefono.Text = Convert.ToString(fila.Cells["Telefono"].Value);
-                cbEstado.Text = Convert.ToString(fila.Cells["Estado"].Value);
+                txtDireccion.Text = Convert.ToString(fila.Cells["Direccion"].Value);
+
+                ComandosBDMySQL BuscarUsuario = new ComandosBDMySQL();
+                try
+                {
+                    BuscarUsuario.AbrirConexionBD1();
+                    txtUsuario.Text = BuscarUsuario.RellenarTabla1("SELECT NombreUsuario FROM sbepa2.administradores inner join credencialesadministradores on administradores.idAdministradores = credencialesadministradores.idAdministrador where RutAdmin = '"+ txtRut.Text+ "';").Rows[0][0].ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al Intentar Cargar el Nombre de Usuario de la Cuenta ERROR:"+ ex.Message+ "","ERROR Cargar Dato",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                }
+                finally
+                {
+                    BuscarUsuario.CerrarConexionBD1();
+                } 
             }
         }
 
@@ -570,6 +557,52 @@ namespace SBEPAEscritorio
         {
             //Si el se deja de dar click a la Barra, se deja de mover el Form
             mover = false;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBuscarEn.Text == "")
+            {
+                MessageBox.Show("Debe ingresar algun dato a buscar en el campo 'Paremetros a Buscar'", "Faltan Datos para la Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                ComandosBDMySQL BuscarAdmins = new ComandosBDMySQL();
+                try
+                {
+                    //Se cargan los datos necesarios para la busquedam y el ordenamiento de las paginas
+                    BuscarAdmins.AbrirConexionBD1();
+                    dgbAdmins.DataSource = BuscarAdmins.RellenarTabla2("call sbepa2.BuscarAdministrador('"+ cmbBuscarEn.Text+ "', '"+ txtBuscarEn.Text+ "', 0, 500);");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al intentar obtener las tiendas buscadas ERROR: " + ex.Message + "", "Error Detectado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    BuscarAdmins.CerrarConexionBD1();
+                }
+            }
+        }
+
+        private void txtBuscarEn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = VerificarCaracteres.RestringirCaracteresBuscar(e);
+        }
+
+        private void txtApellidos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = VerificarCaracteres.RestringirCaracteresNombre(e);
+        }
+
+        private void txtCorreoElectronico_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = VerificarCaracteres.RestringirCaracteresCorreo(e);
+        }
+
+        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = VerificarCaracteres.RestringirCaracteresDescripcion(e);
         }
     }
 }

@@ -52,7 +52,7 @@
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.btnActualizarPrecioProducto = new System.Windows.Forms.Button();
+            this.btnRegistrosPrecios = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -370,7 +370,7 @@
             // 
             this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.groupBox4.Controls.Add(this.pictureBox11);
-            this.groupBox4.Controls.Add(this.btnActualizarPrecioProducto);
+            this.groupBox4.Controls.Add(this.btnRegistrosPrecios);
             this.groupBox4.Controls.Add(this.pictureBox4);
             this.groupBox4.Controls.Add(this.btnProductos);
             this.groupBox4.Controls.Add(this.btnSucursales);
@@ -398,18 +398,17 @@
             this.pictureBox11.TabStop = false;
             this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
             // 
-            // btnActualizarPrecioProducto
+            // btnRegistrosPrecios
             // 
-            this.btnActualizarPrecioProducto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnActualizarPrecioProducto.Enabled = false;
-            this.btnActualizarPrecioProducto.ForeColor = System.Drawing.Color.Black;
-            this.btnActualizarPrecioProducto.Location = new System.Drawing.Point(333, 111);
-            this.btnActualizarPrecioProducto.Name = "btnActualizarPrecioProducto";
-            this.btnActualizarPrecioProducto.Size = new System.Drawing.Size(113, 23);
-            this.btnActualizarPrecioProducto.TabIndex = 42;
-            this.btnActualizarPrecioProducto.Text = "Actualizacion Precio ";
-            this.btnActualizarPrecioProducto.UseVisualStyleBackColor = true;
-            this.btnActualizarPrecioProducto.Click += new System.EventHandler(this.btnActualizarPrecioProducto_Click);
+            this.btnRegistrosPrecios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrosPrecios.ForeColor = System.Drawing.Color.Black;
+            this.btnRegistrosPrecios.Location = new System.Drawing.Point(333, 111);
+            this.btnRegistrosPrecios.Name = "btnRegistrosPrecios";
+            this.btnRegistrosPrecios.Size = new System.Drawing.Size(113, 23);
+            this.btnRegistrosPrecios.TabIndex = 42;
+            this.btnRegistrosPrecios.Text = "Registros Precios ";
+            this.btnRegistrosPrecios.UseVisualStyleBackColor = true;
+            this.btnRegistrosPrecios.Click += new System.EventHandler(this.btnRegistrosPrecios_Click);
             // 
             // pictureBox4
             // 
@@ -508,7 +507,6 @@
             // button5
             // 
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Enabled = false;
             this.button5.ForeColor = System.Drawing.Color.Black;
             this.button5.Location = new System.Drawing.Point(5, 112);
             this.button5.Name = "button5";
@@ -862,7 +860,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblTiempoInicioSesion;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnActualizarPrecioProducto;
+        private System.Windows.Forms.Button btnRegistrosPrecios;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Label label1;
