@@ -345,7 +345,6 @@
             // button6
             // 
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.Enabled = false;
             this.button6.ForeColor = System.Drawing.Color.Black;
             this.button6.Location = new System.Drawing.Point(224, 109);
             this.button6.Name = "button6";

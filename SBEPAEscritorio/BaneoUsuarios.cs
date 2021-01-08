@@ -20,27 +20,9 @@ namespace SBEPAEscritorio
         public BaneoUsuarios()
         {
             InitializeComponent();
-            CargarTabla();
+            CargarBaneosUsuarios();
             lblFechaBaneo.Text = (DateTime.Now.ToString(@"yyyy-MM-dd") + " " + DateTime.Now.ToString(@"HH:mm:ss"));
-            cmbBuscarEn.Text = "id_baneo";
-        }
-
-        private void CargarTabla()
-        {
-            ComandosBDMySQL cargarTabla = new ComandosBDMySQL();
-            try
-            {
-                cargarTabla.AbrirConexionBD1();
-                dgbUsuariosBaneados.DataSource = cargarTabla.RellenarTabla1("SELECT * FROM sbepa.vista_usuarios_baneados;");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al Intentar Cargar la Tabla Usuarios Baneados ERROR: " + ex.Message, "Error Cargar Tabla", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                cargarTabla.CerrarConexionBD1();
-            }
+            cmbBuscarEn.Text = "idUsuarioBaneado";
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -88,7 +70,7 @@ namespace SBEPAEscritorio
 
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {
-            CargarTabla();
+            CargarBaneosUsuarios();
             LimpiarCampos();
         }
 
@@ -96,12 +78,12 @@ namespace SBEPAEscritorio
         {
             txtBuscarEn.Text = "";
             cmbBuscarEn.Text = "id_baneo";
-            lblIDUsuario.Text = "¿?";
-            lblNombreUsuario.Text = "¿?";
+            txtIDUsuario.Text = "¿?";
+            txtNombresUsuario.Text = "¿?";
             txtRazonBaneo.Text = "";
             lblFechaBaneo.Text = (DateTime.Now.ToString(@"yyyy-MM-dd") + " " + DateTime.Now.ToString(@"HH:mm:ss"));
             nudDias.Value = 1;
-            lblIDBaneo.Text = "¿?";
+            txtIDBaneo.Text = "¿?";
             btnBuscarUsuario.Enabled = true;
         }
 
@@ -125,24 +107,8 @@ namespace SBEPAEscritorio
 
         private void pBActualizar_Click(object sender, EventArgs e)
         {
-            CargarTabla();
+            CargarBaneosUsuarios();
             LimpiarCampos();
-        }
-
-        private void dgbUsuariosBaneados_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                //Se extraen los datos de el DataGridView
-                DataGridViewRow fila = dgbUsuariosBaneados.Rows[e.RowIndex];
-                lblIDBaneo.Text = Convert.ToString(fila.Cells["id_baneo"].Value);
-                lblIDUsuario.Text = Convert.ToString(fila.Cells["id_usuario_baneado"].Value);
-                lblNombreUsuario.Text = Convert.ToString(fila.Cells["nombre_usuario"].Value);
-                txtRazonBaneo.Text = Convert.ToString(fila.Cells["razon_baneo"].Value);
-                lblFechaBaneo.Text = Convert.ToString(fila.Cells["fecha"].Value);
-                nudDias.Value = Convert.ToInt32(fila.Cells["dias_baneo"].Value);
-                btnBuscarUsuario.Enabled = false;
-            }
         }
 
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
@@ -153,10 +119,10 @@ namespace SBEPAEscritorio
 
         private void btnGuardarBaneo_Click(object sender, EventArgs e)
         {
-            if (lblIDBaneo.Text != "¿?")
+            if (txtIDBaneo.Text == "¿?")
             {
                 //Si es distinto el ID del baneo a Deconocido ¿? se actualiza el baneo
-                if (lblIDUsuario.Text != "¿?" && txtRazonBaneo.Text != "" && nudDias.Value > 0)
+                if (txtIDUsuario.Text != "¿?" && txtRazonBaneo.Text != "" && nudDias.Value > 0)
                 {
                     //Se envia mensaje para verificar la decision
                     DialogResult resultadoMensaje = MessageBox.Show("¿Esta seguro que desea banear al usuario actual?, una vez ingresado no podra ser eliminado el baneo del usuario", "Baneo Usuario", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -164,55 +130,190 @@ namespace SBEPAEscritorio
                     //Se contesta que si
                     if (resultadoMensaje == DialogResult.Yes)
                     {
-                        ComandosBDMySQL ActualizarBaneo = new ComandosBDMySQL();
+                        ComandosBDMySQL RegistrarBaneo = new ComandosBDMySQL();
                         try
                         {
-                            ActualizarBaneo.AbrirConexionBD1();
-                            ActualizarBaneo.IngresarConsulta1("call sbepa.actualizar_usuarios_baneados(" + lblIDBaneo.Text + ", '" + txtRazonBaneo.Text + "', " + nudDias.Value.ToString() + ");");
-                            ActualizarBaneo.IngresarConsulta1("call sbepa.registro_cambio_datos_administrador('" + FuncionesAplicacion.IDadministrador + "', '" + (DateTime.Now.ToString(@"yyyy-MM-dd") + " " + DateTime.Now.ToString(@"HH:mm:ss")) + "','Usuarios Baneados','Modificar','MODIFICO UN USUARIO BANEADO CON ID " + lblNombreUsuario.Text + ", CON LA INFORMACION NOMBRE: " + lblNombreUsuario.Text + " CON LA RAZON DE BANEO DE: " + txtRazonBaneo.Text + " CON LA CANTIDAD DE IDEAS DE: " + nudDias.Value.ToString() + "');");
-                            ActualizarBaneo.CerrarConexionBD1();
-                            MessageBox.Show("La actualizacion del baneo del usuario se realizo correctamente", "Actualizacion Correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            RegistrarBaneo.AbrirConexionBD1();
+                            RegistrarBaneo.IngresarConsulta1("call sbepa2.InsertarRegistroUsuariosBaneados('"+ txtRazonBaneo.Text+ "', "+ nudDias.Value.ToString()+ ", "+ txtIDUsuario.Text+ ");");
+                            RegistrarBaneo.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Baneos Usaurios', 'Añadir', 'Baneo al Usuario con ID: "+txtIDUsuario.Text+" Que tiene por nombre: "+ txtNombresUsuario.Text+ " La razon del baneo fue: "+ txtRazonBaneo.Text+ " Una Cantidadad de: "+ nudDias.Value.ToString()+ " Dias');");
+                            RegistrarBaneo.CerrarConexionBD1();
+                            MessageBox.Show("Se registro correctamente le Baneo del Usuario con ID:"+txtIDUsuario.Text+"", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             LimpiarCampos();
-                            CargarTabla();
+                            CargarBaneosUsuarios();
 
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error al intentar actualizar el baneo del usuario ERROR:" + ex.Message + "", "Error actualizar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("Error al intentar registar el baneo del usuario ERROR:" + ex.Message + "", "Error Registrar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                         finally
                         {
-                            ActualizarBaneo.CerrarConexionBD1();
+                            RegistrarBaneo.CerrarConexionBD1();
                         }
                     }  
                 }
                 else
                 {
-                    MessageBox.Show("Faltan Datos necesarios para banear a un usuario, revise que esta ingresado el ID del usuario a banear, la razon del baneo y el numero de dias del baneo","Faltan Datos Necesarios",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Faltan Datos necesarios para banear a un usuario, revise que este ingresado el ID del usuario a banear, la razon del baneo y el numero de dias del baneo","Faltan Datos Necesarios",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
             }
             else
             {
-                //Si no hay ID de baneo (¿?) se guarda el baneo
-                ComandosBDMySQL RegistrarBaneo = new ComandosBDMySQL();
+                //Si hay un ID de Baneo se actualiza
+                ComandosBDMySQL ActualizarBaneo = new ComandosBDMySQL();
                 try
                 {
-                    RegistrarBaneo.AbrirConexionBD1();
-                    RegistrarBaneo.IngresarConsulta1("call sbepa.insertar_usuarios_baneados('" + txtRazonBaneo.Text + "', '" + lblFechaBaneo.Text + "', " + nudDias.Value.ToString() + ", " + lblIDUsuario.Text + ");");
-                    RegistrarBaneo.IngresarConsulta1("call sbepa.registro_cambio_datos_administrador('" + FuncionesAplicacion.IDadministrador + "', '" + (DateTime.Now.ToString(@"yyyy-MM-dd") + " " + DateTime.Now.ToString(@"HH:mm:ss")) + "','Usuarios Baneados','Insertar','REGISTRO UN USUARIO BANEADO CON ID " + lblNombreUsuario.Text + ", CON LA INFORMACION NOMBRE: " + lblNombreUsuario.Text + " CON LA RAZON DE BANEO DE: " + txtRazonBaneo.Text + " CON LA CANTIDAD DE IDEAS DE: " + nudDias.Value.ToString() + "');");
+                    ActualizarBaneo.AbrirConexionBD1();
+                    ActualizarBaneo.IngresarConsulta1("call sbepa2.ActualizarRegistroUsuarioBaneado("+txtIDBaneo.Text+", '"+txtRazonBaneo.Text+"', "+ nudDias.Value.ToString()+ ");");
+                    ActualizarBaneo.IngresarConsulta1("call sbepa2.InsertarRegistrosCambiosAdministradores(" + FuncionesAplicacion.IDadministrador + ", 'Baneos Usaurios', 'Actualizar', 'Actualizo el Baneo con ID: " + txtIDBaneo.Text + " con la razon del baneo: " + txtRazonBaneo.Text + " y modifico los dias A: " + nudDias.Value.ToString() +"');");
                     MessageBox.Show("La registro del baneo del usuario se realizo correctamente", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RegistrarBaneo.CerrarConexionBD1();
+                    ActualizarBaneo.CerrarConexionBD1();
                     LimpiarCampos();
-                    CargarTabla();
+                    CargarBaneosUsuarios();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al intentar registra el baneo del usuario ERROR:" + ex.Message + "", "Error Registrar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Error al intentar actualizar el baneo del usuario ERROR:" + ex.Message + "", "Error Registrar", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 finally
                 {
-
+                    ActualizarBaneo.CerrarConexionBD1();
                 }
+            }
+        }
+
+        private void txtBuscarEn_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = VerificarCaracteres.RestringirCaracteresBuscar(e);
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBuscarEn.Text == "")
+            {
+                MessageBox.Show("Debe ingresar algun dato a buscar en el campo 'Parametros a Buscar'", "Faltan Datos para la Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                ComandosBDMySQL BuscarRegistros = new ComandosBDMySQL();
+                try
+                {
+                    //Se cargan los datos necesarios para la busqueda y el ordenamiento de las paginas
+                    BuscarRegistros.AbrirConexionBD1();
+                    String CantidadRegistrosDetectados = (BuscarRegistros.RellenarTabla1("SELECT COUNT(idRegistroUsuariosBaneados) FROM sbepa2.registrousuariosbaneados inner join usuarios on registrousuariosbaneados.idUsuarioBaneado = usuarios.Id_usuario Where " + cmbBuscarEn.Text + " like '%" + txtBuscarEn.Text + "%';").Rows[0][0].ToString());
+                    txtRegistrosEncontradosSuperior.Text = CantidadRegistrosDetectados;
+                    txtPaginasDisponiblesBusqueda.Text = (Convert.ToInt32(CantidadRegistrosDetectados) / 50).ToString();
+                    nudPaginaActualBuscar.Maximum = (Convert.ToInt32(CantidadRegistrosDetectados) / 50);
+                    ActivarControlpaginas();
+                    dgbUsuariosBaneados.DataSource = BuscarRegistros.RellenarTabla2("call sbepa2.BuscarUsuariosBaneados('" + cmbBuscarEn.Text + "', '" + txtBuscarEn.Text + "', " + Convert.ToUInt32(nudPaginaActualBuscar.Value * 50).ToString() + ", 50);");
+                    lblRegistrosEncontrados.Visible = true;
+                    txtRegistrosEncontradosSuperior.Visible = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al intentar buscar las comunas y regiones en el sistema ERROR: " + ex.Message + "", "Error Detectado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    BuscarRegistros.CerrarConexionBD1();
+                }
+            }
+        }
+
+        private void ActivarControlpaginas()
+        {
+            nudPaginaActualBuscar.Visible = true;
+            lblBuscarPor.Visible = true;
+            txtPaginasDisponiblesBusqueda.Visible = true;
+            lblPaginasDisponibles.Visible = true;
+            lblPaginaActualBusqueda.Visible = true;
+            lblPaginasDisponibles.Visible = true;
+        }
+
+        private void btnCambiarPagina_Click(object sender, EventArgs e)
+        {
+            // Se avanza a la siguiente pagina
+             ComandosBDMySQL SiguientePagina = new ComandosBDMySQL();
+            try
+            {
+                SiguientePagina.AbrirConexionBD1();
+                dgbUsuariosBaneados.DataSource = SiguientePagina.RellenarTabla1("SELECT idRegistroUsuariosBaneados,RazonBaneo,Fecha,DiasBaneo,idUsuarioBaneado,RutUsuario,Nombres,Apellidos FROM sbepa2.registrousuariosbaneados inner join usuarios on registrousuariosbaneados.idUsuarioBaneado = usuarios.Id_usuario limit " + Convert.ToInt32((nudPaginaActual.Value * 50)) + ",50;");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Problema detectado al intentar cargar los datos de la Comunas-Regiones del sistema ERROR: " + ex.Message + "", "Error Cargar Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            finally
+            {
+                SiguientePagina.CerrarConexionBD1();
+            }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            CargarBaneosUsuarios();
+            HacerInvisiblesyLimpiarCampos();
+        }
+
+        private void CargarBaneosUsuarios()
+        {
+            //Se crea la instancia para conectar con la BD, se extrae la tabla, si falla se muestra un mensaje y
+            //siempre se cierra la conexion
+            ComandosBDMySQL cargarRegistros = new ComandosBDMySQL();
+            try
+            {
+                //Se verifica la cantidad de tiendas, se rellena la cantidad de paginas y sus opciones para avanzar a travez de los registros y se carga la tabla 
+                cargarRegistros.AbrirConexionBD1();
+                txtCantidadRegistro.Text = cargarRegistros.RellenarTabla1("SELECT COUNT(idRegistroUsuariosBaneados) FROM sbepa2.registrousuariosbaneados inner join usuarios on registrousuariosbaneados.idUsuarioBaneado = usuarios.Id_usuario;").Rows[0][0].ToString();
+                txtPaginasDisponibles.Text = (Convert.ToInt32(txtCantidadRegistro.Text) / 50).ToString();
+                nudPaginaActual.Maximum = Convert.ToDecimal(txtPaginasDisponibles.Text);
+                nudPaginaActualBuscar.Refresh();
+                cargarRegistros.AbrirConexionBD1();
+                dgbUsuariosBaneados.DataSource = cargarRegistros.RellenarTabla1("SELECT * FROM sbepa2.vistausuariosbaneados;");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Cargar la Tabla de los registros de Baneos de Usuarios ERROR: " + ex.Message, "Error Tabla", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            finally
+            {
+                cargarRegistros.CerrarConexionBD1();
+            }
+        }
+
+        private void HacerInvisiblesyLimpiarCampos()
+        {
+            txtBuscarEn.Visible = false;
+            nudPaginaActualBuscar.Visible = false;
+            txtPaginasDisponiblesBusqueda.Visible = false;
+            txtBuscarEn.Text = "";
+            nudPaginaActualBuscar.Value = 0;
+            txtPaginasDisponiblesBusqueda.Text = "?????????";
+            txtPaginasDisponiblesBusqueda.Visible = false;
+            lblRegistrosEncontrados.Visible = false;
+            txtBuscarEn.Visible = true;
+            lnlParametrosABuscar.Visible = true;
+            lblPaginaActualBusqueda.Visible = false;
+            lblPaginasDisponibles.Visible = false;
+            lblRegistrosEncontrados.Visible = false;
+            txtRegistrosEncontradosSuperior.Visible = false;
+        }
+
+        private void dgbUsuariosBaneados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow fila = dgbUsuariosBaneados.Rows[e.RowIndex];
+            // Se revisa si el index de el DataGridView empieza en 0, para evitar que los datos se extraigan mal
+            if (e.RowIndex >= 0)
+            {
+                LimpiarCampos();
+
+                //Se extraen los datos de el DataGridView
+                txtIDBaneo.Text = Convert.ToString(fila.Cells["idRegistroUsuariosBaneados"].Value);
+                txtIDUsuario.Text = Convert.ToString(fila.Cells["idUsuarioBaneado"].Value);
+                txtNombresUsuario.Text = Convert.ToString(fila.Cells["Nombres"].Value)+" "+Convert.ToString(fila.Cells["Apellidos"].Value);
+                txtRazonBaneo.Text = Convert.ToString(fila.Cells["RazonBaneo"].Value);
+                lblFechaBaneo.Text = Convert.ToString(fila.Cells["Fecha"].Value);
+                nudDias.Value = Convert.ToInt32(Convert.ToString(fila.Cells["DiasBaneo"].Value));
             }
         }
     }

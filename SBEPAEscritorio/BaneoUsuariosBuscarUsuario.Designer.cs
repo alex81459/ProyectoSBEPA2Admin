@@ -37,32 +37,34 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dgbUsuarios = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RutUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CorreoElectronico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pbActualizar = new System.Windows.Forms.PictureBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtBuscarEn = new System.Windows.Forms.TextBox();
             this.picLupa = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbBuscarEn = new System.Windows.Forms.ComboBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.Barra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgbUsuarios)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbActualizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLupa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Barra
@@ -147,16 +149,16 @@
             this.dgbUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgbUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgbUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.Usuario,
-            this.Rut,
-            this.Estado,
-            this.CorreoElectronico,
-            this.Ciudad,
-            this.Nombre,
-            this.Apellido});
+            this.Id_usuario,
+            this.RutUsuario,
+            this.Nombres,
+            this.Apellidos,
+            this.Correo,
+            this.Direccion,
+            this.Telefono,
+            this.Estado});
             this.dgbUsuarios.EnableHeadersVisualStyles = false;
-            this.dgbUsuarios.Location = new System.Drawing.Point(12, 90);
+            this.dgbUsuarios.Location = new System.Drawing.Point(13, 85);
             this.dgbUsuarios.Name = "dgbUsuarios";
             this.dgbUsuarios.ReadOnly = true;
             this.dgbUsuarios.RowHeadersVisible = false;
@@ -166,31 +168,63 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Cyan;
             this.dgbUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgbUsuarios.Size = new System.Drawing.Size(776, 358);
+            this.dgbUsuarios.Size = new System.Drawing.Size(776, 338);
             this.dgbUsuarios.TabIndex = 91;
             this.dgbUsuarios.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbUsuarios_CellContentDoubleClick);
             // 
-            // ID
+            // Id_usuario
             // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 50;
+            this.Id_usuario.DataPropertyName = "Id_usuario";
+            this.Id_usuario.HeaderText = "Id_usuario";
+            this.Id_usuario.Name = "Id_usuario";
+            this.Id_usuario.ReadOnly = true;
+            this.Id_usuario.Width = 70;
             // 
-            // Usuario
+            // RutUsuario
             // 
-            this.Usuario.DataPropertyName = "Usuario";
-            this.Usuario.HeaderText = "Usuario";
-            this.Usuario.Name = "Usuario";
-            this.Usuario.ReadOnly = true;
+            this.RutUsuario.DataPropertyName = "RutUsuario";
+            this.RutUsuario.HeaderText = "RutUsuario";
+            this.RutUsuario.Name = "RutUsuario";
+            this.RutUsuario.ReadOnly = true;
             // 
-            // Rut
+            // Nombres
             // 
-            this.Rut.DataPropertyName = "Rut";
-            this.Rut.HeaderText = "RUT";
-            this.Rut.Name = "Rut";
-            this.Rut.ReadOnly = true;
+            this.Nombres.DataPropertyName = "Nombres";
+            this.Nombres.HeaderText = "Nombres";
+            this.Nombres.Name = "Nombres";
+            this.Nombres.ReadOnly = true;
+            this.Nombres.Width = 150;
+            // 
+            // Apellidos
+            // 
+            this.Apellidos.DataPropertyName = "Apellidos";
+            this.Apellidos.HeaderText = "Apellidos";
+            this.Apellidos.Name = "Apellidos";
+            this.Apellidos.ReadOnly = true;
+            this.Apellidos.Width = 150;
+            // 
+            // Correo
+            // 
+            this.Correo.DataPropertyName = "Correo";
+            this.Correo.HeaderText = "Correo";
+            this.Correo.Name = "Correo";
+            this.Correo.ReadOnly = true;
+            this.Correo.Width = 150;
+            // 
+            // Direccion
+            // 
+            this.Direccion.DataPropertyName = "Direccion";
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            this.Direccion.Width = 150;
+            // 
+            // Telefono
+            // 
+            this.Telefono.DataPropertyName = "Telefono";
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
             // 
             // Estado
             // 
@@ -198,90 +232,49 @@
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
-            // 
-            // CorreoElectronico
-            // 
-            this.CorreoElectronico.DataPropertyName = "Correo Electronico";
-            this.CorreoElectronico.HeaderText = "Correo Electronico";
-            this.CorreoElectronico.Name = "CorreoElectronico";
-            this.CorreoElectronico.ReadOnly = true;
-            this.CorreoElectronico.Width = 170;
-            // 
-            // Ciudad
-            // 
-            this.Ciudad.DataPropertyName = "Ciudad";
-            this.Ciudad.HeaderText = "Ciudad";
-            this.Ciudad.Name = "Ciudad";
-            this.Ciudad.ReadOnly = true;
-            this.Ciudad.Width = 150;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 130;
-            // 
-            // Apellido
-            // 
-            this.Apellido.DataPropertyName = "Apellido";
-            this.Apellido.HeaderText = "Apellido";
-            this.Apellido.Name = "Apellido";
-            this.Apellido.ReadOnly = true;
-            this.Apellido.Width = 130;
+            this.Estado.Width = 80;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.pbActualizar);
-            this.panel2.Controls.Add(this.btnBuscar);
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.txtBuscarEn);
             this.panel2.Controls.Add(this.picLupa);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.cmbBuscarEn);
-            this.panel2.Location = new System.Drawing.Point(45, 28);
+            this.panel2.Location = new System.Drawing.Point(46, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(668, 60);
             this.panel2.TabIndex = 92;
             // 
-            // pbActualizar
+            // pictureBox1
             // 
-            this.pbActualizar.Image = global::SBEPAEscritorio.Properties.Resources.actualizar;
-            this.pbActualizar.Location = new System.Drawing.Point(503, 6);
-            this.pbActualizar.Name = "pbActualizar";
-            this.pbActualizar.Size = new System.Drawing.Size(50, 48);
-            this.pbActualizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbActualizar.TabIndex = 86;
-            this.pbActualizar.TabStop = false;
-            this.pbActualizar.Click += new System.EventHandler(this.pbActualizar_Click);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(404, 34);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(83, 20);
-            this.btnBuscar.TabIndex = 85;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.pictureBox1.Image = global::SBEPAEscritorio.Properties.Resources.Clientes;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(82, 54);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 86;
+            this.pictureBox1.TabStop = false;
             // 
             // txtBuscarEn
             // 
-            this.txtBuscarEn.Location = new System.Drawing.Point(229, 29);
+            this.txtBuscarEn.Location = new System.Drawing.Point(370, 29);
             this.txtBuscarEn.MaxLength = 50;
             this.txtBuscarEn.Name = "txtBuscarEn";
             this.txtBuscarEn.Size = new System.Drawing.Size(156, 20);
             this.txtBuscarEn.TabIndex = 10;
+            this.txtBuscarEn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarEn_KeyPress);
+            this.txtBuscarEn.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBuscarEn_KeyUp);
             // 
             // picLupa
             // 
             this.picLupa.Image = ((System.Drawing.Image)(resources.GetObject("picLupa.Image")));
-            this.picLupa.Location = new System.Drawing.Point(420, 1);
+            this.picLupa.Location = new System.Drawing.Point(604, 3);
             this.picLupa.Name = "picLupa";
-            this.picLupa.Size = new System.Drawing.Size(50, 32);
+            this.picLupa.Size = new System.Drawing.Size(50, 48);
             this.picLupa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picLupa.TabIndex = 12;
             this.picLupa.TabStop = false;
@@ -290,7 +283,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(128, 13);
+            this.label2.Location = new System.Drawing.Point(181, 13);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 7;
@@ -300,7 +293,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(246, 13);
+            this.label1.Location = new System.Drawing.Point(387, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 13);
             this.label1.TabIndex = 11;
@@ -314,29 +307,49 @@
             this.cmbBuscarEn.ForeColor = System.Drawing.Color.White;
             this.cmbBuscarEn.FormattingEnabled = true;
             this.cmbBuscarEn.Items.AddRange(new object[] {
-            "Usuario",
-            "Rut",
-            "Estado",
-            "Correo Electronico",
-            "Ciudad",
-            "Nombre",
-            "Apellido",
-            "ID"});
-            this.cmbBuscarEn.Location = new System.Drawing.Point(102, 28);
+            "Id_usuario",
+            "RutUsuario",
+            "Nombres",
+            "Apellidos",
+            "Direccion",
+            "Telefono"});
+            this.cmbBuscarEn.Location = new System.Drawing.Point(155, 28);
             this.cmbBuscarEn.Name = "cmbBuscarEn";
             this.cmbBuscarEn.Size = new System.Drawing.Size(121, 21);
             this.cmbBuscarEn.TabIndex = 8;
-            this.cmbBuscarEn.SelectedValueChanged += new System.EventHandler(this.cmbBuscarEn_SelectedValueChanged);
             // 
             // pictureBox11
             // 
             this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
-            this.pictureBox11.Location = new System.Drawing.Point(748, 31);
+            this.pictureBox11.Location = new System.Drawing.Point(749, 6);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(40, 47);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox11.TabIndex = 166;
             this.pictureBox11.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(13, 70);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(226, 12);
+            this.label3.TabIndex = 170;
+            this.label3.Text = "*Para seleccionar un Usuario realize doble clik sobre el";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.dgbUsuarios);
+            this.panel1.Controls.Add(this.pictureBox11);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 23);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 427);
+            this.panel1.TabIndex = 171;
             // 
             // BaneoUsuariosBuscarUsuario
             // 
@@ -344,9 +357,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBox11);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.dgbUsuarios);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Barra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -362,11 +373,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgbUsuarios)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbActualizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLupa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -378,22 +390,23 @@
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgbUsuarios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rut;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CorreoElectronico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ciudad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscarEn;
         private System.Windows.Forms.PictureBox picLupa;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbBuscarEn;
-        private System.Windows.Forms.PictureBox pbActualizar;
         private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id_usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RutUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombres;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

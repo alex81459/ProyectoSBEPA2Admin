@@ -55,71 +55,11 @@ namespace SBEPAEscritorio
             mover = false;
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            if (txtBuscarEn.Text == "")
-            {
-                MessageBox.Show("Debe ingresar algun dato a buscar en el campo 'Paremetros a Buscar'", "Faltan Datos para la Busqueda", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                ComandosBDMySQL BuscarUsuario = new ComandosBDMySQL();
-                try
-                {
-                    BuscarUsuario.AbrirConexionBD1();
-                    dgbUsuarios.DataSource = BuscarUsuario.RellenarTabla1("SELECT id_usuario as 'ID', nombre_usuario as 'Usuario', estado as 'Estado', correo as 'Correo Electronico', ciudad_actual as 'Ciudad', rut as 'Rut', nombre as 'Nombre', apellido as 'Apeliido' FROM sbepa.usuarios  Where " + BuscarEn + " like '%" + txtBuscarEn.Text + "%' ORDER BY id_usuario DESC;");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al intentar obtener los usuarios buscados ERROR: " + ex.Message + "", "Error Detectado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    BuscarUsuario.CerrarConexionBD1();
-                }
-            }
-        }
-
-        private void cmbBuscarEn_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (cmbBuscarEn.Text == "ID")
-            {
-                BuscarEn = "id_usuario";
-            }
-            else if (cmbBuscarEn.Text == "Usuario")
-            {
-                BuscarEn = "nombre_usuario";
-            }
-            else if (cmbBuscarEn.Text == "Rut")
-            {
-                BuscarEn = "rut";
-            }
-            else if (cmbBuscarEn.Text == "Estado")
-            {
-                BuscarEn = "estado";
-            }
-            else if (cmbBuscarEn.Text == "Correo Electronico")
-            {
-                BuscarEn = "correo";
-            }
-            else if (cmbBuscarEn.Text == "Ciudad")
-            {
-                BuscarEn = "ciudad_actual";
-            }
-            else if (cmbBuscarEn.Text == "Nombre")
-            {
-                BuscarEn = "nombre";
-            }
-            else
-            {
-                BuscarEn = "apellido";
-            }
-        }
 
         private void pbActualizar_Click(object sender, EventArgs e)
         {
             CargarTabla();
-            cmbBuscarEn.Text = "Usuario";
+            cmbBuscarEn.Text = "";
             txtBuscarEn.Text = "";
         }
 
@@ -135,7 +75,7 @@ namespace SBEPAEscritorio
             try
             {
                 CargarUsuarios.AbrirConexionBD1();
-                dgbUsuarios.DataSource = CargarUsuarios.RellenarTabla1("SELECT * FROM sbepa.vista_usuarios;");
+                dgbUsuarios.DataSource = CargarUsuarios.RellenarTabla1("SELECT * FROM usuarios order by Id_usuario desc;");
             }
             catch (Exception ex)
             {
@@ -154,18 +94,46 @@ namespace SBEPAEscritorio
             {
                 //Se extraen los datos de la sucursal
                 DataGridViewRow fila = dgbUsuarios.Rows[e.RowIndex];
-                String IDUsuario = Convert.ToString(fila.Cells["ID"].Value);
-                String NombreUsuario = Convert.ToString(fila.Cells["Usuario"].Value);
+                String IDUsuario = Convert.ToString(fila.Cells["Id_usuario"].Value);
+                String NombresUsuario = Convert.ToString(fila.Cells["Nombres"].Value);
+                String ApellidosUsuario = Convert.ToString(fila.Cells["Apellidos"].Value);
 
                 //Se crea una instancia especial para enviar los datos entre los 2 forms 
                 BaneoUsuarios f1 = Application.OpenForms.OfType<BaneoUsuarios>().SingleOrDefault();
-                f1.lblIDUsuario.Text = IDUsuario;
-                f1.lblNombreUsuario.Text = NombreUsuario;
+                f1.txtIDUsuario.Text = IDUsuario;
+                f1.txtNombresUsuario.Text = NombresUsuario+" "+ ApellidosUsuario;
 
                 //Se cierra el formulario
                 this.Close();
             }
         }
+
+        private void txtBuscarEn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = VerificarCaracteres.RestringirCaracteresBuscar(e);
+        }
+
+        private void txtBuscarEn_KeyUp(object sender, KeyEventArgs e)
+        {
+            //Se filtran los resultados de categorias
+            ComandosBDMySQL cargarBusqueda = new ComandosBDMySQL();
+            try
+            {
+                cargarBusqueda.AbrirConexionBD1();
+                dgbUsuarios.DataSource = cargarBusqueda.RellenarTabla1("call sbepa2.BuscarUsuarios('" + cmbBuscarEn.Text + "', '" + txtBuscarEn.Text + "', 0, 9999999);");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar filtrar los resultados de la busqueda ERROR: " + ex.Message + "", "Error busqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            finally
+            {
+                cargarBusqueda.CerrarConexionBD1();
+            }
+        }
+
+        FuncionesAplicacion VerificarCaracteres = new FuncionesAplicacion();
+
     }
 }
 

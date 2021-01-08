@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuarios));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -79,27 +79,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pbNombre = new System.Windows.Forms.PictureBox();
             this.imgClientes = new System.Windows.Forms.PictureBox();
-            this.btnActualizar = new System.Windows.Forms.PictureBox();
-            this.btnCambiarPagina = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtCantidadRegistro = new System.Windows.Forms.Label();
-            this.nudPaginaActual = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtPaginasDisponibles = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtUsuariosEncontrados = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtPaginasDisponiblesBusqueda = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtBuscarEn = new System.Windows.Forms.TextBox();
-            this.picLupa = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.nudPaginaActualBuscar = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmbBuscarEn = new System.Windows.Forms.ComboBox();
             this.dgbUsuarios = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rut = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -118,6 +97,27 @@
             this.label3 = new System.Windows.Forms.Label();
             this.ttmensaje = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.cmbBuscarEn = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nudPaginaActualBuscar = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.picLupa = new System.Windows.Forms.PictureBox();
+            this.txtBuscarEn = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtPaginasDisponiblesBusqueda = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtUsuariosEncontrados = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPaginasDisponibles = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.nudPaginaActual = new System.Windows.Forms.NumericUpDown();
+            this.txtCantidadRegistro = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnCambiarPagina = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -137,11 +137,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNombre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgClientes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLupa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActualBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgbUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstado)).BeginInit();
             this.Barra.SuspendLayout();
@@ -149,6 +144,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActualBuscar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLupa)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -169,9 +169,9 @@
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.pbEstado);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 25);
+            this.panel1.Location = new System.Drawing.Point(0, 23);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1002, 502);
+            this.panel1.Size = new System.Drawing.Size(1002, 504);
             this.panel1.TabIndex = 87;
             // 
             // panel3
@@ -710,251 +710,6 @@
             this.imgClientes.TabIndex = 89;
             this.imgClientes.TabStop = false;
             // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Image = global::SBEPAEscritorio.Properties.Resources.actualizar;
-            this.btnActualizar.Location = new System.Drawing.Point(648, 461);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(44, 34);
-            this.btnActualizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnActualizar.TabIndex = 99;
-            this.btnActualizar.TabStop = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // btnCambiarPagina
-            // 
-            this.btnCambiarPagina.Location = new System.Drawing.Point(535, 464);
-            this.btnCambiarPagina.Name = "btnCambiarPagina";
-            this.btnCambiarPagina.Size = new System.Drawing.Size(89, 26);
-            this.btnCambiarPagina.TabIndex = 92;
-            this.btnCambiarPagina.Text = "Cambiar Pagina";
-            this.btnCambiarPagina.UseVisualStyleBackColor = true;
-            this.btnCambiarPagina.Click += new System.EventHandler(this.btnCambiarPagina_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(244, 471);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 13);
-            this.label4.TabIndex = 95;
-            this.label4.Text = "Pagina Actual:";
-            // 
-            // txtCantidadRegistro
-            // 
-            this.txtCantidadRegistro.AutoSize = true;
-            this.txtCantidadRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidadRegistro.ForeColor = System.Drawing.Color.White;
-            this.txtCantidadRegistro.Location = new System.Drawing.Point(143, 471);
-            this.txtCantidadRegistro.Name = "txtCantidadRegistro";
-            this.txtCantidadRegistro.Size = new System.Drawing.Size(98, 13);
-            this.txtCantidadRegistro.TabIndex = 98;
-            this.txtCantidadRegistro.Text = "?????????????";
-            // 
-            // nudPaginaActual
-            // 
-            this.nudPaginaActual.Location = new System.Drawing.Point(320, 468);
-            this.nudPaginaActual.Name = "nudPaginaActual";
-            this.nudPaginaActual.Size = new System.Drawing.Size(54, 20);
-            this.nudPaginaActual.TabIndex = 93;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(50, 470);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(96, 13);
-            this.label8.TabIndex = 97;
-            this.label8.Text = "Cantidad Usuarios:";
-            // 
-            // txtPaginasDisponibles
-            // 
-            this.txtPaginasDisponibles.AutoSize = true;
-            this.txtPaginasDisponibles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPaginasDisponibles.ForeColor = System.Drawing.Color.White;
-            this.txtPaginasDisponibles.Location = new System.Drawing.Point(481, 472);
-            this.txtPaginasDisponibles.Name = "txtPaginasDisponibles";
-            this.txtPaginasDisponibles.Size = new System.Drawing.Size(49, 13);
-            this.txtPaginasDisponibles.TabIndex = 96;
-            this.txtPaginasDisponibles.Text = "??????";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(381, 471);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(105, 13);
-            this.label6.TabIndex = 94;
-            this.label6.Text = "Paginas Disponibles:";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.txtUsuariosEncontrados);
-            this.panel2.Controls.Add(this.label19);
-            this.panel2.Controls.Add(this.txtPaginasDisponiblesBusqueda);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.btnBuscar);
-            this.panel2.Controls.Add(this.txtBuscarEn);
-            this.panel2.Controls.Add(this.picLupa);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.nudPaginaActualBuscar);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.cmbBuscarEn);
-            this.panel2.Location = new System.Drawing.Point(6, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(662, 60);
-            this.panel2.TabIndex = 91;
-            // 
-            // txtUsuariosEncontrados
-            // 
-            this.txtUsuariosEncontrados.AutoSize = true;
-            this.txtUsuariosEncontrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuariosEncontrados.ForeColor = System.Drawing.Color.White;
-            this.txtUsuariosEncontrados.Location = new System.Drawing.Point(478, 40);
-            this.txtUsuariosEncontrados.Name = "txtUsuariosEncontrados";
-            this.txtUsuariosEncontrados.Size = new System.Drawing.Size(63, 13);
-            this.txtUsuariosEncontrados.TabIndex = 87;
-            this.txtUsuariosEncontrados.Text = "????????";
-            this.txtUsuariosEncontrados.Visible = false;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(478, 6);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(70, 26);
-            this.label19.TabIndex = 86;
-            this.label19.Text = "Usuarios \r\nEncontrados:";
-            this.label19.Visible = false;
-            // 
-            // txtPaginasDisponiblesBusqueda
-            // 
-            this.txtPaginasDisponiblesBusqueda.AutoSize = true;
-            this.txtPaginasDisponiblesBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPaginasDisponiblesBusqueda.ForeColor = System.Drawing.Color.White;
-            this.txtPaginasDisponiblesBusqueda.Location = new System.Drawing.Point(401, 39);
-            this.txtPaginasDisponiblesBusqueda.Name = "txtPaginasDisponiblesBusqueda";
-            this.txtPaginasDisponiblesBusqueda.Size = new System.Drawing.Size(49, 13);
-            this.txtPaginasDisponiblesBusqueda.TabIndex = 85;
-            this.txtPaginasDisponiblesBusqueda.Text = "??????";
-            this.txtPaginasDisponiblesBusqueda.Visible = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(398, 6);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 26);
-            this.label9.TabIndex = 85;
-            this.label9.Text = "Paginas \r\nDisponibles";
-            this.label9.Visible = false;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(570, 36);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(83, 20);
-            this.btnBuscar.TabIndex = 85;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Visible = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // txtBuscarEn
-            // 
-            this.txtBuscarEn.Location = new System.Drawing.Point(150, 30);
-            this.txtBuscarEn.MaxLength = 40;
-            this.txtBuscarEn.Name = "txtBuscarEn";
-            this.txtBuscarEn.Size = new System.Drawing.Size(156, 20);
-            this.txtBuscarEn.TabIndex = 10;
-            this.txtBuscarEn.Visible = false;
-            this.txtBuscarEn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarEn_KeyPress);
-            // 
-            // picLupa
-            // 
-            this.picLupa.Image = ((System.Drawing.Image)(resources.GetObject("picLupa.Image")));
-            this.picLupa.Location = new System.Drawing.Point(586, 3);
-            this.picLupa.Name = "picLupa";
-            this.picLupa.Size = new System.Drawing.Size(50, 32);
-            this.picLupa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLupa.TabIndex = 12;
-            this.picLupa.TabStop = false;
-            this.picLupa.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(311, 14);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 13);
-            this.label5.TabIndex = 80;
-            this.label5.Text = "Pagina Actual:";
-            this.label5.Visible = false;
-            // 
-            // nudPaginaActualBuscar
-            // 
-            this.nudPaginaActualBuscar.Location = new System.Drawing.Point(322, 30);
-            this.nudPaginaActualBuscar.Maximum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.nudPaginaActualBuscar.Name = "nudPaginaActualBuscar";
-            this.nudPaginaActualBuscar.Size = new System.Drawing.Size(54, 20);
-            this.nudPaginaActualBuscar.TabIndex = 78;
-            this.nudPaginaActualBuscar.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(40, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Buscar Por:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(167, 14);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 13);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Paremetros a Buscar;";
-            this.label7.Visible = false;
-            // 
-            // cmbBuscarEn
-            // 
-            this.cmbBuscarEn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cmbBuscarEn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbBuscarEn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBuscarEn.ForeColor = System.Drawing.Color.White;
-            this.cmbBuscarEn.FormattingEnabled = true;
-            this.cmbBuscarEn.Items.AddRange(new object[] {
-            "RutUsuario",
-            "Nombres",
-            "Apellidos",
-            "Correo",
-            "Direccion",
-            "Telefono",
-            "Estado"});
-            this.cmbBuscarEn.Location = new System.Drawing.Point(14, 29);
-            this.cmbBuscarEn.Name = "cmbBuscarEn";
-            this.cmbBuscarEn.Size = new System.Drawing.Size(121, 21);
-            this.cmbBuscarEn.TabIndex = 8;
-            this.cmbBuscarEn.SelectedIndexChanged += new System.EventHandler(this.cmbBuscarEn_SelectedIndexChanged);
-            // 
             // dgbUsuarios
             // 
             this.dgbUsuarios.AllowUserToAddRows = false;
@@ -962,14 +717,14 @@
             this.dgbUsuarios.AllowUserToResizeRows = false;
             this.dgbUsuarios.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dgbUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgbUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgbUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgbUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -986,11 +741,11 @@
             this.dgbUsuarios.ReadOnly = true;
             this.dgbUsuarios.RowHeadersVisible = false;
             this.dgbUsuarios.RowHeadersWidth = 40;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Cyan;
-            this.dgbUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Cyan;
+            this.dgbUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgbUsuarios.Size = new System.Drawing.Size(712, 387);
             this.dgbUsuarios.TabIndex = 90;
             this.dgbUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbUsuarios_CellClick);
@@ -1158,6 +913,251 @@
             this.pictureBox11.TabIndex = 166;
             this.pictureBox11.TabStop = false;
             // 
+            // cmbBuscarEn
+            // 
+            this.cmbBuscarEn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cmbBuscarEn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbBuscarEn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBuscarEn.ForeColor = System.Drawing.Color.White;
+            this.cmbBuscarEn.FormattingEnabled = true;
+            this.cmbBuscarEn.Items.AddRange(new object[] {
+            "RutUsuario",
+            "Nombres",
+            "Apellidos",
+            "Correo",
+            "Direccion",
+            "Telefono",
+            "Estado"});
+            this.cmbBuscarEn.Location = new System.Drawing.Point(14, 29);
+            this.cmbBuscarEn.Name = "cmbBuscarEn";
+            this.cmbBuscarEn.Size = new System.Drawing.Size(121, 21);
+            this.cmbBuscarEn.TabIndex = 8;
+            this.cmbBuscarEn.SelectedIndexChanged += new System.EventHandler(this.cmbBuscarEn_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(167, 14);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 13);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Paremetros a Buscar;";
+            this.label7.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(40, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Buscar Por:";
+            // 
+            // nudPaginaActualBuscar
+            // 
+            this.nudPaginaActualBuscar.Location = new System.Drawing.Point(322, 30);
+            this.nudPaginaActualBuscar.Maximum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.nudPaginaActualBuscar.Name = "nudPaginaActualBuscar";
+            this.nudPaginaActualBuscar.Size = new System.Drawing.Size(54, 20);
+            this.nudPaginaActualBuscar.TabIndex = 78;
+            this.nudPaginaActualBuscar.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(311, 14);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 13);
+            this.label5.TabIndex = 80;
+            this.label5.Text = "Pagina Actual:";
+            this.label5.Visible = false;
+            // 
+            // picLupa
+            // 
+            this.picLupa.Image = ((System.Drawing.Image)(resources.GetObject("picLupa.Image")));
+            this.picLupa.Location = new System.Drawing.Point(586, 3);
+            this.picLupa.Name = "picLupa";
+            this.picLupa.Size = new System.Drawing.Size(50, 32);
+            this.picLupa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLupa.TabIndex = 12;
+            this.picLupa.TabStop = false;
+            this.picLupa.Visible = false;
+            // 
+            // txtBuscarEn
+            // 
+            this.txtBuscarEn.Location = new System.Drawing.Point(141, 30);
+            this.txtBuscarEn.MaxLength = 40;
+            this.txtBuscarEn.Name = "txtBuscarEn";
+            this.txtBuscarEn.Size = new System.Drawing.Size(165, 20);
+            this.txtBuscarEn.TabIndex = 10;
+            this.txtBuscarEn.Visible = false;
+            this.txtBuscarEn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarEn_KeyPress);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(570, 36);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(83, 20);
+            this.btnBuscar.TabIndex = 85;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Visible = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(398, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(61, 26);
+            this.label9.TabIndex = 85;
+            this.label9.Text = "Paginas \r\nDisponibles";
+            this.label9.Visible = false;
+            // 
+            // txtPaginasDisponiblesBusqueda
+            // 
+            this.txtPaginasDisponiblesBusqueda.AutoSize = true;
+            this.txtPaginasDisponiblesBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPaginasDisponiblesBusqueda.ForeColor = System.Drawing.Color.White;
+            this.txtPaginasDisponiblesBusqueda.Location = new System.Drawing.Point(401, 39);
+            this.txtPaginasDisponiblesBusqueda.Name = "txtPaginasDisponiblesBusqueda";
+            this.txtPaginasDisponiblesBusqueda.Size = new System.Drawing.Size(49, 13);
+            this.txtPaginasDisponiblesBusqueda.TabIndex = 85;
+            this.txtPaginasDisponiblesBusqueda.Text = "??????";
+            this.txtPaginasDisponiblesBusqueda.Visible = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.Color.White;
+            this.label19.Location = new System.Drawing.Point(478, 6);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(70, 26);
+            this.label19.TabIndex = 86;
+            this.label19.Text = "Usuarios \r\nEncontrados:";
+            this.label19.Visible = false;
+            // 
+            // txtUsuariosEncontrados
+            // 
+            this.txtUsuariosEncontrados.AutoSize = true;
+            this.txtUsuariosEncontrados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuariosEncontrados.ForeColor = System.Drawing.Color.White;
+            this.txtUsuariosEncontrados.Location = new System.Drawing.Point(478, 40);
+            this.txtUsuariosEncontrados.Name = "txtUsuariosEncontrados";
+            this.txtUsuariosEncontrados.Size = new System.Drawing.Size(63, 13);
+            this.txtUsuariosEncontrados.TabIndex = 87;
+            this.txtUsuariosEncontrados.Text = "????????";
+            this.txtUsuariosEncontrados.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txtUsuariosEncontrados);
+            this.panel2.Controls.Add(this.label19);
+            this.panel2.Controls.Add(this.txtPaginasDisponiblesBusqueda);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.btnBuscar);
+            this.panel2.Controls.Add(this.txtBuscarEn);
+            this.panel2.Controls.Add(this.picLupa);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.nudPaginaActualBuscar);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.cmbBuscarEn);
+            this.panel2.Location = new System.Drawing.Point(6, 4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(662, 60);
+            this.panel2.TabIndex = 91;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(381, 471);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 13);
+            this.label6.TabIndex = 94;
+            this.label6.Text = "Paginas Disponibles:";
+            // 
+            // txtPaginasDisponibles
+            // 
+            this.txtPaginasDisponibles.AutoSize = true;
+            this.txtPaginasDisponibles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPaginasDisponibles.ForeColor = System.Drawing.Color.White;
+            this.txtPaginasDisponibles.Location = new System.Drawing.Point(481, 472);
+            this.txtPaginasDisponibles.Name = "txtPaginasDisponibles";
+            this.txtPaginasDisponibles.Size = new System.Drawing.Size(49, 13);
+            this.txtPaginasDisponibles.TabIndex = 96;
+            this.txtPaginasDisponibles.Text = "??????";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(50, 470);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(96, 13);
+            this.label8.TabIndex = 97;
+            this.label8.Text = "Cantidad Usuarios:";
+            // 
+            // nudPaginaActual
+            // 
+            this.nudPaginaActual.Location = new System.Drawing.Point(320, 468);
+            this.nudPaginaActual.Name = "nudPaginaActual";
+            this.nudPaginaActual.Size = new System.Drawing.Size(54, 20);
+            this.nudPaginaActual.TabIndex = 93;
+            // 
+            // txtCantidadRegistro
+            // 
+            this.txtCantidadRegistro.AutoSize = true;
+            this.txtCantidadRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidadRegistro.ForeColor = System.Drawing.Color.White;
+            this.txtCantidadRegistro.Location = new System.Drawing.Point(143, 471);
+            this.txtCantidadRegistro.Name = "txtCantidadRegistro";
+            this.txtCantidadRegistro.Size = new System.Drawing.Size(98, 13);
+            this.txtCantidadRegistro.TabIndex = 98;
+            this.txtCantidadRegistro.Text = "?????????????";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(244, 471);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 13);
+            this.label4.TabIndex = 95;
+            this.label4.Text = "Pagina Actual:";
+            // 
+            // btnCambiarPagina
+            // 
+            this.btnCambiarPagina.Location = new System.Drawing.Point(535, 464);
+            this.btnCambiarPagina.Name = "btnCambiarPagina";
+            this.btnCambiarPagina.Size = new System.Drawing.Size(89, 26);
+            this.btnCambiarPagina.TabIndex = 92;
+            this.btnCambiarPagina.Text = "Cambiar Pagina";
+            this.btnCambiarPagina.UseVisualStyleBackColor = true;
+            this.btnCambiarPagina.Click += new System.EventHandler(this.btnCambiarPagina_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Image = global::SBEPAEscritorio.Properties.Resources.actualizar;
+            this.btnActualizar.Location = new System.Drawing.Point(648, 461);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(44, 34);
+            this.btnActualizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnActualizar.TabIndex = 99;
+            this.btnActualizar.TabStop = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1196,12 +1196,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbNombre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgClientes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLupa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActualBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgbUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEstado)).EndInit();
             this.Barra.ResumeLayout(false);
@@ -1210,6 +1204,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActualBuscar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLupa)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPaginaActual)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnActualizar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1222,25 +1222,6 @@
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox imgClientes;
-        private System.Windows.Forms.PictureBox btnActualizar;
-        private System.Windows.Forms.Button btnCambiarPagina;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label txtCantidadRegistro;
-        private System.Windows.Forms.NumericUpDown nudPaginaActual;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label txtPaginasDisponibles;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label txtPaginasDisponiblesBusqueda;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox txtBuscarEn;
-        private System.Windows.Forms.PictureBox picLupa;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown nudPaginaActualBuscar;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbBuscarEn;
         private System.Windows.Forms.DataGridView dgbUsuarios;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pbNombre;
@@ -1282,8 +1263,6 @@
         private System.Windows.Forms.Label lblReingreseClave;
         private System.Windows.Forms.TextBox txtClave2;
         private System.Windows.Forms.GroupBox gbCambioClave;
-        private System.Windows.Forms.Label txtUsuariosEncontrados;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ToolTip ttmensaje;
         private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.Label label20;
@@ -1301,5 +1280,26 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button txtEliminar;
         private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox btnActualizar;
+        private System.Windows.Forms.Button btnCambiarPagina;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label txtCantidadRegistro;
+        private System.Windows.Forms.NumericUpDown nudPaginaActual;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label txtPaginasDisponibles;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label txtUsuariosEncontrados;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label txtPaginasDisponiblesBusqueda;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.TextBox txtBuscarEn;
+        private System.Windows.Forms.PictureBox picLupa;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown nudPaginaActualBuscar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbBuscarEn;
     }
 }
