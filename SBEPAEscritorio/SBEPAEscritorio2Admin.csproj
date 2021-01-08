@@ -145,6 +145,12 @@
     <Compile Include="Categorias.Designer.cs">
       <DependentUpon>Categorias.cs</DependentUpon>
     </Compile>
+    <Compile Include="CategoriasBuscarCategoriaSimple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoriasBuscarCategoriaSimple.Designer.cs">
+      <DependentUpon>CategoriasBuscarCategoriaSimple.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClaveMaestra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Categorias.resx">
       <DependentUpon>Categorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CategoriasBuscarCategoriaSimple.resx">
+      <DependentUpon>CategoriasBuscarCategoriaSimple.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClaveMaestra.resx">
       <DependentUpon>ClaveMaestra.cs</DependentUpon>

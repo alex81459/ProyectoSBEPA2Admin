@@ -1,6 +1,6 @@
 ﻿namespace SBEPAEscritorio
 {
-    partial class CategoriasBuscarCategoria
+    partial class CategoriasBuscarCategoriaSimple
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriasBuscarCategoria));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.Barra = new System.Windows.Forms.Panel();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriasBuscarCategoriaSimple));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -46,90 +41,30 @@
             this.label15 = new System.Windows.Forms.Label();
             this.pbBuscarTienda = new System.Windows.Forms.PictureBox();
             this.dgbCategorias = new System.Windows.Forms.DataGridView();
-            this.idCategorias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCategoriaSimple = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Barra.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.Barra = new System.Windows.Forms.Panel();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscarTienda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgbCategorias)).BeginInit();
+            this.Barra.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Barra
-            // 
-            this.Barra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Barra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Barra.Controls.Add(this.pictureBox20);
-            this.Barra.Controls.Add(this.btnCerrar);
-            this.Barra.Controls.Add(this.label7);
-            this.Barra.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.Barra.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Barra.Location = new System.Drawing.Point(0, 0);
-            this.Barra.Name = "Barra";
-            this.Barra.Size = new System.Drawing.Size(577, 22);
-            this.Barra.TabIndex = 119;
-            // 
-            // pictureBox20
-            // 
-            this.pictureBox20.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.pictureBox20.Image = global::SBEPAEscritorio.Properties.Resources.LogoPequeño;
-            this.pictureBox20.Location = new System.Drawing.Point(1, -1);
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.Size = new System.Drawing.Size(21, 21);
-            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox20.TabIndex = 25;
-            this.pictureBox20.TabStop = false;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.Image = global::SBEPAEscritorio.Properties.Resources.icons8_cerrar_ventana_48;
-            this.btnCerrar.Location = new System.Drawing.Point(556, 0);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(20, 20);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnCerrar.TabIndex = 23;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(127, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(309, 18);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Categorias Productos Buscar Categoria";
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.pictureBox11);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.pbBuscarTienda);
-            this.panel1.Controls.Add(this.dgbCategorias);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 22);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(577, 409);
-            this.panel1.TabIndex = 120;
             // 
             // pictureBox11
             // 
             this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
-            this.pictureBox11.Location = new System.Drawing.Point(524, 10);
+            this.pictureBox11.Location = new System.Drawing.Point(525, 29);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(40, 47);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabIndex = 171;
             this.pictureBox11.TabStop = false;
             // 
             // panel4
@@ -141,10 +76,10 @@
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.cmbBuscarEn);
             this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Location = new System.Drawing.Point(11, 7);
+            this.panel4.Location = new System.Drawing.Point(12, 26);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(503, 53);
-            this.panel4.TabIndex = 120;
+            this.panel4.TabIndex = 169;
             // 
             // label8
             // 
@@ -183,7 +118,7 @@
             this.cmbBuscarEn.ForeColor = System.Drawing.Color.White;
             this.cmbBuscarEn.FormattingEnabled = true;
             this.cmbBuscarEn.Items.AddRange(new object[] {
-            "idCategorias",
+            "idCategoriaSimple",
             "nombre"});
             this.cmbBuscarEn.Location = new System.Drawing.Point(97, 23);
             this.cmbBuscarEn.Name = "cmbBuscarEn";
@@ -205,20 +140,20 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(33, 68);
+            this.label15.Location = new System.Drawing.Point(34, 87);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(150, 12);
-            this.label15.TabIndex = 118;
+            this.label15.TabIndex = 167;
             this.label15.Text = "*Seleccione Categoria que asignara";
             // 
             // pbBuscarTienda
             // 
             this.pbBuscarTienda.Image = global::SBEPAEscritorio.Properties.Resources.info;
-            this.pbBuscarTienda.Location = new System.Drawing.Point(11, 63);
+            this.pbBuscarTienda.Location = new System.Drawing.Point(12, 82);
             this.pbBuscarTienda.Name = "pbBuscarTienda";
             this.pbBuscarTienda.Size = new System.Drawing.Size(20, 20);
             this.pbBuscarTienda.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbBuscarTienda.TabIndex = 121;
+            this.pbBuscarTienda.TabIndex = 170;
             this.pbBuscarTienda.TabStop = false;
             // 
             // dgbCategorias
@@ -228,38 +163,39 @@
             this.dgbCategorias.AllowUserToResizeRows = false;
             this.dgbCategorias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dgbCategorias.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgbCategorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(208)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgbCategorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgbCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgbCategorias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idCategorias,
+            this.idCategoriaSimple,
             this.nombre});
             this.dgbCategorias.EnableHeadersVisualStyles = false;
-            this.dgbCategorias.Location = new System.Drawing.Point(11, 88);
+            this.dgbCategorias.Location = new System.Drawing.Point(12, 108);
             this.dgbCategorias.Name = "dgbCategorias";
             this.dgbCategorias.ReadOnly = true;
             this.dgbCategorias.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Cyan;
-            this.dgbCategorias.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Cyan;
+            this.dgbCategorias.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgbCategorias.Size = new System.Drawing.Size(547, 308);
-            this.dgbCategorias.TabIndex = 119;
-            this.dgbCategorias.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbTiendas_CellContentDoubleClick);
+            this.dgbCategorias.TabIndex = 168;
+            this.dgbCategorias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgbCategorias_CellContentClick);
             // 
-            // idCategorias
+            // idCategoriaSimple
             // 
-            this.idCategorias.DataPropertyName = "idCategorias";
-            this.idCategorias.HeaderText = "idCategorias";
-            this.idCategorias.Name = "idCategorias";
-            this.idCategorias.ReadOnly = true;
+            this.idCategoriaSimple.DataPropertyName = "idCategoriaSimple";
+            this.idCategoriaSimple.HeaderText = "idCategoriaSimple";
+            this.idCategoriaSimple.Name = "idCategoriaSimple";
+            this.idCategoriaSimple.ReadOnly = true;
+            this.idCategoriaSimple.Width = 120;
             // 
             // nombre
             // 
@@ -267,45 +203,93 @@
             this.nombre.HeaderText = "nombre";
             this.nombre.Name = "nombre";
             this.nombre.ReadOnly = true;
-            this.nombre.Width = 400;
+            this.nombre.Width = 380;
             // 
-            // CategoriasBuscarCategoria
+            // Barra
+            // 
+            this.Barra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Barra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Barra.Controls.Add(this.pictureBox20);
+            this.Barra.Controls.Add(this.btnCerrar);
+            this.Barra.Controls.Add(this.label7);
+            this.Barra.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Barra.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Barra.Location = new System.Drawing.Point(0, 0);
+            this.Barra.Name = "Barra";
+            this.Barra.Size = new System.Drawing.Size(568, 22);
+            this.Barra.TabIndex = 172;
+            // 
+            // pictureBox20
+            // 
+            this.pictureBox20.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.pictureBox20.Image = global::SBEPAEscritorio.Properties.Resources.LogoPequeño;
+            this.pictureBox20.Location = new System.Drawing.Point(1, -1);
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Size = new System.Drawing.Size(21, 21);
+            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox20.TabIndex = 25;
+            this.pictureBox20.TabStop = false;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.Image = global::SBEPAEscritorio.Properties.Resources.icons8_cerrar_ventana_48;
+            this.btnCerrar.Location = new System.Drawing.Point(546, 0);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(20, 20);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnCerrar.TabIndex = 23;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(110, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(347, 18);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Categoria Producto Buscar Categoria Simple";
+            // 
+            // CategoriasBuscarCategoriaSimple
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(577, 431);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(568, 425);
             this.Controls.Add(this.Barra);
+            this.Controls.Add(this.pictureBox11);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.pbBuscarTienda);
+            this.Controls.Add(this.dgbCategorias);
+            this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "CategoriasBuscarCategoria";
+            this.Name = "CategoriasBuscarCategoriaSimple";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Categorias Buscar Categoria";
-            this.Load += new System.EventHandler(this.CategoriaBuscarCategoria_Load);
-            this.Barra.ResumeLayout(false);
-            this.Barra.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Text = "Categorias Buscar Categoria Simple";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBuscarTienda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgbCategorias)).EndInit();
+            this.Barra.ResumeLayout(false);
+            this.Barra.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel Barra;
-        private System.Windows.Forms.PictureBox pictureBox20;
-        private System.Windows.Forms.PictureBox btnCerrar;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtBuscarEn;
@@ -315,8 +299,11 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.PictureBox pbBuscarTienda;
         private System.Windows.Forms.DataGridView dgbCategorias;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idCategorias;
+        private System.Windows.Forms.Panel Barra;
+        private System.Windows.Forms.PictureBox pictureBox20;
+        private System.Windows.Forms.PictureBox btnCerrar;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCategoriaSimple;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
     }
 }

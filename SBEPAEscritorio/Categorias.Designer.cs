@@ -64,12 +64,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.DGVcategorias = new System.Windows.Forms.DataGridView();
-            this.idcategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_categoriasimple = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoriaSimple = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDSubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCategorias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCategoriaSimple = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCategoriaSimple = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idSubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreSubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtbuscarcategoria = new System.Windows.Forms.TextBox();
             this.cmbcategoria = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -82,9 +82,9 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label18 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -99,8 +99,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox5
@@ -274,7 +274,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(698, 40);
+            this.label6.Location = new System.Drawing.Point(682, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(134, 13);
             this.label6.TabIndex = 12;
@@ -324,7 +324,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(367, 39);
+            this.label4.Location = new System.Drawing.Point(354, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(149, 13);
             this.label4.TabIndex = 7;
@@ -434,7 +434,7 @@
             this.btnLimpiarBusqueda.Name = "btnLimpiarBusqueda";
             this.btnLimpiarBusqueda.Size = new System.Drawing.Size(174, 23);
             this.btnLimpiarBusqueda.TabIndex = 108;
-            this.btnLimpiarBusqueda.Text = "Limpiar y Campos Busqueda";
+            this.btnLimpiarBusqueda.Text = "Limpiar  Campos Busqueda";
             this.btnLimpiarBusqueda.UseVisualStyleBackColor = true;
             this.btnLimpiarBusqueda.Click += new System.EventHandler(this.btnLimpiarBusqueda_Click);
             // 
@@ -486,12 +486,12 @@
             this.DGVcategorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DGVcategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVcategorias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idcategoria,
-            this.Categoria,
-            this.id_categoriasimple,
-            this.CategoriaSimple,
-            this.IDSubCategoria,
-            this.SubCategoria});
+            this.idCategorias,
+            this.NombreCategoria,
+            this.idCategoriaSimple,
+            this.NombreCategoriaSimple,
+            this.idSubCategoria,
+            this.NombreSubCategoria});
             this.DGVcategorias.EnableHeadersVisualStyles = false;
             this.DGVcategorias.Location = new System.Drawing.Point(3, 40);
             this.DGVcategorias.Name = "DGVcategorias";
@@ -506,52 +506,52 @@
             this.DGVcategorias.TabIndex = 48;
             this.DGVcategorias.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVcategorias_CellContentDoubleClick);
             // 
-            // idcategoria
+            // idCategorias
             // 
-            this.idcategoria.DataPropertyName = "idcategoria";
-            this.idcategoria.HeaderText = "idcategoria";
-            this.idcategoria.Name = "idcategoria";
-            this.idcategoria.ReadOnly = true;
-            this.idcategoria.Width = 75;
+            this.idCategorias.DataPropertyName = "idCategorias";
+            this.idCategorias.HeaderText = "idCategorias";
+            this.idCategorias.Name = "idCategorias";
+            this.idCategorias.ReadOnly = true;
+            this.idCategorias.Width = 80;
             // 
-            // Categoria
+            // NombreCategoria
             // 
-            this.Categoria.DataPropertyName = "Categoria";
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 150;
+            this.NombreCategoria.DataPropertyName = "NombreCategoria";
+            this.NombreCategoria.HeaderText = "NombreCategoria";
+            this.NombreCategoria.Name = "NombreCategoria";
+            this.NombreCategoria.ReadOnly = true;
+            this.NombreCategoria.Width = 170;
             // 
-            // id_categoriasimple
+            // idCategoriaSimple
             // 
-            this.id_categoriasimple.DataPropertyName = "id_categoriasimple";
-            this.id_categoriasimple.HeaderText = "id_categoriasimple";
-            this.id_categoriasimple.Name = "id_categoriasimple";
-            this.id_categoriasimple.ReadOnly = true;
-            this.id_categoriasimple.Width = 115;
+            this.idCategoriaSimple.DataPropertyName = "idCategoriaSimple";
+            this.idCategoriaSimple.HeaderText = "idCategoriaSimple";
+            this.idCategoriaSimple.Name = "idCategoriaSimple";
+            this.idCategoriaSimple.ReadOnly = true;
+            this.idCategoriaSimple.Width = 110;
             // 
-            // CategoriaSimple
+            // NombreCategoriaSimple
             // 
-            this.CategoriaSimple.DataPropertyName = "CategoriaSimple";
-            this.CategoriaSimple.HeaderText = "CategoriaSimple";
-            this.CategoriaSimple.Name = "CategoriaSimple";
-            this.CategoriaSimple.ReadOnly = true;
-            this.CategoriaSimple.Width = 140;
+            this.NombreCategoriaSimple.DataPropertyName = "NombreCategoriaSimple";
+            this.NombreCategoriaSimple.HeaderText = "NombreCategoriaSimple";
+            this.NombreCategoriaSimple.Name = "NombreCategoriaSimple";
+            this.NombreCategoriaSimple.ReadOnly = true;
+            this.NombreCategoriaSimple.Width = 180;
             // 
-            // IDSubCategoria
+            // idSubCategoria
             // 
-            this.IDSubCategoria.DataPropertyName = "IDSubCategoria";
-            this.IDSubCategoria.HeaderText = "IDSubCategoria";
-            this.IDSubCategoria.Name = "IDSubCategoria";
-            this.IDSubCategoria.ReadOnly = true;
+            this.idSubCategoria.DataPropertyName = "idSubCategoria";
+            this.idSubCategoria.HeaderText = "idSubCategoria";
+            this.idSubCategoria.Name = "idSubCategoria";
+            this.idSubCategoria.ReadOnly = true;
             // 
-            // SubCategoria
+            // NombreSubCategoria
             // 
-            this.SubCategoria.DataPropertyName = "SubCategoria";
-            this.SubCategoria.HeaderText = "SubCategoria";
-            this.SubCategoria.Name = "SubCategoria";
-            this.SubCategoria.ReadOnly = true;
-            this.SubCategoria.Width = 260;
+            this.NombreSubCategoria.DataPropertyName = "NombreSubCategoria";
+            this.NombreSubCategoria.HeaderText = "NombreSubCategoria";
+            this.NombreSubCategoria.Name = "NombreSubCategoria";
+            this.NombreSubCategoria.ReadOnly = true;
+            this.NombreSubCategoria.Width = 210;
             // 
             // txtbuscarcategoria
             // 
@@ -567,12 +567,12 @@
             this.cmbcategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbcategoria.FormattingEnabled = true;
             this.cmbcategoria.Items.AddRange(new object[] {
-            "idCategoria",
-            "Categoria",
-            "id_categoriasimple",
-            "CategoriaSimple",
-            "IDSubCategoria",
-            "SubCategoria"});
+            "idCategorias",
+            "NombreCategoria",
+            "idCategoriaSimple",
+            "NombreCategoriaSimple",
+            "idSubCategoria",
+            "NombreSubCategoria"});
             this.cmbcategoria.Location = new System.Drawing.Point(249, 14);
             this.cmbcategoria.Name = "cmbcategoria";
             this.cmbcategoria.Size = new System.Drawing.Size(131, 21);
@@ -704,6 +704,16 @@
             this.panel1.Size = new System.Drawing.Size(891, 557);
             this.panel1.TabIndex = 109;
             // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
+            this.pictureBox11.Location = new System.Drawing.Point(8, 35);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox11.TabIndex = 166;
+            this.pictureBox11.TabStop = false;
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -724,16 +734,6 @@
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox8.TabIndex = 48;
             this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = global::SBEPAEscritorio.Properties.Resources.MiniLogo;
-            this.pictureBox11.Location = new System.Drawing.Point(8, 35);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(40, 47);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox11.TabIndex = 166;
-            this.pictureBox11.TabStop = false;
             // 
             // Categorias
             // 
@@ -769,8 +769,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -814,12 +814,6 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idcategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_categoriasimple;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoriaSimple;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDSubCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Button button1;
@@ -830,5 +824,11 @@
         public System.Windows.Forms.TextBox txtNombreCategoriaSimple;
         public System.Windows.Forms.TextBox txtIDCategoriaSimple;
         private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCategorias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCategoriaSimple;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCategoriaSimple;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idSubCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreSubCategoria;
     }
 }
