@@ -47,6 +47,7 @@ namespace SBEPAEscritorio
             //Se muestra mensaje y se cierra el form
             MessageBox.Show("Se guardo correctamente la informacion de la conexion con el servidor", "Guardado Correcto", MessageBoxButtons.OK, MessageBoxIcon.Question);
             GuardarConfiguracion = true;
+            this.Close();
         }
         private void btnRestaurarValores_Click(object sender, EventArgs e)
         {
